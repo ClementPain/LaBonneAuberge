@@ -13,9 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-<<<<<<< HEAD
-
-=======
->>>>>>> 19513cd97c5ad8604d09887714527b2b0da3d11a
 //= require cable
 //= require registration_town_halls

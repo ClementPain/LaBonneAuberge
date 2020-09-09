@@ -2,11 +2,11 @@ html,
 body,
 header,
 #intro {
-    height: 100%;
+    height: 95%; 
 }
 
 #intro {
-    background: url("https://media.les-plus-beaux-villages-de-france.org/photos/s1598/lavardin-vue-village.jpg")no-repeat center center fixed;
+    background: url("https://media.les-plus-beaux-villages-de-france.org/photos/s1737/salers-vue-sur-les-toits.jpg")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -26,4 +26,3 @@ header,
       background-color: #24355C;
     }
   }
-
