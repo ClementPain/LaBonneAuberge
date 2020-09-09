@@ -70,6 +70,7 @@ gem 'table_print'
 gem 'pry'
 gem 'nokogiri'
 gem 'devise'
+gem 'dotenv'
 
 
 
