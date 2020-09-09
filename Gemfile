@@ -71,3 +71,6 @@ gem 'pry'
 gem 'nokogiri'
 gem 'devise'
 
+
+
+
