@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   
   resources :villages
 
+  post "villages/name_field" => "villages#name_field"
 end
