@@ -8,6 +8,10 @@ class VillagesController < ApplicationController
         @town_hall_name = []
     end
 
+    def new
+
+    end
+
     def create
         page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/cantal.html"))
         tab = page.xpath('//td[@width="206"]//a[text()]')
@@ -26,7 +30,15 @@ class VillagesController < ApplicationController
         end
         
         redirect_to villages_path
-    end 
+    end
+
+    def name_field
+        if Village.find_by(zipcode: params[:zipcode])
+            redirect_to new_village_path
+        else
+            redirect_to new_town_hall_registration, alert: "Le zip code renseigné n'existe pas"
+        end
+    end
     
 
     private

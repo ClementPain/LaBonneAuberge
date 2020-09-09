@@ -38,7 +38,11 @@ class TownHalls::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  # protected
+  def name_field
+    redirect_to root_path
+  end
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
