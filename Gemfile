@@ -42,7 +42,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
-  gem 'letter_opener'
+
 end
 
 group :development do
