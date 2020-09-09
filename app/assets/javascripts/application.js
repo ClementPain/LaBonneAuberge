@@ -13,6 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require main
+
 //= require cable
 //= require registration_town_halls
