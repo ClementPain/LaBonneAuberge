@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  devise_for :town_halls
   root 'static_pages#welcome'
   get 'static_pages/contact', to: 'static_pages#contact'
 
