@@ -42,7 +42,14 @@ group :development, :test do
   gem 'letter_opener'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
+  gem 'rubocop', '~> 0.57.2'
+gem 'table_print'
+gem 'pry'
+gem 'nokogiri'
+gem 'devise'
+gem 'dotenv'
 
+gem 'cancancan'
 end
 
 group :development do
@@ -72,6 +79,6 @@ gem 'nokogiri'
 gem 'devise'
 gem 'dotenv'
 
-
+gem 'cancancan'
 
 

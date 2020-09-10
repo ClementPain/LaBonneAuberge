@@ -1,11 +1,13 @@
 class EventsController < ApplicationController
-    before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
-  
+    # before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
+    load_and_authorize_resource
+
     def index
         @events = Event.all
     end
   
     def show
+        authorize! :read, Event
         @event = Event.find(params[:id])
     end
     

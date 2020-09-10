@@ -24,7 +24,7 @@
 
                 <% if user_signed_in? %>
                     <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id == current_user.id} %>
-                    <% if current_user == @event.admin %>
+                    <% if current_user == @event.village %>
                         <%= button_to 'Mon espace évènement', events_path, method: :get, class:"btn btn-primary" %>
                     <% elsif pre_attendance %>
                         <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
