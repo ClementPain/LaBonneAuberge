@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>  
+     <meta charset="utf-8" />
+     <title> Evènement</title>
+
+  <!-- Message d'erreur en cas de problème-->
+  <% if @event.errors.any? %>
+    <div class="alert alert-danger">
+      <p>Nous n'avons pas réussi à créer l'event pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+          <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <!-- Formulaire création évènement -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">  
+        <br><br><br>
+        
+        <%= form_for @event do |f| %>
+          <h1>Création événement</h1>
+          
+          <div class="form-group">
+            <%= f.label :title, 'Renseigne un titre : ' %>
+            <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :location, 'Indique un lieu : ' %>
+            <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, 'Met ta description : ' %>
+            <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+          </div>
+
+          <div class="form-group ">
+            <%= f.label :start_date, 'Indique une date : ' %>
+            <%= f.date_field :start_date, autofocus: true, autocomplete: "start_date", class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :price, 'Balance un prix : ' %>
+            <%= f.text_field :price, autofocus: true, autocomplete: "price", class: "form-control" %>
+            <!-- <%= f.label :price, 'Evènement gratuit : ' %>
+            <%= f.check_box :price, {}, "free" %> -->
+          </div>
+            
+
+          <div class="form-group">
+            <%= f.label :duration, 'Complète avec une durée (en minutes, multiple de 5) : ' %>
+            <%= f.text_field :duration, autofocus: true, autocomplete: "duration", class: "form-control" %>          
+          </div>
+
+        <!-- création image  -->
+          
+          <div class= "form-group">
+            <%= f.label :event_picture, 'Ajoute une photo : ' %>
+            <%= f.file_field :event_picture, autofocus: true, autocomplete: "event_picture", class: "form-control" %>
+          </div>
+
+          <div class="actions mt-5">
+            <%= f.submit "Créer un event", class: "btn btn-lg btn-primary btn-block" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
