@@ -56,11 +56,18 @@
     
                         <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"nav-link" %>
 
+                    <!-- Mairie connectée -->
+                    <% elsif town_hall_signed_in? %>
+                        <%= link_to "Mon profil", town_hall_path, method: :get, class:"nav-link" %>
+
                     <!-- Utilisateur non connecté -->
                     <% else %>
                         <%= link_to "Se connecter", new_user_session_path, class:"nav-link" %>
                         <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link" %>
                     <% end %>
+
+
+                    
                     </div>
                 </li>
             </ul>           
