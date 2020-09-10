@@ -1,0 +1,64 @@
+<%= form_with url: town_hall_registration_path, method: :post, class:"form-sign-in" do |f| %>
+
+    <!-- Title -->
+    <div class="text-center mb-4">
+        <h3>Inscription Mairie</h3>
+        <p>Remplissez le formulaire pour vous inscrire</p>
+    </div>
+    <!-- End Title -->
+      
+    <!-- Formulaire -->
+    <div class="container col-md-6 justify-content-sm-center">
+        
+        <!-- ZipCode
+        <div class="input-group mb-2">
+
+            <!-- Case précédent le formulaire -->
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <%= f.label :ZipCode %>
+                    <span class="fa fa-user form__text-inner"></span>
+                </span>
+            </div>
+            
+            <%= f.text_field :zipcode, autofocus: true, class:"form-control"  %>
+            <%= button_to "ok", new_village_path, method: :get, params: {zipcode: params} %>
+        </div>
+
+
+        <div class="input-group mb-2">
+            <!-- Case précédent le formulaire -->
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <%= f.label :Communes %>
+                    <span class="fa fa-user form__text-inner"></span>
+                </span>
+            </div>
+
+            <%= f.select :order, [] %>
+            <%= button_to "ok" %>
+        </div>
+
+        <div class="input-group mb-2">
+            <!-- Case précédent le formulaire -->
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <%= f.label :Email %>
+                    <span class="fa fa-user form__text-inner"></span>
+                </span>
+            </div>
+
+            <p><%= @email %></p>
+            <%= button_to "ok" %>
+        </div>
+
+         <div>
+            <%= f.submit "S'inscrire" %>
+        </div>
+    </div>
+
+<% end %>
+
+<div class="container col-md-6 justify-content-sm-center mt-4">
+    <p>Déjà inscrit? <%= button_to "Se connecter", user_session_path %></p>
+</div>
