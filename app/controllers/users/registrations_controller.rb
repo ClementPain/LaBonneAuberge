@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    Villager.create(user:current_user)
   end
 
   # GET /resource/edit
