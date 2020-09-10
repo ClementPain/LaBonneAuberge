@@ -2,6 +2,8 @@ class Event < ApplicationRecord
     before_create :start_date_not_before_time_now
 
     has_one_attached :event_picture
+    has_many :attendances, dependent: :destroy
+    has_many :users, through: :attendances
     belongs_to :village
 
 	validates :start_date, presence: true 
