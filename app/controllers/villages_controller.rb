@@ -9,7 +9,20 @@ class VillagesController < ApplicationController
     end
 
     def new
-
+            
+        # if !zipcode.nil? #vérifier qu'un zipcode a bien été entré par l'utilisateur
+        #     if Village.find_by(zipcode:params[:zipcode]) #vérifier que le zipcode renseigné existe
+        #         @zipcode_village = []
+        #         Village.select { |town| town.zipcode === params[:zipcode] }.each { |town| @zipcode_village << town }
+            
+        #     else
+        #         redirect_to new_village_path, alert: "Le zip code renseigné n'existe pas"
+        #     end
+        # else
+        #     @zipcode_village = []
+        #     @email = ""
+        # end
+  
     end
 
     def create

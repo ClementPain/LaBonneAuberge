@@ -11,7 +11,11 @@ class TownHalls::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    # if Village.find_by(email:params[:email].to_s)
+      super
+    # else
+    #   redirect_to new_town_hall_registration_path, alert: "L'email ne correspond pas #{params[:email]}"
+    # end
   end
 
   # GET /resource/edit
