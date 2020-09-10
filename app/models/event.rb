@@ -2,6 +2,7 @@ class Event < ApplicationRecord
     before_create :start_date_not_before_time_now
 
     has_one_attached :event_picture
+    belongs_to :village
 
 	validates :start_date, presence: true 
     validate :start_date_not_before_time_now

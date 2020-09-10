@@ -4,6 +4,8 @@ require 'nokogiri'
 
 
 class VillagesController < ApplicationController
+    
+
     def index
         @town_hall_name = []
     end
