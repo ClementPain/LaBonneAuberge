@@ -32,7 +32,7 @@
         <ul class="event-list" >
           <% @events.each_with_index do |event, i| %>
             <li>
-              <time datetime=<%= event.start_date %>>
+              <time datetime=<%= event.start_date %>
                 <span class="day"> <%= event.start_date.day %> </span>
                 <span class="month"> <%= event.start_date.strftime('%b') %> </span>
                 <span class="year"> <%= event.start_date.year %> </span>
@@ -54,3 +54,46 @@
   </div>
 </body>
 </html>
+
+
+<!-- Card -->
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+      <% @events.each_with_index do |event, i| %>
+        <!-- Card content -->
+        <div class="card-body d-flex flex-row">
+          <!-- Content -->
+          <div>
+
+            <!-- Title -->
+            <h4 class="card-title font-weight-bold mb-2"><%= event.title %></h4>
+            <!-- Subtitle -->
+            <p class="card-text"><i class="far fa-money-bill-alt pr-2"></i><%= event.price %></p>
+            <p class="card-text"><i class="far fa-clock pr-2"></i><%= event.start_date %></p>
+          </div>
+
+        </div>
+
+        <!-- Card image -->
+        <div class="view overlay">
+          <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body">
+
+          <div class="collapse-content">
+
+            <!-- Text -->
+            <p class="card-text collapse" id="collapseContent"><%= event.description %></p>
+            <!-- Button -->
+            <a class="btn btn-flat red-text p-1 my-1 mr-0 mml-1 collapsed" data-toggle="collapse" href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>
+            <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+            <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+      <!-- Card -->
