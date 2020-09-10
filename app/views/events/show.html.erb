@@ -14,16 +14,26 @@
                 <% if @event.event_picture.attached? %>
                     <%= image_tag(@event.event_picture) %>
                 <% end %>
-                <p>Village : <%= @event.village %> </p>
                 <p>Date de début : <%=@event.start_date %></p>
                 <p>Lieu :: <%= @event.location %></p>
                 <p>Durée : <%=@event.duration %> minutes</p>
                 <p>Prix : <%= @event.price %>€</p>
-                <p>Description : <%= @event.description %></p>
+                <p>Description : <%= @event.description %></p>  
+            
+                <p><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></p>
 
-                
-                
-                
+                <% if user_signed_in? %>
+                    <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id == current_user.id} %>
+                    <% if current_user == @event.admin %>
+                        <%= button_to 'Mon espace évènement', events_path, method: :get, class:"btn btn-primary" %>
+                    <% elsif pre_attendance %>
+                        <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
+                    <% else %>
+                        <div class="btn btn-success">
+                            <%= link_to 'Participez !', new_event_attendance_path(params[:id]) %>
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>

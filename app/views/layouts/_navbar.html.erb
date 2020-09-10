@@ -3,7 +3,7 @@
     <div class="container">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">La Bonne Auberge</a>
+        <%= link_to "La Bonne Auberge", root_path, class:"navbar-brand" %>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -17,12 +17,10 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto smooth-scroll">
                 <li class="nav-item">
-                    <a class="nav-link" href="#intro">Home</a>
+                    <%= link_to "Evènements", events_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#best-features">Features</a>
-                </li>
-                <li class="nav-item">
+                    
                     <a class="nav-link" href="#examples">Examples</a>
                 </li>
                 <li class="nav-item">
