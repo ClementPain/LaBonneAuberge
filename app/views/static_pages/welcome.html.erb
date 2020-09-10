@@ -64,7 +64,7 @@
 
                                     <!-- Utilisateur connecté -->
                                     <% if user_signed_in? %>
-                                        <%= link_to "Mon profil", user_path, method: :get, class:"nav-link" %>
+                                        <%= link_to "Mon profil", root_path, method: :get, class:"nav-link" %>
                     
                                         <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"nav-link" %>
 

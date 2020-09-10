@@ -48,5 +48,54 @@
 
 <% end %>
 
+<%= form_for(resource, as: resource_name, url: user_registration_path, html: { class: "form-signin mt-3" }) do |f| %>
+
+    <%= devise_error_messages! %>
+
+    <div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Inscrivez-vous</h3>
+                <form>
+
+                    
+                    <div class="form-label-group">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"form-control"  %>
+                    <%= f.label :"Adresse email" %>
+                    </div>
+
+                    <div class="form-label-group">
+                    <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder:"Mot de passe", class:"form-control"  %>
+                    <%= f.label "Mot de passe" %>
+                    </div>
+
+                    <div class="form-label-group">
+                   <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "email", placeholder:"Mot de passe", class:"form-control form__input"  %>
+                    <%= f.label "Confirmer mot de passe" %>
+                    </div>
+
+                    <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Se rappeler de moi</label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Inscription</button>
+                <a class="d-block text-center mt-2 small" href="#">Déja inscrit ? Se connecter</a>
+                <hr class="my-4">
+                
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+<% end %>
+
 
     
