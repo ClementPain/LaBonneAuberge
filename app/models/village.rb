@@ -1,6 +1,7 @@
 class Village < ApplicationRecord
     has_one :town_hall
     has_many :events
+    has_one_attached :village_avatar
 
     # lien avec la table villager (profils utilisateurs)
     has_many :villagers

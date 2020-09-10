@@ -1,6 +1,6 @@
 <div class="col-md-4">
     <div class="card" style="width: 18rem;">
-        <% if @village.village_avatar %>
+        <% if @village.village_avatar.attached? %>
             <div class="container card-img-top">
                 <%= image_tag @village.village_avatar %>
             </div>
