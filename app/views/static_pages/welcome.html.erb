@@ -3,17 +3,36 @@
             <header>              
 
                 <!--Mask-->
-                <div id="intro" class="view">
-                    <div class="container align-center">
-                        <div class="row justify-content-start">
-                             <div class="mbr-white col-lg-6 col-md-8">
-                                 <h1 class="mbr-section-title align-left my-4 display-1">La Bonne Auberge</h1>
-                                     <div><%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%></div>
-                            </div>
-                         </div>
+        <div id="intro" class="view">
+
+            <div class="mask rgba-black-strong">
+
+                <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+
+                    <div class="row d-flex justify-content-center text-center">
+
+                        <div class="col-md-10">
+
+                            <!-- Heading -->
+                            <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">La Bonne Auberge</h2>
+
+                            <!-- Divider -->
+                            <hr class="hr-light">
+
+                            <!-- Description -->
+                            <h4 class="white-text my-4">Donnez de la vie à nos villages</h4>
+                            <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
+
+                        </div>
+
                     </div>
+
                 </div>
-                <!--/.Mask-->  
+
+            </div>
+
+        </div>
+        <!--/.Mask-->
 
             </header>
             <!--Main Navigation-->
@@ -102,7 +121,7 @@
                 </a>
                 </div>
                 <div class="col-md-5">
-                <p>La bonne auberge est une plateforme dynamique, pour les habitants et les nouveaux arrivants des villages du département du Cantal : apportons du dynamisme à la région !. </p>
+                <p>La bonne auberge est une plateforme dynamique, pour les habitants et les nouveaux arrivants des villages du département du Cantal : apportons du dynamisme à la région ! </p>
                 <%= link_to "Rejoignez-nous", new_user_registration_path, class: "btn btn-success"%>
                 
                 </div>

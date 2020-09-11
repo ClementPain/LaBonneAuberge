@@ -67,3 +67,13 @@
 .fa-share-alt:hover {
   color: #0d47a1 !important;
 }
+
+hr {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+h2.display-4.font-weight-bold.white-text.pt-5.mb-2 {
+
+  padding-top: 15rem !important;
+  letter-spacing: .3rem;
+}
