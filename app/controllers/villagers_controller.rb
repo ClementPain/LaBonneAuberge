@@ -3,6 +3,8 @@ class VillagersController < ApplicationController
         @villager = Villager.find(params[:id])
     end
 
+  
+
     def edit
     end
 

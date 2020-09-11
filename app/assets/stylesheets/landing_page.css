@@ -6,15 +6,17 @@ header,
 }
 
 #intro {
-    background: url("https://cdn.pixabay.com/photo/2016/07/16/13/34/roussillon-1521763__340.jpg")no-repeat center center fixed;
+    background: url("https://images.unsplash.com/photo-1490113355845-cdc3b65f0189?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    
+  
       
   
 }
+
+
 
 @media (max-width: 740px) {
   html,
@@ -49,3 +51,5 @@ header,
 @media only screen and (max-width: 768px) {
   .navbar {
     background-color: #1C2331; } }
+
+    
