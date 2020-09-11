@@ -3,12 +3,12 @@
 }
 
 .link_to {
-  color: #41b972;
+  color: #41b972!important;
 }
 
 .link_to:hover {
-  color: #68d522;
-  text-decoration: none;
+  color: #68d522!important;
+  text-decoration: none!important;
 }
 
 .footer {
