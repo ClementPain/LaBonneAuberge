@@ -16,11 +16,11 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Zip code : <%= @village.zipcode %></li>
                 <li class="list-group-item">Email : <%= @village.email %></li>
-                <li class="list-group-item">Membres : </li>
+                <li class="list-group-item">Description : <%= @village.description %></li>
             </ul>
 
             <div class="card-body">
-                <%= link_to "modifier les informations", edit_village_path %>
+                <%= link_to "modifier les informations", edit_village_path(id:@village.id) %>
             </div>
         </div>
     </div>
