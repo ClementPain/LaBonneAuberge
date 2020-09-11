@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   
     def show
         authorize! :read, Event
-        
     end
     
     def new 
@@ -30,6 +29,14 @@ class EventsController < ApplicationController
     
     def edit
 
+    end
+
+    def update
+        if @event.update(event_params)
+            redirect_to event_path(@event), notice: "Les informations de #{@event.title} ont bien été mises à jour"
+        else
+            redirect_to edit_event_path(@event), alert: "Veuillez renseigner toutes les informations"
+        end
     end
 
     private
