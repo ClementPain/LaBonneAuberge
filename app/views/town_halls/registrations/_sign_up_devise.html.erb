@@ -16,8 +16,7 @@
 
                     
                     <div class="form-label-group">
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class:"form-control"  %>
-                    <%= f.label :"Adresse email" %>
+                    <%= f.hidden_field :email, value: @email %>
                     </div>
 
                     <div class="form-label-group">
