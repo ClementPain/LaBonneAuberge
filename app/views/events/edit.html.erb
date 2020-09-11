@@ -1,0 +1,58 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center p-2 border">
+        <div class="col-md-7"
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Editer l'évènement <%= @event.title %></legend>
+
+                    <%= form_for @event do |f| %>
+                        
+                        <div class="form-group">
+                            <%= f.label :title, 'Renseigne un titre : ' %>
+                            <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :location, 'Indique un lieu : ' %>
+                            <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :description, 'Met ta description : ' %>
+                            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group ">
+                            <%= f.label :start_date, 'Indique une date : ' %>
+                            <%= f.date_field :start_date, autofocus: true, autocomplete: "start_date", class: "form-control" %>
+                        </div>
+                        
+                        <div class="form-group">
+                            <%= f.label :price, 'Balance un prix : ' %>
+                            <%= f.text_field :price, autofocus: true, autocomplete: "price", class: "form-control" %>
+                            <!-- <%= f.label :price, 'Evènement gratuit : ' %>
+                            <%= f.check_box :price, {}, "free" %> -->
+                        </div>
+                            
+
+                        <div class="form-group">
+                            <%= f.label :duration, 'Complète avec une durée : ' %>
+                            <%= f.text_field :duration, autofocus: true, autocomplete: "duration", class: "form-control" %>          
+                        </div>
+
+                        <!-- création image  -->
+                        
+                        <div class= "form-group">
+                            <%= f.label :event_picture, 'Ajoute une photo : ' %>
+                            <%= f.file_field :event_picture, autofocus: true, autocomplete: "event_picture", class: "form-control" %>
+                        </div>
+
+                        <div class="actions mt-5">
+                            <%= f.submit "Modifier l'évènement", class: "btn btn-lg btn-primary btn-block" %>
+                        </div>
+                    <% end %>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

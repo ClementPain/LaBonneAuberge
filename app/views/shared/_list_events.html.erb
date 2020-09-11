@@ -12,6 +12,6 @@
     </div>
 
     <div class="col-sm-3">
-        <%= button_to "Modifier l'évènement", edit_event_path(id: event.id), class:"btn btn-success" %>
+        <%= button_to "Modifier l'évènement", edit_event_path(id: event.id), method: :get, class:"btn btn-success" %>
     </div>
 </div>
