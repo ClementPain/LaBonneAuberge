@@ -2,16 +2,16 @@
 <%= form_for(resource, as: resource_name, url: town_hall_registration_path, html: { class: "form-signin mt-3" }) do |f| %>
 
     <%= devise_error_messages! %>
-
+<div class=center-form>
     <div class="container-fluid">
     <div class="row no-gutter">
-        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-signup-townhall"></div>
         <div class="col-md-8 col-lg-6">
         <div class="login d-flex align-items-center py-5">
             <div class="container">
             <div class="row">
                 <div class="col-md-9 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Inscrivez-vous</h3>
+                <h3 class="login-heading mb-4">Vous êtes une mairie ? Inscrivez-vous</h3>
                 <form>
 
                     
@@ -45,4 +45,5 @@
         </div>
     </div>
     </div>
+</div>
 <% end %>
