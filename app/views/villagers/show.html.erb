@@ -5,16 +5,13 @@
 <div class="container-fluid mt-5 emp-profile">
             <form method="post">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="profile-img">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div>
+                            
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="profile-head">
                                     <h5>
                                         Kshiti Ghelani
@@ -34,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editer le Profile"/>
+                     <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"%>
                     </div>
                 </div>
                 <div class="row">
