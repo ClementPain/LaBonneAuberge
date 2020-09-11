@@ -39,6 +39,11 @@ class EventsController < ApplicationController
         end
     end
 
+    def destroy
+        @event.delete
+        redirect_to town_hall_path(current_town_hall.id), alert: "L'évènement a bien été supprimé"
+    end
+
     private
   
     def event_params
