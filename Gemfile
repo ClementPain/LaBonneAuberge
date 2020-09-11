@@ -80,5 +80,5 @@ gem 'devise'
 gem 'dotenv'
 
 gem 'cancancan'
-
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 
