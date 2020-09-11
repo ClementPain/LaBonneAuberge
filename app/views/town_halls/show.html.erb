@@ -1,4 +1,4 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid row mt-5">
     <div class="col-md-4">
         <div class="card" style="width: 18rem;">
             <% if @village.village_avatar.attached? %>
@@ -24,4 +24,26 @@
             </div>
         </div>
     </div>
+
+
+    <div class="col-md-8">
+        <div class= "row">
+            <h2> Evènements créés </h2>
+        </div>
+        <div class="container">
+            <h3> Evènements du jour </h3>
+            <% @events_today    .each do |e| %>
+                <%= e.title %>
+            <% end %>
+
+            <h3> Evènements à venir </h3>
+            <% @events_to_come.each do |e| %>
+                <%= e.title %>
+            <% end %>
+
+            <h3> Evènements passés </h3>
+            <% @events_passed.each do |e| %>
+                <%= e.title %>
+            <% end %>
+        </div>
 </div>

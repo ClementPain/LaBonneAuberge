@@ -15,7 +15,6 @@ class Event < ApplicationRecord
 	validates :price, presence: true 
 	validates :location, presence: true 
 
-    private
 
 	def start_date_not_before_time_now #Méthode pour ne pas entrer une date antérieur à la date de debut 
 	    if self.start_date < Date.today
