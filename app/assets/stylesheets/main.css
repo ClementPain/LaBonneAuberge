@@ -51,4 +51,14 @@
     
 }
 
+.cart-event {
 
+  background-color: rgba(114, 107, 107, 0.377) !important;
+}
+
+.fa-heart:hover {
+  color: #f44336 !important;
+}
+.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}
