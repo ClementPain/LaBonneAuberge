@@ -21,8 +21,30 @@
     background-size: cover;
     background-position: center;
   }
-  
-  
+  .bg-forgot-user {
+    background-image: url('https://images.unsplash.com/photo-1490113355845-cdc3b65f0189?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  .bg-signup-townhall {
+    background-image: url('https://cdn.pixabay.com/photo/2018/10/13/10/49/estonia-3744005_960_720.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-signin-townhall {
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/26/16/14/town-hall-2683493_960_720.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-forgot-townhall {
+    background-image: url('https://cdn.pixabay.com/photo/2016/07/16/13/34/roussillon-1521763_960_720.jpg');
+    background-size: cover;
+    background-position: center;
+  }
   
   .center-form {
     margin-top: 200px;
