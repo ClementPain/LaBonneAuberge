@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    # before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
+    before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
     load_and_authorize_resource
 
     def index
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
         if @event.save
             redirect_to events_path, notice: "L'événement #{@event.title} a bien été créé ! Bien joué petit génie !"
         else
-            redirect_to new_event_path
+            redirect_to new_event_path, alert: "Veuillez renseigner toutes les informations"
         end
     end
     
