@@ -31,19 +31,19 @@
             <h2> Evènements créés </h2>
         </div>
         <div class="container">
-            <h3> Evènements du jour </h3>
-            <% @events_today    .each do |e| %>
-                <%= e.title %>
+            <h3 class="border-bottom"> Evènements du jour </h3>
+            <% @events_today.each do |e| %>
+                <%= render 'shared/list_events', event: e %>
             <% end %>
 
-            <h3> Evènements à venir </h3>
+            <h3 class="border-bottom"> Evènements à venir </h3>
             <% @events_to_come.each do |e| %>
-                <%= e.title %>
+                <%= render 'shared/list_events', event: e %>
             <% end %>
 
-            <h3> Evènements passés </h3>
+            <h3 class="border-bottom"> Evènements passés </h3>
             <% @events_passed.each do |e| %>
-                <%= e.title %>
+                <%= render 'shared/list_events', event: e %>
             <% end %>
         </div>
 </div>

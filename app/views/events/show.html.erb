@@ -23,7 +23,7 @@
                 <% end %>                
             <% end %>
 
-            <% if current_town_hall && current_town_hall.village == @event.village %>
+            <% if current_town_hall && Village.find_by(email:current_town_hall.email) == @event.village %>
                 <%= button_to 'Mon espace évènement', town_hall_path(id:TownHall.find_by(email:@event.village.email).id), method: :get, class:"btn btn-primary" %>    
             <% end %>
         </div>
