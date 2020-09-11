@@ -37,7 +37,9 @@
               <!-- Content -->
               <div>
                 <!-- Title -->
-                <h4 class="card-title font-weight-bold mb-2" style="text-transform: uppercase;"><%= event.title %></h4>
+                <%= link_to event_path(id:i), class:"link_to" do %>
+                  <h4 class="card-title font-weight-bold mb-2" style="text-transform: uppercase;"><%= event.title %></h4>
+                <% end %>
                 <!-- Subtitle -->
                 <p class="card-text"><i class="far fa-money-bill-alt pr-2"></i> <%= event.price %> €</p>
                 <p class="card-text"><i class="fas fa-map-marker-alt pr-2"></i> <%= event.location %></p>
@@ -62,7 +64,7 @@
             <div class="card-body">
               <div class="collapse-content">
                 <!-- Text -->
-                <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id) } %>
+                <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id), class:"link_to" } %>
                 <!-- Button -->
                 <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
                 <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>

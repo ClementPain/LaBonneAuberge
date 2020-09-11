@@ -3,6 +3,14 @@
     margin-top: 50px;
 }
 
+.link_to {
+  color: #41b972;
+}
+
+.link_to:hover {
+  color: #68d522;
+  text-decoration: none;
+}
 
 .footer {
 
