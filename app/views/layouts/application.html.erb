@@ -12,11 +12,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar'%>
-    <%= render 'layouts/flash'%> 
-    <%= yield %>
-    <%= render 'layouts/footer'%>
 
+      <%= render 'layouts/navbar'%>
+      <%= render 'layouts/flash'%> 
+
+        <%= yield %>
+
+      <%= render 'layouts/footer'%>
+   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

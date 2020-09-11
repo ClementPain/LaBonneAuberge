@@ -1,0 +1,2 @@
+module ManageRegistrationTownHallsHelper
+end

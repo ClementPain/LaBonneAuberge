@@ -1,25 +1,27 @@
-<div class="col-md-4">
-    <div class="card" style="width: 18rem;">
-        <% if @village.village_avatar %>
-            <div class="container card-img-top">
-                <%= image_tag @village.village_avatar %>
+<div class="container-fluid mt-5">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <% if @village.village_avatar.attached? %>
+                <div class="container card-img-top">
+                    <%= image_tag @village.village_avatar %>
+                </div>
+            <% else %>
+                <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+            <% end %>
+            
+            <div class="card-body">
+                <h5 class="card-title"><%= @village.name %></h5>
             </div>
-        <% else %>
-            <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-        <% end %>
-        
-        <div class="card-body">
-            <h5 class="card-title"><%= @village.name %></h5>
-        </div>
 
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Zip code : <%= @village.zipcode %></li>
-            <li class="list-group-item">Email : <%= @village.email %></li>
-            <li class="list-group-item">Membres : </li>
-        </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Zip code : <%= @village.zipcode %></li>
+                <li class="list-group-item">Email : <%= @village.email %></li>
+                <li class="list-group-item">Membres : </li>
+            </ul>
 
-        <div class="card-body">
-            <%= link_to "modifier les informations", root_path %>
+            <div class="card-body">
+                <%= link_to "modifier les informations", edit_village_path %>
+            </div>
         </div>
     </div>
 </div>

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
- 
-  get 'town_halls/show'
+   
   devise_for :town_halls, controllers: { sessions: 'town_halls/sessions', passwords: 'town_halls/passwords', registrations: 'town_halls/registrations', confirmations: 'town_halls/confirmations' }
-  
+  resources :manage_registration_town_halls, only: [:new, :create]
   resources :town_halls, only: [:show]
   
   root 'static_pages#welcome'

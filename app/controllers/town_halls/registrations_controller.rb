@@ -6,11 +6,13 @@ class TownHalls::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @email = params[:email]
     super
   end
 
   # POST /resource
   def create
+    @zipcode = params[:zipcode]
     # if Village.find_by(email:params[:email])
       super
     # else
