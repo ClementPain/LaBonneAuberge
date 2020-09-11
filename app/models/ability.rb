@@ -3,7 +3,11 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(town_hall)
+    can :manage, :all
+  end
+
+  def initialize(town_hall)
 
     user ||= User.new # guest user (not logged in)
 
@@ -14,7 +18,7 @@ class Ability
       if user.roles.include?(Role.find_by(name:"admin")) #role : admin
         can :manage, :all
       else
-        can :read, Event
+        can :manage, Event
         can :manage, Attendance, { user_id: user.id }
         can :show, Village
       end

@@ -1,43 +1,31 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>The Evenbrides App - Événement</title>
-</head>
+<div class="container-fluid mt-5" style= "margin-bottom: 45px">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 text-center">
+            <h2 class="card-title "> Événement <%=@event.title%></h2>
+            <% if @event.event_picture.attached? %>
+                <%= image_tag(@event.event_picture) %>
+            <% end %>
+            <p>Date de début : <%=@event.start_date %></p>
+            <p>Lieu :: <%= @event.location %></p>
+            <p>Durée : <%=@event.duration %> minutes</p>
+            <p>Prix : <%= @event.price %>€</p>
+            <p>Description : <%= @event.description %></p>  
+        
+            <p><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></p>
 
-<body>
+            <% if user_signed_in? %>
+                <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id === current_user.id} %>
+                
+                <% if pre_attendance %>
+                    <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
+                <% else %>
+                    <%= button_to 'Participez !', event_attendances_path(params[:id]), method: :post, class:"btn btn-success" %>
+                <% end %>                
+            <% end %>
 
-    <div class="container" style= "margin-bottom: 45px">
-        <div class="row">
-            <div class="col-sm-12 ">
-                <h2 class="card-title "> Événement <%=@event.title%></h2>
-                <% if @event.event_picture.attached? %>
-                    <%= image_tag(@event.event_picture) %>
-                <% end %>
-                <p>Date de début : <%=@event.start_date %></p>
-                <p>Lieu :: <%= @event.location %></p>
-                <p>Durée : <%=@event.duration %> minutes</p>
-                <p>Prix : <%= @event.price %>€</p>
-                <p>Description : <%= @event.description %></p>  
-            
-                <p><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></p>
-
-                <% if user_signed_in? %>
-                    <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id == current_user.id} %>
-                    <% if current_user == @event.village %>
-                        <%= button_to 'Mon espace évènement', events_path, method: :get, class:"btn btn-primary" %>
-                    <% elsif pre_attendance %>
-                        <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
-                    <% else %>
-                        <div class="btn btn-success">
-                            <%= link_to 'Participez !', new_event_attendance_path(params[:id]) %>
-                        </div>
-                    <% end %>
-                <% end %>
-            </div>
+            <% if current_town_hall && current_town_hall.village == @event.village %>
+                <%= button_to 'Mon espace évènement', town_hall_path(id:TownHall.find_by(email:@event.village.email).id), method: :get, class:"btn btn-primary" %>    
+            <% end %>
         </div>
     </div>
-
-    
-</body>
-</html>
+</div>

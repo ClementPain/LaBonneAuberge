@@ -13,6 +13,7 @@ class AttendancesController < ApplicationController
             redirect_to new_event_attendance(params[:event_id]), alert: "Vous participez déjà à l'évènement"
         else
             @event.attendances.create(user_id: current_user.id)
+            redirect_to event_path(@event), notice: "Vous êtes inscrit à l'évènement !"
         end
     end
 
