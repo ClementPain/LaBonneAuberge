@@ -77,3 +77,10 @@ h2.display-4.font-weight-bold.white-text.pt-5.mb-2 {
   padding-top: 15rem !important;
   letter-spacing: .3rem;
 }
+
+.par{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: auto;
+}
