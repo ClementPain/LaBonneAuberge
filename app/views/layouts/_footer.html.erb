@@ -1,87 +1,89 @@
 <!-- Footer -->
-    <footer class="footer font-small unique-color-dark">
-    <hr class="my-5">
-        <!--Footer Links-->
-            
-                <div class="row mt-3">
-                
-                <!--First column-->
-                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-                    <h6 class="text-uppercase font-weight-bold">
-                        <strong>Suivez-nous</strong>
-                        
+<footer class="footer font-small unique-color-dark text-center">
 
-                    <!-- Social buttons -->
+    <hr class="my-5">
+       
+        <!--Footer Links-->
+        <div class="row mt-3">
+
+            <!--First column-->
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                <strong>Suivez-nous</strong>
+                </h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        
+                 <!-- Social buttons -->
                     <div class="primary-color">
                         
-                            <!--Grid row-->
-                            <div class="row py-4 d-flex">
+                        <!--Grid row-->
+                        <div class="row py-4 d-flex">
 
-                                <!--Grid column-->
-                                <div class="col-md-6 col-lg-7" style="margin-left: 23%">
-                                    <!--Facebook-->
-                                    <a class="fb-ic">
-                                        <i class="fab fa-facebook white-text mr-4"> </i>
-                                    </a>
-                                    <!--Twitter-->
-                                    <a class="tw-ic">
-                                        <i class="fab fa-twitter white-text mr-4"> </i>
-                                    </a>
-                                    <!--Instagram-->
-                                    <a class="ins-ic">
-                                        <i class="fab fa-instagram white-text mr-lg-4"> </i>
-                                    </a>
-                                </div>
-                                <!--Grid column-->
+                            <!--Grid column-->
+                            <div class="col-md-6 col-lg-7" style="margin-left: 23%">
+                                <!--Facebook-->
+                                <a class="fb-ic">
+                                 <i class="fab fa-facebook white-text mr-4"> </i>
+                                </a>
+                                <!--Twitter-->
+                                <a class="tw-ic">
+                                <i class="fab fa-twitter white-text mr-4"> </i>
+                                </a>
+                                <!--Instagram-->
+                                <a class="ins-ic">
+                                    <i class="fab fa-instagram white-text mr-lg-4"> </i>
+                                </a>
                             </div>
-                            <!--Grid row-->
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
                     </div>
-                    <!-- Social buttons -->
+                <!-- Social buttons -->
                             
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">
+                    <strong>Liens</strong>
+                    </h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                        <%= link_to "Evènements", events_path %>
+                        </p>
+                        <p>
+                        <%= link_to "Espace mairie", new_town_hall_session_path %>
+                        </p>
+                        <p>
+                        <%= link_to "Mon profil", new_user_session_path, class:"nav-link" %>
+                        </p>
                 </div>
-                <!--/.First column-->
+            <!--/.Second column-->
 
-                <!--Second column-->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <strong>Liens</strong>
-                            </h6>
-                            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p>
-                               <%= link_to "Evènements", events_path %>
-                            </p>
-                            <p>
-                                <%= link_to "Espace mairie", new_town_hall_session_path %>
-                            </p>
-                            <p>
-                                <%= link_to "Mon profil", new_user_session_path, class:"nav-link" %>
-                            </p>
-                        </div>
-                        <!--/.Second column-->
+            <!--Third column-->
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                        <strong>Contact</strong>
+                        </h6>
+                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                        <i class="fas fa-home"></i></i> Champs-sur-Tarentaine-Marchal</p>
+                        <p>
+                        <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                        <p>
+                        <i class="fa fa-phone mr-3"></i> 07 07 07 07 07</p>
+                </div>
+                <!--/.Third column-->
 
-                        <!--Third column-->
-                        <div class="col-md-4 col-lg-3 col-xl-3">
-                            <h6 class="text-uppercase font-weight-bold">
-                                <strong>Contact</strong>
-                            </h6>
-                            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                            <p>
-                            <i class="fas fa-home"></i></i> Champs-sur-Tarentaine-Marchal</p>
-                            <p>
-                            <i class="fa fa-envelope mr-3"></i> info@example.com</p>
-                            <p>
-                            <i class="fa fa-phone mr-3"></i> 07 07 07 07 07</p>
-                        </div>
-                        <!--/.Third column-->
+        </div>
+        <!--/.Footer Links-->
 
-                    </div>
-                
-             <!--/.Footer Links-->
-
-             <!-- Copyright -->
+        <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2020
                 <a href="https://www.thehackingproject.org//"> Pour The Hacking Project</a>
             </div>
-            <!-- Copyright -->
-
-    </footer>
+        <!-- Copyright -->
+</footer>
