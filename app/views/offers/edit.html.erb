@@ -1,0 +1,42 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center p-2">
+        <div class="col-md-7"
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Editer le projet <%= @offer.title %></legend>
+
+                    <%= form_for @offer do |f| %>
+                        
+                        <div class="form-group">
+                            <%= f.label :title, 'Renseigne un titre : ' %>
+                            <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :type_of_offer, 'Indique un type de projet : ' %>
+                            <%= f.text_field :type_of_offer, autofocus: true, autocomplete: "type_of_offer", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :description, 'Met ta description : ' %>
+                            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+                        </div>
+
+                        <!-- création image  -->
+                        
+                        <div class= "form-group">
+                            <%= f.label :offer_picture, 'Ajoute une photo : ' %>
+                            <%= f.file_field :offer_picture, autofocus: true, autocomplete: "offer_picture", class: "form-control" %>
+                        </div>
+
+                        <div class="actions mt-5">
+                            <%= f.submit "Modifier le projet", class: "btn btn-lg btn-success btn-block" %>
+                        </div>
+                    <% end %>
+                </fieldset>
+            </form>
+
+            <%= button_to "Supprimer le projet", offer_path(@offer), data: {confirm: "Voulez-vous supprimer le projet ?" }, method: :delete, class: "btn btn-lg btn-danger btn-block mt-3" %>
+        </div>
+    </div>
+</div>

@@ -23,9 +23,14 @@
             <div class="tab-content profile-tab" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="test" style="margin-top: 4%; margin-left: 2%"> 
-                            <div class="row">
-                                <h2 class="upper" style="text-transform: uppercase"><%=@event.title%></h2>
+                        <div class="row">
+                            <h2 class="upper" style="text-transform: uppercase"><%=@event.title%></h2>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <label>DATE</label>
                             </div>
+<
                             <div class="row mt-3">
                                 <div class="col-md-3">
                                     <label>DATE</label>
@@ -38,82 +43,85 @@
                                     <span class="time"> </span>
                                     </time></p>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>LIEU</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p> <%= @event.location %> </p>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>DUREE</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p> <%=@event.duration %> minutes </p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>PRIX</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p> <%= @event.price %> €</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Description</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p> <%= @event.description %> </p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Nombre de participants</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                </div>                                    
-                                <div class="col-md-7">
-                                    <% if user_signed_in? %>
-                                        <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id === current_user.id} %>
-                                            <% if pre_attendance %>
-                                                <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
-                                            <% else %>
-                                                <%= button_to 'Participez !', event_attendances_path(params[:id]), method: :post, class:"btn btn-success" %>
-                                            <% end %>                
-                                    <% end %>
-                            
-                                    <% if current_town_hall && Village.find_by(email:current_town_hall.email) == @event.village %>
-                                        <%= button_to "Modifier l'évènement", edit_event_path(@event), method: :get, class:"btn btn-success" %>    
-                                    <% end %>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row" style="margin-top: 4%; margin-left: 1%">
-                            <div class="col-md-2">
-                                <label>Auteur</label>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>LIEU</label>
                             </div>
                             <div class="col-md-7">
-                                <p> Commentaire</p>
+                                <p> <%= @event.location %> </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>DUREE</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p> <%=@event.duration %> minutes </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>PRIX</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p> <%= @event.price %> €</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p> <%= @event.description %> </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Nombre de participants</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p><%= @event.attendances.count %> <%= (@event.attendances.count) == 1 ? 'Participant' : 'Participants'%></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                            </div>                                    
+                            <div class="col-md-7">
+                                <% if user_signed_in? %>
+                                    <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id === current_user.id} %>
+                                        <% if pre_attendance %>
+                                            <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
+                                        <% else %>
+                                            <%= button_to 'Participez !', event_attendances_path(params[:id]), method: :post, class:"btn btn-success" %>
+                                        <% end %>                
+                                <% end %>
+                        
+                                <% if current_town_hall && Village.find_by(email:current_town_hall.email) == @event.village %>
+                                    <%= button_to "Modifier l'évènement", edit_event_path(@event), method: :get, class:"btn btn-success" %>    
+                                <% end %>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row" style="margin-top: 4%; margin-left: 1%">
+                        <div class="col-md-2">
+                            <label>Auteur</label>
+                        </div>
+                        <div class="col-md-7">
+                            <p> Commentaire</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>        
 </div>
