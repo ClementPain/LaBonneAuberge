@@ -1,7 +1,6 @@
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="container-fluid mt-5 emp-profile">
+<div class="container">
+    <div class="container-fluid mt-5">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile-img">
@@ -22,7 +21,7 @@
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Description</a>
+                                    <a class="nav-link" id="profil-tab" data-toggle="tab" href="#profil" role="tab" aria-controls="profil" aria-selected="false">Description</a>
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="message" aria-selected="false">Message</a>
@@ -36,13 +35,13 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="profile">
-                            <p>Auberges et gîtes visités</p>
+                        <div class="profile mt-3">
+                            <p>AUBERGES ET GITES VISITES</p>
                             <a href="">Website Link</a><br/>
                             <a href="">Website Link</a><br/>
                             <a href="">Website Link</a><br/>
                             <p class="mt-3">MESSAGERIE</p>
-                            <a href="">Accéder à sa messagerie</a><br/>
+                            <a href="">Accéder à ma messagerie</a><br/>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -58,7 +57,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label>
+                                                <label>Nom</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <p><%= @villager.last_name %></p>
@@ -137,4 +136,4 @@
                 </div>
             </form>           
         </div>
-        
+    </div>

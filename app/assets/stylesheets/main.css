@@ -72,8 +72,21 @@ hr {
   background-color: rgb(255, 255, 255) !important;
 }
 
-h2.display-4.font-weight-bold.white-text.pt-5.mb-2 {
+.col-md-5 {
 
   padding-top: 15rem !important;
   letter-spacing: .3rem;
+  margin-left: 5rem;
+}
+
+.par{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: auto;
+}
+
+.container-fluid.mt-5 {
+
+  margin-top: 10rem !important;
 }
