@@ -1,10 +1,10 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
     <div class="container">
-      <h1 class="display-3">Fête au village</h1>
-      <p>Que l'immersion commence!</p>
+      <h1 class="display-3">Participer à un projet</h1>
+      <p>Dynamiser les villages</p>
       <% if town_hall_signed_in? %>
-        <p><%= button_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %></p>
+        <p><%= button_to "Poster une offre", new_odder_path, class:"btn btn-success", :method => :get %></p>
       <% end %>
     </div>
   </div>
@@ -14,72 +14,18 @@
     <div class ="row">
       <div class="col-sm-4">
         <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar">
-        <!-- Navbar brand -->
-        <%= link_to "La Bonne Auberge", root_path, class:"navbar-brand" %>
-    
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-    
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto smooth-scroll">
-                <li class="nav-item">
-                    <%= link_to "Evènements", events_path, class:"nav-link" %>
-                </li>
-                
-                <li class="nav-item">
-                    <%= link_to "Offres", offers_path, class:"nav-link" %>
-                </li>
-                
-                <li class="nav-item">
-                    <%= link_to "Contact", static_pages_contact_path, class:"nav-link" %>
-                </li>
-    
-                <!-- Utilisateur connecté -->
-                <% if user_signed_in? %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
-                        <div class="dropdown-menu">
-                            <%= link_to "Mon profil", villager_path(id:current_user.villager.id), method: :get, class:"nav-link" %>
-                            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"nav-link" %>
-                        </div>
-                    </li>
-    
-                <!-- Mairie connectée -->
-                <% elsif town_hall_signed_in? %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace Mairie</a>
-                        <div class="dropdown-menu">
-                            <%= link_to "Mon espace", town_hall_path(id:current_town_hall.id), method: :get, class:"nav-link" %>
-                            <%= link_to "Se déconnecter", destroy_town_hall_session_path, method: :delete, class:"nav-link" %>
-                        </div>
-    
-                <!-- Utilisateur non connecté -->
-                <% else %>
-                    <li class="nav-item">
-                        <%= link_to "Se connecter", new_user_session_path, class:"nav-link" %>
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link" %>
-                    </li>
-                    <li class="nav-item align-self-right">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Connexion Mairie</a>
-                        <div class="dropdown-menu">
-                            <%= link_to "S'inscrire", new_manage_registration_town_hall_path, class:"nav-link" %>
-                            <%= link_to "Se connecter", new_town_hall_session_path, class:"nav-link" %>
-                        </div>
-                        
-                    </li>
-                <% end %>
-            </ul>
-        </div>
+        <!-- Navbar left -->
+
         </nav>
       </div>
+
+        <div class="col-sm-8">
+            <!-- Card -->
+            <% @events.each_with_index do |event, i| %>
+                <%= render 'shared/card_offer', event: event %> 
+            <% end %>
+            <!-- Card -->
+        </div>
     </div>
   </div>
 
