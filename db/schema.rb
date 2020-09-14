@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_141057) do
+ActiveRecord::Schema.define(version: 2020_09_14_143400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 2020_09_13_141057) do
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.boolean "display"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.datetime "start_date"
     t.integer "duration"
@@ -61,11 +68,12 @@ ActiveRecord::Schema.define(version: 2020_09_13_141057) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
-    t.string "type_of_offer"
     t.text "description"
+    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 

@@ -8,6 +8,7 @@
 require 'faker'
 
 Event.destroy_all
+Category.destroy_all
 
 Faker::Config.locale = 'fr'
 
@@ -21,3 +22,7 @@ Faker::Config.locale = 'fr'
      village_id: Village.all.sample.id
      )    
 end
+
+Category.create(title:"Associatif", display:true)
+Category.create(title:"Reprise de commerce", display:true)
+Category.create(title:"Immobilier", display:true)

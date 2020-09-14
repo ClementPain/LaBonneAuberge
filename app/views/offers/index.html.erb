@@ -24,13 +24,17 @@
         </nav>
       </div>
 
+      <% if @offers.present? %>
         <div class="col-sm-9 menu-offers">
-            <!-- Card -->
-            <% @offers.each_with_index do |offer, i| %>
-                <%= render 'shared/card_offer', offer: offer %> 
-            <% end %>
-            <!-- Card -->
+          <!-- Card -->
+          <% @offers.each_with_index do |offer, i| %>
+              <%= render 'shared/card_offer', offer: offer %> 
+          <% end %>
+          <!-- Card end -->
         </div>
+      <% else %>
+        <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
+      <% end %>
     </div>
   </div>
 

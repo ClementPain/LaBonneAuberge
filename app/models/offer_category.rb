@@ -1,2 +1,0 @@
-class OfferCategory < ApplicationRecord
-end

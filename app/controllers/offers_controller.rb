@@ -6,6 +6,11 @@ class OffersController < ApplicationController
 
     def index
         @offers = Offer.all
+        if params[:search]
+            @offers = Offer.search(params[:search]).order("created_at DESC")
+        else
+            @offers = Offer.all.order('created_at DESC')
+        end
     end
 
     def show
@@ -19,6 +24,7 @@ class OffersController < ApplicationController
     def create
         @offer = Offer.new(offer_params)
         @offer.village = Village.find_by(email:current_town_hall.email)
+        @offer.category = Category.find(cat_params[:category])
 
         if @offer.save
             redirect_to offers_path, notice: "Le projet #{@offer.title} a bien été créé ! Bien joué petit génie !"
@@ -58,7 +64,11 @@ class OffersController < ApplicationController
     private
 
     def offer_params
-        params.require(:offer).permit(:title, :type_of_offer, :description, :offer_picture)
+        params.require(:offer).permit(:title, :description, :offer_picture)
+    end
+
+    def cat_params
+        params.require(:offer).permit(:category)
     end
 
     def find_offer
