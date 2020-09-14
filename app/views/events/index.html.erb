@@ -1,22 +1,13 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>The EvenBrides - Index</title>
-
-
-</head>
-<body>
+<
   
   <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
+  <div class="jumbotron " style="background-image: url(<%= 'https://images.unsplash.com/photo-1546148217-293f105f5e6a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' %>);">
     <div class="container">
       <h1 class="display-3">Fête au village</h1>
-      <p>Que l'immersion commence!</p>
       <% if town_hall_signed_in? %>
-        <p><%= button_to "Créer un évènement", new_event_path, class:"btn btn-light", :method => :get %></p>
+        <p><%= button_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %></p>
       <% end %>
     </div>
   </div>
@@ -39,6 +30,5 @@
 
 
 
-</body>
-</html>
+
 
