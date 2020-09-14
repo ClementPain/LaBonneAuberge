@@ -1,11 +1,15 @@
 <div class="row">
     <div class="col-md-4">
-        <%= offer.offer_picture %>
+        <div class="view overlay">
+            <% if offer.offer_picture.attached? %>
+                <%= image_tag offer.offer_picture, size: "350x350", alt: "Card image cap" %>
+            <% end %>
+        </div>
     </div>
 
     <div class="col-md-8">
         <div class="row">
-            <%= link_to event_path(id: event.id), class:"link_to" do %>
+            <%= link_to offer_path(id: offer.id), class:"link_to" do %>
                 <h4 class="card-title font-weight-bold mb-2" style="text-transform: uppercase;"><%= offer.title %></h4>
             <% end %>
         </div>
