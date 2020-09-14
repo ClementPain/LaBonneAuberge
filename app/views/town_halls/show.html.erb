@@ -1,50 +1,127 @@
-<div class="container-fluid row mt-5">
-    <div class="col-md-4">
-        <div class="card" style="width: 25rem;">
-            <% if @village.village_avatar.attached? %>
-                <div class="container card-img-top">
-                    <%= image_tag @village.village_avatar %>
-                </div>
-            <% else %>
-                <p>=== Il n'y a pas encore d'avatar lié à ce village ===</p>
-            <% end %>
-            
-            <div class="card-body">
-                <h5 class="card-title"><%= @village.name %></h5>
-            </div>
 
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Zip code : <%= @village.zipcode %></li>
-                <li class="list-group-item">Email : <%= @village.email %></li>
-                <li class="list-group-item">Description : <%= @village.description %></li>
-            </ul>
-
-            <div class="card-body">
-                <%= link_to "modifier les informations", edit_village_path(id:@village.id), class:"link_to" %>
+<div class="container-fluid mt-5 emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <% if @village.village_avatar.attached? %>
+                    <%= image_tag(@village.village_avatar, size: "400x300")%>
+               
+                <% else %>
+                    <p>=== Il n'y a pas encore d'avatar lié à ce village ===</p>
+                <% end %>
+                
             </div>
         </div>
-    </div>
+        <div class="col-md-7">
+            <div class="profile-head">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Informations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="today-tab" data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="false">Evènements du jour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="coming-tab" data-toggle="tab" href="#coming" role="tab" aria-controls="coming" aria-selected="false">Evènements à venir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="passed-tab" data-toggle="tab" href="#passed" role="tab" aria-controls="passed" aria-selected="false">Evènements passés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false">Offres</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="test" style="margin-top: 4%; margin-left: 2%"> 
+                            <div class="row">
+                               <h5 class="card-title"><%= @village.name %></h5>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <label>Code postal</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <p> <%= @village.zipcode %></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Adresse email</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <p> <%= @village.email %> </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Description</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <p> <%= @village.description %> </p>
+                                </div>
+                            </div>
 
 
-    <div class="col-md-8">
-        <div class= "row">
-            <h2> Evènements créés </h2>
+                            <div class="row">
+                                <div class="col-md-3">
+                                <%= button_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>
+                                </div>                                    
+                                <div class="col-md-7">
+                                    <%= link_to "modifier les informations", edit_village_path(id:@village.id), class:"btn btn-success" %>     
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="today" role="tabpanel" aria-labelledby="today-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>Aujourd'hui</label>
+                            </div>
+                            <div class="col-md-7">
+                                <% @events_today.each do |e| %>
+                                <%= render 'shared/list_events', event: e %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="coming" role="tabpanel" aria-labelledby="coming-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>A venir</label>
+                            </div>
+                            <div class="col-md-7">
+                                <% @events_to_come.each do |e| %>
+                                <%= render 'shared/list_events', event: e %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="passed" role="tabpanel" aria-labelledby="passed-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>Passés</label>
+                            </div>
+                            <div class="col-md-7">
+                                <% @events_passed.each do |e| %>
+                                <%= render 'shared/list_events', event: e %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>Offres</label>
+                            </div>
+                            <div class="col-md-7">
+                                
+                            </div>
+                        </div>
+                    </div>
         </div>
-        <div class="container">
-            <h3 class="border-bottom"> Evènements du jour </h3>
-            <% @events_today.each do |e| %>
-                <%= render 'shared/list_events', event: e %>
-            <% end %>
-
-            <h3 class="border-bottom"> Evènements à venir </h3>
-            <% @events_to_come.each do |e| %>
-                <%= render 'shared/list_events', event: e %>
-            <% end %>
-
-            <h3 class="border-bottom"> Evènements passés </h3>
-            <% @events_passed.each do |e| %>
-                <%= render 'shared/list_events', event: e %>
-            <% end %>
-        </div>
-    </div>
+    </div>        
 </div>
