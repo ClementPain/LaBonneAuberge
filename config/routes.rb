@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     resources :attendances, only: [:new, :create, :destroy]
     #permet de créer les routes permettant d'attacher les photos
   end
+
+  resources :offers
 end
