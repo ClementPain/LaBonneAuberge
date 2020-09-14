@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col-md-4">
-        <%= @offer.offer_picture %>
+        <%= offer.offer_picture %>
     </div>
 
     <div class="col-md-8">
         <div class="row">
             <%= link_to event_path(id: event.id), class:"link_to" do %>
-                <h4 class="card-title font-weight-bold mb-2" style="text-transform: uppercase;"><%= @offer.title %></h4>
+                <h4 class="card-title font-weight-bold mb-2" style="text-transform: uppercase;"><%= offer.title %></h4>
             <% end %>
         </div>
         <div class="row text-align-right">
-            <%= @offer.type_of_offer %>
+            <%= offer.type_of_offer %>
         </div>
         <div class="row">
-            <%= @offer.description %>
+            <%= offer.description %>
         </div>
     </div>
 </div>
