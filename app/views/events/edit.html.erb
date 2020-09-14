@@ -1,5 +1,5 @@
 <div class="container-fluid mt-5">
-    <div class="row justify-content-center p-2 border">
+    <div class="row justify-content-center p-2">
         <div class="col-md-7"
             <form class="form-horizontal">
                 <fieldset>
@@ -48,11 +48,13 @@
                         </div>
 
                         <div class="actions mt-5">
-                            <%= f.submit "Modifier l'évènement", class: "btn btn-lg btn-primary btn-block" %>
+                            <%= f.submit "Modifier l'évènement", class: "btn btn-lg btn-success btn-block" %>
                         </div>
                     <% end %>
                 </fieldset>
             </form>
+
+            <%= button_to "Supprimer l'évènement", event_path(@event), data: {confirm: "Voulez-vous supprimer l'évènement ?" }, method: :delete, class: "btn btn-lg btn-danger btn-block mt-3" %>
         </div>
     </div>
 </div>

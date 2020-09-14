@@ -3,18 +3,17 @@
 }
 
 .link_to {
-  color: #41b972;
+  color: #41b972!important;
 }
 
 .link_to:hover {
-  color: #68d522;
-  text-decoration: none;
+  color: #68d522!important;
+  text-decoration: none!important;
 }
 
 .footer {
     margin-top: 150px;
 }
-
 
 .bg-signup {
     background-image: url('https://images.unsplash.com/photo-1583274834778-656b2dc4696a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
@@ -67,4 +66,27 @@
 }
 .fa-share-alt:hover {
   color: #0d47a1 !important;
+}
+
+hr {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.col-md-5 {
+
+  padding-top: 15rem !important;
+  letter-spacing: .3rem;
+  margin-left: 5rem;
+}
+
+.par{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: auto;
+}
+
+.container-fluid.mt-5 {
+
+  margin-top: 10rem !important;
 }
