@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
    
-  get 'categories/index'
-  get 'categories/new'
-  get 'categories/create'
-  get 'categories/edit'
-  get 'categories/update'
-  get 'categories/destroy'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :town_halls, controllers: { sessions: 'town_halls/sessions', passwords: 'town_halls/passwords', registrations: 'town_halls/registrations', confirmations: 'town_halls/confirmations' }
   resources :manage_registration_town_halls, only: [:new, :create]
@@ -26,4 +20,5 @@ Rails.application.routes.draw do
   end
 
   resources :offers
+  get 'offers/search', to: 'offers#search'
 end

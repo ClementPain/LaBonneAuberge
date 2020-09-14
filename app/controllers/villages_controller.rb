@@ -3,7 +3,7 @@ require 'open-uri'
 require 'nokogiri'
 
 class VillagesController < ApplicationController
-    before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
+    before_action :authenticate_town_hall!, only: [:destroy]
     skip_before_action :verify_authenticity_token, :only => :update
 
 

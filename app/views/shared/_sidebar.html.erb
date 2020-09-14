@@ -1,4 +1,30 @@
-    
+<div class="menu-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <%= form_tag(offers_search_path, method: :get, remote: true) do %>
+                <div class="input-group mb-5">
+                    <div class="row">
+                        <%= text_field_tag :search, '', class:'form-control', placeholder:"Recherche..", onkeydown: 'clickSubmit()'%>
+                    </div>
+                </div>
+                <div class="row">
+                    <%= select_tag 'filter', options_for_select(['Reprendre un commerce', 'Immobilier', "Offre d'emploi"]), class:"custom-select" %>
+                    <%= submit_tag "Search", class:'btn btn-dark', id: 'search_submit', style:"display:none" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<script>
+    function clickSubmit() {
+        $("#search_submit").trigger("click");
+    }
+</script>
+
+
+
+
     <div class="card">
         <article class="card-group-item">
             <header class="card-header">
