@@ -1,0 +1,1 @@
+$("#menu-offers").html("<%= j render "shared/offers" %>");

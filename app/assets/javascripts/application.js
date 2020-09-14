@@ -15,3 +15,4 @@
 //= require activestorage
 
 //= require cable
+//= search_offer

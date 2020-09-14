@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
 
   resources :offers
+  get 'offers/search', to: 'offers#search'
 end

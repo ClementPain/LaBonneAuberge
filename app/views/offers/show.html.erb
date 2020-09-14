@@ -33,7 +33,16 @@
                                 <label>Village</label>
                             </div>
                             <div class="col-md-7">
-                                <p> <%= @offer.village.name %> </p>
+                                <p> <%= @offer.village.zipcode %> - <%= @offer.village.name %> </p>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Catégorie</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p> <%= @offer.category.title %> </p>
                             </div>
                         </div>
 

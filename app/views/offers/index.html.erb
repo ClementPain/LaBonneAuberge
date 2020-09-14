@@ -13,19 +13,28 @@
   <div class="container-fluid">
     <div class ="row">
       <div class="col-sm-3">
+        <%= render 'shared/sidebar' %>
+
+
+
+
         <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar">
         <!-- Navbar left -->
 
         </nav>
       </div>
 
-        <div class="col-sm-9">
-            <!-- Card -->
-            <% @offers.each_with_index do |offer, i| %>
-                <%= render 'shared/card_offer', offer: offer %> 
-            <% end %>
-            <!-- Card -->
+      <% if @offers.present? %>
+        <div class="col-sm-9 menu-offers">
+          <!-- Card -->
+          <% @offers.each_with_index do |offer, i| %>
+              <%= render 'shared/card_offer', offer: offer %> 
+          <% end %>
+          <!-- Card end -->
         </div>
+      <% else %>
+        <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
+      <% end %>
     </div>
   </div>
 
