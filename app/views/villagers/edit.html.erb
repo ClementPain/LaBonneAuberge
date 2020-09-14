@@ -22,87 +22,78 @@
                      <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
                     </ul> 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Réseaux sociaux</div>
-                    <div class="panel-body">
-                        <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-                    </div>
-                </div>
+         
 
-            </div><!--/col-3-->
+      <div class="text-center">
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload">
+      </div><br>
 
-            <div class="col-sm-6">
-                <ul class="nav nav-tabs">
-                    <li class="active"><h1>Profil</h1></li>
-                </ul> 
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                    <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="first_name"><h4>Prénom</h4></label>
-                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="prénom" title="enter your first name if any.">
-                                </div>
-                            </div>
-                            <div class="form-group"> 
-                                <div class="col-xs-6">
-                                    <label for="last_name"><h4>Nom</h4></label>
-                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="nom" title="enter your last name if any.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="age"><h4>Date de naissance</h4></label>
-                                    <input type="text" class="form-control" name="birthday" id="birthday" placeholder="date de naissance" title="enter your birthday.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="mobile"><h4>Mobile</h4></label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Téléphone" title="enter your mobile number if any.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="email"><h4>Email</h4></label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="ton@email.com" title="enter your email.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="email"><h4>Adresse</h4></label>
-                                    <input type="email" class="form-control" id="location" placeholder="adresse" title="enter a location">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="password"><h4>Mot de passe</h4></label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="mot de passe" title="enter your password.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                
-                                <div class="col-xs-6">
-                                    <label for="password2"><h4>Confirmation</h4></label>
-                                    <input type="password" class="form-control" name="password2" id="password2" placeholder="confirmation" title="enter your password2.">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
-                                    <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"%>
-                                    
-                                </div>
-                            </div>
-                        </form>
-    
-                    </div><!--/tab-pane-->
-                </div><!--/tab-content-->
-            </div><!--/col-9-->
+               
+          <div class="panel panel-default">
+            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+          </div>
+          
+          
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+          </ul> 
+               
+          <div class="panel panel-default">
+            <div class="panel-heading">Réseaux sociaux</div>
+            <div class="panel-body">
+            	<i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+            </div>
+          </div>
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+           <form class="form-horizontal">
+                <fieldset>
+                    <legend>Editer le profil </legend>
 
-        </div><!--/row-->
+                    <%= form_for @villager do |f| %>
+                        
+                        <div class="form-group">
+                            <%= f.label :first_name, 'Prénom : ' %>
+                            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :last_name, 'Nom : ' %>
+                            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group">
+                            <%= f.label :dat_of_birth, 'Date de naissance : ' %>
+                            <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-control" %>
+                        </div>
+
+                        <div class="form-group ">
+                            <%= f.label :description, 'Description : ' %>
+                            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+                        </div>
+                        
+        
+                        <div class="actions mt-5">
+                            <%= f.submit "Modifier le profil", class: "btn btn-lg btn-primary btn-block" %>
+                        </div>
+                    <% end %>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Profil</a></li>
+                <li><a data-toggle="tab" href="#profil">  Description</a></li>
+              </ul>
 
-                         
+              
+    
