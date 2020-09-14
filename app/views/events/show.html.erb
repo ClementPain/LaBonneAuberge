@@ -33,7 +33,12 @@
                                     <label>DATE</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <p> <%=@event.start_date %></p>
+                                    <p><time datetime=<%= @event.start_date %>
+                                    <span class="day"> <%= @event.start_date.day %> </span>
+                                    <span class="month"> <%= @event.start_date.strftime('%b') %> </span>
+                                    <span class="year"> <%= @event.start_date.year %> </span>
+                                    <span class="time"> </span>
+                                    </time></p>
                                 </div>
                             </div>
                             <div class="row">
