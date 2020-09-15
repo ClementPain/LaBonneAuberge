@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_072319) do
+ActiveRecord::Schema.define(version: 2020_09_15_183130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,11 +96,12 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
-    t.string "type_of_offer"
     t.text "description"
+    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
@@ -141,12 +142,23 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "validation_town_halls", force: :cascade do |t|
+    t.bigint "villager_id"
+    t.bigint "village_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_validation_town_halls_on_village_id"
+    t.index ["villager_id"], name: "index_validation_town_halls_on_villager_id"
+  end
+
   create_table "villagers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.text "description"
     t.datetime "date_of_birth"
     t.bigint "village_id"
+    t.string "address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -167,6 +179,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
+  add_foreign_key "validation_town_halls", "villagers"
+  add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"
-  add_foreign_key "villagers", "villages"
 end

@@ -8,6 +8,7 @@ class Village < ApplicationRecord
     # lien avec la table villager (profils utilisateurs)
     has_many :villagers
     has_many :users, through: :villagers
+    has_many :validation_town_halls
 
     validates :email, presence: true, uniqueness: true, length: { in: 6..50 }
     validates :name, presence: true, uniqueness: true, length: { in: 2..40 }

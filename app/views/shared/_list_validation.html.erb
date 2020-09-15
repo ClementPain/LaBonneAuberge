@@ -1,0 +1,24 @@
+<div class="row m-2 border-bottom" style="height:100px">
+
+    <div class="col-sm-2 justify-content-center">
+        <% if validation.villager.villager_picture.attached? %>
+            <%= image_tag(validation.villager.villager_picture, size: "60x60", class:"rounded") %>
+        <% end %>
+    </div>
+
+    <div class="col-sm-2 justify-content-center">
+        <p><%= validation.villager.first_name %> <%= validation.villager.last_name %></p>
+    </div>
+
+    <div class="col-sm-4 align-middle">
+        <p><%= validation.message %></p>
+    </div>
+
+    <div class="col-sm-2 justify-content-center">
+        <%= button_to "Valider", village_validation_town_halls_path(@village), method: :post, class:"btn btn-success", params: { villager_id: validation.villager.id } %>
+    </div>
+
+    <div class="col-sm-2 justify-content-center">
+        <%= button_to "Refuser !", village_validation_town_hall_path(@village, validation.id), data: {confirm: "Voulez-vous refuser l'utilisateur ?" }, method: :delete, class:"btn btn-danger", params: { villager_id: validation.villager.id } %>
+    </div>
+</div>

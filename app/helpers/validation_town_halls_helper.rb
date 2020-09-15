@@ -1,0 +1,2 @@
+module ValidationTownHallsHelper
+end
