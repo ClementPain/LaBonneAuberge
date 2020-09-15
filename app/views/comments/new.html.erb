@@ -7,9 +7,21 @@
                  <h1>Créez un commentaire pour cet évenement: </h1>
                   
 
+
                 <div class="form-group">
                     <%= f.label 'Renseignez votre commentaire :'%>
                     <%= f.text_area :content, autofocus: true, autocomplete: "title", class: "form-control"%>
+
+                <h1>Créez un commentaire pour cet évenement: </h1>
+                <p>Remplissez le formulaire</p>
+                <br/>
+
+                <%= form_for @comment, url: new_event_comment_path(@event) do |f| %>
+                
+                <div class="form-group">
+                    <%= f.label 'Renseignez votre commentaire : ' %>
+                    <%= f.text_area :content %>
+
                 </div>
                     
                 <div class="actions mt-5">       
