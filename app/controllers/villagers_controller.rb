@@ -17,7 +17,6 @@ before_action :find_villager, only: [:edit, :update, :destroy, :show]
             redirect_to edit_villager_path(@villager), alert: "Veuillez renseigner toutes les informations"
         end
     end
-
     
     private
 
