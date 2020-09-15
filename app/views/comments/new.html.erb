@@ -7,16 +7,11 @@
                 <p>Remplissez le formulaire</p>
                 <br/>
 
-                <%= form_for @comment  do |f| %>
-                <!-- >
+                <%= form_for @comment, url: event_comments_path(@event) do |f| %>
+                
                 <div class="form-group">
-                    <%= f.label 'Saisissez votre prénom :' %>
-                    <%= f.text_field :villager_first_name %>
-                </div>
-                <-->
-                <div class="form-group">
-                    <%= f.label_tag 'Renseignez votre commentaire : ' %>
-                    <%= f.text_area :comment_content %>
+                    <%= f.label 'Renseignez votre commentaire : ' %>
+                    <%= f.text_area :content %>
                 </div>
                 
                 
