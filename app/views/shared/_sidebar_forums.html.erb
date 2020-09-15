@@ -1,9 +1,9 @@
 <div class="menu-container">
     <div class="row">
-        <div class="col-sm-12 d-flex align-items-start">
+        <div class="col-sm-12 align-items-start">
             <% @village.forums.all.each do |f| %>
-                <div class="row" style="height:50px">
-                    <p><%= f.title %></p>
+                <div class="row align-item-center m-2" style="height:50px">
+                    <%= link_to f.title, village_forum_path(@village, f), class:"link_to", style:"font-size:20px" %>
                 </div>
             <% end %>
         </div>
