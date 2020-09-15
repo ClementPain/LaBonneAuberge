@@ -1,55 +1,47 @@
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
-    <div class="container">
-      <h1 class="display-3">Participer à un projet</h1>
-      <p>Dynamiser les villages</p>
-      <% if town_hall_signed_in? %>
-        <p><%= button_to "Poster une offre", new_offer_path, class:"btn btn-success", :method => :get %></p>
-      <% end %>
-    </div>
+<!-- Main jumbotron -->
+<div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
+  <div class="container">
+    <h1 class="display-3">Participer à un projet</h1>
+    <p></p>
+    <% if town_hall_signed_in? %>
+      <p><%= button_to "Poster une offre", new_offer_path, class:"btn btn-success", :method => :get %></p>
+    <% end %>
   </div>
+</div>
+
+<div class="container-fluid">
+  <div class ="row">
+    <div class="col-sm-3">
+      <%= render 'shared/sidebar_offers' %>
 
 
-  <div class="container-fluid">
-    <div class ="row">
-      <div class="col-sm-3">
-        <%= render 'shared/sidebar' %>
 
 
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar">
+      <!-- Navbar left -->
 
+      </nav>
+    </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar">
-        <!-- Navbar left -->
-
-        </nav>
+    <% if @offers.present? %>
+      <div class="col-sm-9 menu-offers">
+        <!-- Card -->
+        <% @offers.each_with_index do |offer, i| %>
+            <%= render 'shared/card_offer', offer: offer %> 
+        <% end %>
+        <!-- Card end -->
       </div>
-
-      <% if @offers.present? %>
-        <div class="col-sm-9 menu-offers">
-          <!-- Card -->
-          <% @offers.each_with_index do |offer, i| %>
-              <%= render 'shared/card_offer', offer: offer %> 
-          <% end %>
-          <!-- Card end -->
-        </div>
-      <% else %>
-        <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
-      <% end %>
-    </div>
+    <% else %>
+      <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
+    <% end %>
   </div>
+</div>
 
 
 
 
 
 
-      <!-- Card -->
-    </div>
+    <!-- Card -->
   </div>
-  
-
-
-
-</body>
-</html>
-
+</div>
