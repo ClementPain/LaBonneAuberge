@@ -7,7 +7,18 @@
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= post.content %></h5>
-            <footer class="blockquote-footer"> <%= post.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+            <div class="row">
+                <div class="col-sm-6">
+                    <footer class="blockquote-footer"> <%= post.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+                </div>
+                <div class="col-sm-6 align-item-center">
+                    <% if post.villager = current_user.villager %>
+                        <div class="row justify-content-end p-é">
+                            <%= button_to "Modifier", edit_village_forum_forums_post_path(@village, @forum, post), method: :get, class:"btn btn-success mr-4" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,45 @@
+<!-- Main jumbotron -->
+<div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
+  <div class="container">
+    <h1 class="display-3">Place du village</h1>
+    <p>Discuter</p>
+    <% if town_hall_signed_in? %>
+      <p><%= button_to "Créer un nouveau forum", new_village_forum_path, class:"btn btn-success", :method => :get %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class ="row mr-2" >
+        <div class="col-sm-2" >
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar align-items-start" style="height:800px">
+                <%= render 'shared/sidebar_forums' %>
+            </nav>
+        </div>
+
+        <div class="col-sm-10">
+            <!-- Forum principal -->
+            <div class="row" style="height: 100px">
+                <h3 class="pl-5"><%= @forum.title %></h2>
+            </div>
+
+            <div class="row overflow-auto ml-2" style="height:700px">
+                <% if @posts.nil? %>
+                    <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
+                <% else %>
+                        <div class="col">
+                        <% @posts.each do |p| %>
+                            <%= render 'post_forum', post: p %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-end mt-3">
+        <div class="col-sm-3 pt-3">
+            <%= button_to "Ajouter un message", new_village_forum_forums_post_path(@village, @forum), method: :get, class:"btn btn-success" %>
+        </div>
+    </div>
+</div>
