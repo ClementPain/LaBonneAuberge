@@ -22,7 +22,7 @@ before_action :find_villager, only: [:edit, :update, :destroy, :show]
     private
 
     def villager_params
-        params.require(:villager).permit(:first_name, :last_name, :description, :date_of_birth)
+        params.require(:villager).permit(:first_name, :last_name, :description, :date_of_birth, :villager_picture)
     end
 
     def find_villager

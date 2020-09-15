@@ -86,11 +86,12 @@ ActiveRecord::Schema.define(version: 2020_09_15_061514) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
-    t.string "type_of_offer"
     t.text "description"
+    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
@@ -106,6 +107,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_061514) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_town_halls_on_email", unique: true
