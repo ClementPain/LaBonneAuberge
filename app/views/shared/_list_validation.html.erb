@@ -1,6 +1,6 @@
 <div class="row m-2 border-bottom" style="height:100px">
 
-    <div class="col-sm-2 justify-content-center">
+    <div class="col-sm-1 justify-content-center">
         <% if validation.villager.villager_picture.attached? %>
             <%= image_tag(validation.villager.villager_picture, size: "60x60", class:"rounded") %>
         <% end %>
@@ -10,7 +10,7 @@
         <p><%= validation.villager.first_name %> <%= validation.villager.last_name %></p>
     </div>
 
-    <div class="col-sm-4 align-middle">
+    <div class="col-sm-5 align-middle">
         <p><%= validation.message %></p>
     </div>
 
