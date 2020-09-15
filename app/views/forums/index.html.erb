@@ -25,9 +25,7 @@
 
             <div class="row overflow-auto ml-2" style="height:700px">
                 <% if @posts.nil? %>
-                    <% 300.times do %>
-                        <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
-                    <%end%>
+                    <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
                 <% else %>
                     <% @posts.each do |p| %>
                         <%= render 'post_forum', post: p %>
