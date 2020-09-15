@@ -68,12 +68,11 @@ ActiveRecord::Schema.define(version: 2020_09_14_143400) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
+    t.string "type_of_offer"
     t.text "description"
-    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
