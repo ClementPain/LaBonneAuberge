@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   
     def show
         authorize! :read, Event
+       
     end
     
     def new 
