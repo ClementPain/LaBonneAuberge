@@ -11,10 +11,11 @@ class CommentsController < ApplicationController
   def create
 
     @comment = Comment.new(comment_params)
-    @comment.villager = Villager.find_by(email:villager.email)
+    @comment.villager = current_user.villager
+    @comment.event = @event
     
       if @comment.save
-        redirect_to event_comments_path, notice: "Le commentaire a bien été créé"
+        redirect_to event_path(@event), notice: "Le commentaire a bien été créé"
         
       else
         redirect_to new_event_comment_path, alert: "Certaines informations sont incorrectes"

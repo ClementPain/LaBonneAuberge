@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_09_15_072319) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +57,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.text "content"
     t.bigint "event_id"
     t.bigint "villager_id"
-    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["main_comment_id"], name: "index_comments_on_main_comment_id"
     t.index ["villager_id"], name: "index_comments_on_villager_id"
   end
 
@@ -100,12 +96,11 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
+    t.string "type_of_offer"
     t.text "description"
-    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
@@ -121,10 +116,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_town_halls_on_email", unique: true
@@ -177,4 +168,5 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
   add_foreign_key "villagers", "users"
+  add_foreign_key "villagers", "villages"
 end
