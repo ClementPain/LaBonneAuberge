@@ -27,7 +27,7 @@
             </li>
             
             <!-- Affichage onglet village -->
-            <% if ( user_signed_in? && @village = current_user.village ) || ( town_hall_signed_in? && @village = Village.find_by(email:current_town_hall.email)) %>
+            <% if ( user_signed_in? && @village = Village.find_by(id:current_user.villager.village_id) ) || ( town_hall_signed_in? && @village = Village.find_by(email:current_town_hall.email)) %>
 
                 <li class="nav-item">
                     <%= link_to "Mon village", village_forums_path(@village), class:"nav-link" %>

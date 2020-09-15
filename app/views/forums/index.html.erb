@@ -29,17 +29,17 @@
                         <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
                     <%end%>
                 <% else %>
-                    <% @posts.each do |f| %>
-                        <%= render 'post_forum', post:post %>
+                    <% @posts.each do |p| %>
+                        <%= render 'post_forum', post: p %>
                     <% end %>
                 <% end %>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-md-end">
+    <div class="row justify-content-md-end mt-3">
         <div class="col-sm-3 pt-3">
-            <%= button_to "Créer un post", class:"btn btn-success" %>
+            <%= button_to "Ajouter un message", new_village_forum_forums_post_path(@village, @forum), method: :get, class:"btn btn-success" %>
         </div>
     </div>
 </div>

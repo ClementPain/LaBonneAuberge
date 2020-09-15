@@ -177,5 +177,4 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
   add_foreign_key "villagers", "users"
-  add_foreign_key "villagers", "villages"
 end
