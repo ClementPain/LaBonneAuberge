@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
    
-  get 'comments/index'
-  get 'comments/new'
-  get 'comments/create'
-  get 'comments/show'
-  get 'comments/edit'
-  get 'comments/update'
-  get 'comments/destroy'
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :town_halls, controllers: { sessions: 'town_halls/sessions', passwords: 'town_halls/passwords', registrations: 'town_halls/registrations', confirmations: 'town_halls/confirmations' }
   resources :manage_registration_town_halls, only: [:new, :create]
@@ -19,10 +13,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   resources :villagers, only: [:show, :edit, :update]
-
-
-  
-  
 
   resources :villages do
     resources :forums do
