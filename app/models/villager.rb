@@ -1,6 +1,6 @@
 class Villager < ApplicationRecord
     belongs_to :user
-    has_one :village
+    belongs_to :village, optional: true
     has_many :comments
     has_one_attached :villager_picture
 end
