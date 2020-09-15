@@ -33,6 +33,12 @@
     <%= f.label :description, 'Description : ' %>
     <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
     </div>
+
+            <div class= "form-group">
+                      <%= f.label :villager_picture, 'Ajoute une photo : ' %>
+                      <%= f.file_field :villager_picture, autofocus: true, autocomplete: "villager_picture", class: "form-control" %>
+            </div>
+
     <div class="actions mt-5">
             <%= f.submit "Modifier profil", class: "btn btn-lg btn-success btn-block" %>
     <% end %>
