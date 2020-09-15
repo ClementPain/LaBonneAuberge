@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :villages do
+    resources :validation_town_halls, only: [:create, :destroy]
     resources :forums do
       resources :forums_posts
     end

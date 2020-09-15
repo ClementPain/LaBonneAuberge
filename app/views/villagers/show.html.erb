@@ -98,13 +98,15 @@
                             <div class="col-md-6">
                                 <label>Village</label>
                             </div>
-                            <% if @villager.village_id %>
-                                <div class="col-md-6">
+                            <div class="col-md-6">
+                                <% if @villager.village_id %>
                                     <p><%= Village.find(@villager.village_id).name %></p>
-                                </div>
-                            <% else %>
-                                <%= button_to "Intégrer un village", new_villager_associate_villager_path(@villager), method: :get, class:"btn btn-success" %>
-                            <% end %>
+                                <% elsif @validation = ValidationTownHall.find_by(villager: @villager) %>
+                                    <p>Validation en attente de <%= @validation.village.name %></p>
+                                <% else %>
+                                    <%= button_to "Intégrer un village", new_villager_associate_villager_path(@villager), method: :get, class:"btn btn-success" %>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
 
