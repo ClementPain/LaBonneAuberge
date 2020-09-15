@@ -25,6 +25,14 @@
             <li class="nav-item">
                 <%= link_to "Contact", static_pages_contact_path, class:"nav-link" %>
             </li>
+            
+            <!-- Affichage onglet village -->
+            <% if ( user_signed_in? && @village = current_user.village ) || ( town_hall_signed_in? && @village = Village.find_by(email:current_town_hall.email)) %>
+
+                <li class="nav-item">
+                    <%= link_to "Mon village", village_forums_path(@village), class:"nav-link" %>
+                </li>
+            <%end%>
 
             <!-- Utilisateur connecté -->
             <% if user_signed_in? %>

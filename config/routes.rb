@@ -20,8 +20,16 @@ Rails.application.routes.draw do
   
   resources :villagers, only: [:show, :edit, :update]
 
-  resources :villages
+
   
+  
+
+  resources :villages do
+    resources :forums do
+      resources :forums_posts
+    end
+  end
+
   resources :events do
     resources :attendances, only: [:new, :create, :destroy]
     resources :comments

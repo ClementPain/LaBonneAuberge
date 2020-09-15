@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_09_15_072319) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,13 +80,32 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.index ["village_id"], name: "index_events_on_village_id"
   end
 
-  create_table "offers", force: :cascade do |t|
+  create_table "forum_posts", force: :cascade do |t|
+    t.string "content"
+    t.bigint "villager_id"
+    t.bigint "forum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_id"], name: "index_forum_posts_on_forum_id"
+    t.index ["villager_id"], name: "index_forum_posts_on_villager_id"
+  end
+
+  create_table "forums", force: :cascade do |t|
     t.string "title"
-    t.string "type_of_offer"
-    t.text "description"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_forums_on_village_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "category_id"
+    t.bigint "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
@@ -100,6 +121,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_town_halls_on_email", unique: true
@@ -148,6 +173,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "forum_posts", "forums"
+  add_foreign_key "forum_posts", "villagers"
+  add_foreign_key "forums", "villages"
   add_foreign_key "villagers", "users"
   add_foreign_key "villagers", "villages"
 end

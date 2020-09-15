@@ -1,99 +1,50 @@
 
-<div class="container">
-   <div class="container-fluid mt-5">
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10 mt-5"><h1>Profil</h1></div>
+          <ul class="nav nav-tabs mt-5">
+            <li class="active"><a data-toggle="tab" href="#home">Profil</a></li>
+            <li><a data-toggle="tab" href="#profil"> Description</a></li>
+          </ul>
+          <div class="col-sm-2"><a href="/users" class="pull-right"></a></div>
+      </div>
         <div class="row">
-            <div class="col-sm-">
-                <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <h6>Envie de changer de photo...</h6>
-                    <input type="file" class="text-center center-block file-upload">
-                </div><br>
+          <div class="col-lg-8"> <!--left col-->
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                    <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-                </div>
+    <legend>Editer le profil </legend>
 
-                    <ul class="list-group">
-                     <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                     <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-                     <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-                     <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-                     <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-                    </ul> 
-
-         
-
-      <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
-      </div><br>
-
-               
-          <div class="panel panel-default">
-            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-          </div>
-          
-          
-          <ul class="list-group">
-            <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
-          </ul> 
-               
-          <div class="panel panel-default">
-            <div class="panel-heading">Réseaux sociaux</div>
-            <div class="panel-body">
-            	<i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-            </div>
-          </div>
-          
-        </div><!--/col-3-->
-    	<div class="col-sm-9">
-           <form class="form-horizontal">
-                <fieldset>
-                    <legend>Editer le profil </legend>
-
-                    <%= form_for @villager do |f| %>
-                        
-                        <div class="form-group">
-                            <%= f.label :first_name, 'Prénom : ' %>
-                            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
-                        </div>
-
-                        <div class="form-group">
-                            <%= f.label :last_name, 'Nom : ' %>
-                            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
-                        </div>
-
-                        <div class="form-group">
-                            <%= f.label :dat_of_birth, 'Date de naissance : ' %>
-                            <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-control" %>
-                        </div>
-
-                        <div class="form-group ">
-                            <%= f.label :description, 'Description : ' %>
-                            <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
-                        </div>
-                        
-        
-                        <div class="actions mt-5">
-                            <%= f.submit "Modifier le profil", class: "btn btn-lg btn-primary btn-block" %>
-                        </div>
-                    <% end %>
-                </fieldset>
-            </form>
-        </div>
+    <%= form_for @villager do |f| %>
+    <div class="form-group">
+    <%= f.label :first_name, 'Prénom : ' %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
     </div>
-</div>
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Profil</a></li>
-                <li><a data-toggle="tab" href="#profil">  Description</a></li>
-              </ul>
 
-              
-    
+    <div class="form-group">
+    <%= f.label :last_name, 'Nom : ' %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :dat_of_birth, 'Date de naissance : ' %>
+    <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", class: "form-control" %>
+    </div>
+
+    <div class="form-group ">
+    <%= f.label :description, 'Description : ' %>
+    <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control" %>
+    </div>
+
+            <div class= "form-group">
+                      <%= f.label :villager_picture, 'Ajoute une photo : ' %>
+                      <%= f.file_field :villager_picture, autofocus: true, autocomplete: "villager_picture", class: "form-control" %>
+            </div>
+
+    <div class="actions mt-5">
+            <%= f.submit "Modifier profil", class: "btn btn-lg btn-success btn-block" %>
+    <% end %>
+    <!--
+    </fieldset> -->
+    </form>
+    </div>
+    </div>
+  </div>
