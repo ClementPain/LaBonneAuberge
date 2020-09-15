@@ -3,6 +3,8 @@ class Village < ApplicationRecord
     has_many :events
     has_one_attached :village_avatar
 
+    has_many :forums, dependent: :destroy
+
     # lien avec la table villager (profils utilisateurs)
     has_many :villagers
     has_many :users, through: :villagers

@@ -29,22 +29,6 @@ class VillagesController < ApplicationController
         @town_hall_name = []
     end
 
-    def new
-            
-        # if !zipcode.nil? #vérifier qu'un zipcode a bien été entré par l'utilisateur
-        #     if Village.find_by(zipcode:params[:zipcode]) #vérifier que le zipcode renseigné existe
-        #         @zipcode_village = []
-        #         Village.select { |town| town.zipcode === params[:zipcode] }.each { |town| @zipcode_village << town }
-            
-        #     else
-        #         redirect_to new_village_path, alert: "Le zip code renseigné n'existe pas"
-        #     end
-        # else
-        #     @zipcode_village = []
-        #     @email = ""
-        # end
-  
-    end
 
     def create #scrapping pour créer les mairies
         page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/cantal.html"))
@@ -58,8 +42,13 @@ class VillagesController < ApplicationController
             
             if this_village = Village.find_by(name: town_name)
                 this_village.update(email: town_mail)
+                
+                if !Forum.find_by(title: "Forum principal", village: this_village)
+                    Forum.initialization(this_village)
+                end
             else
-                Village.create(name: town_name, email: town_mail, zipcode: town_zipcode)
+                this_village = Village.create(name: town_name, email: town_mail, zipcode: town_zipcode)
+                Forum.initialization(this_village)
             end
         end
         

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_143400) do
+ActiveRecord::Schema.define(version: 2020_09_15_061514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,24 @@ ActiveRecord::Schema.define(version: 2020_09_14_143400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["village_id"], name: "index_events_on_village_id"
+  end
+
+  create_table "forum_posts", force: :cascade do |t|
+    t.string "content"
+    t.bigint "villager_id"
+    t.bigint "forum_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["forum_id"], name: "index_forum_posts_on_forum_id"
+    t.index ["villager_id"], name: "index_forum_posts_on_villager_id"
+  end
+
+  create_table "forums", force: :cascade do |t|
+    t.string "title"
+    t.bigint "village_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_forums_on_village_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -136,6 +154,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_143400) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "forum_posts", "forums"
+  add_foreign_key "forum_posts", "villagers"
+  add_foreign_key "forums", "villages"
   add_foreign_key "villagers", "users"
   add_foreign_key "villagers", "villages"
 end

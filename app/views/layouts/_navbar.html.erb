@@ -25,6 +25,14 @@
             <li class="nav-item">
                 <%= link_to "Contact", static_pages_contact_path, class:"nav-link" %>
             </li>
+            
+            <!-- Affichage onglet village -->
+            <% if ( user_signed_in? && current_user.village ) || current_town_hall %>
+
+                <li class="nav-item">
+                    <%= link_to "Mon village", offers_path, class:"nav-link" %>
+                </li>
+            <%end%>
 
             <!-- Utilisateur connecté -->
             <% if user_signed_in? %>
