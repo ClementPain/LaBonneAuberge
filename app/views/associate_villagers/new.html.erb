@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
-            <%= form_with url: new_villager_associate_villager_path(@villager)  do |f| %>
+            <%= form_with url: villager_associate_villagers_path(@villager), local: true  do |f| %>
                 Renseignez un Zip Code :
                 <%= f.text_field :zipcode %>
 
