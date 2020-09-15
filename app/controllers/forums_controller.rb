@@ -3,8 +3,8 @@ class ForumsController < ApplicationController
     
     def index
         @forum = Forum.find_by(village:@village, title:"Forum principal")
-        @posts = ForumPost.find_by(forum:@forum)
-        @posts.order("created_at DESC") if !@posts.nil?
+        
+        @posts = ForumPost.select { |f| f.forum === @forum }
     end
 
     private
