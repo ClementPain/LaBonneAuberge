@@ -1,24 +1,27 @@
-<div class="row justify-content-md-center">
-      <div class="col mb-4 text-center">
+<div class="container">
+    <div class="container-fluid mt-5">
+        <div class="row">
+      <div class="col-md-6 offset-md-3">  
 
-        <h1>Créez un commentaire pour cet évenement: <%= @comment.event.title%> </h1>
-        <p>Remplissez le formulaire</p>
-        <br/>
+                <h1>Créez un commentaire pour cet évenement: </h1>
+                <p>Remplissez le formulaire</p>
+                <br/>
 
-        <%= form_tag url_for(action: 'create'), method: "post" do %>
-          
-          <%= label_tag 'Saisissez votre prénom : ' %>
-          <%= text_field_tag :villager_first_name %>
-          <br />
-          
-          <%= label_tag 'Renseignez votre commentaire : ' %>
-          <%= text_area_tag :comment_content %>
-          <br/>
+                <%= form_tag url_for(action: 'create'), method: "post" do %>
+                
+                <div class="form-group">
+                    <%= label_tag 'Saisissez votre prénom :' %>
+                    <%= text_field_tag :villager_first_name %>
+                </div>
+                <div class="form-group">
+                    <%= label_tag 'Renseignez votre commentaire : ' %>
+                    <%= text_area_tag :comment_content %>
+                </div>
+                
+                <%= submit_tag("Publier le commentaire", :class =>"btn btn-success") %>
 
-          <br />
-          
-          <%= submit_tag("Publier le commentaire", :class =>"btn btn-primary") %>
-
-        <% end %>
-      </div>
+                <% end %>
+            </div>
+        </div>
     </div>
+</div>
