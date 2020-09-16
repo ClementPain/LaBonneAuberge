@@ -74,6 +74,6 @@ gem 'pry'
 gem 'nokogiri'
 gem 'devise'
 gem 'dotenv'
-gem 'devise-i18n'
+
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 

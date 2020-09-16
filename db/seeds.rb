@@ -69,6 +69,6 @@ i = User.first.id
     description:Faker::GreekPhilosophers.quote,
     date_of_birth:Faker::Date.between(from: '1950-09-23', to: '2014-09-25'),
     user_id:i,
-    address:Faker::Address.street_name
+    
   )
 end
