@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :attendances, only: [:new, :show, :create, :destroy]
     resources :comments
+    resources :likes
+   
     #permet de créer les routes permettant d'attacher les photos
   end
 
@@ -37,5 +39,6 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
+
   
 end

@@ -5,6 +5,7 @@ class Event < ApplicationRecord
     has_many :attendances, dependent: :destroy
     has_many :users, through: :attendances
     belongs_to :village
+    has_many :likes, dependent: :destroy
 
 	validates :start_date, presence: true 
     validate :start_date_not_before_time_now
