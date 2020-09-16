@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile mt-3">
-                            <p>AUBERGES ET GITES VISITES</p>
+                            <p>MEILLEURS AUBERGES ET GITES VISITES</p>
                             <a href="">Website Link</a><br/>
                             <a href="">Website Link</a><br/>
                             <a href="">Website Link</a><br/>
@@ -78,7 +78,7 @@
                                                 <label>Date de naissance</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%= @villager.date_of_birth %></p>
+                                                <p><%= @villager.date_of_birth.strftime ('%D') %></p>
                                             </div>
                                         </div>
                                         <div class="row">
