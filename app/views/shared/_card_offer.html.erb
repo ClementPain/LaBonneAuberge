@@ -14,7 +14,7 @@
             <% end %>
         </div>
         <div class="row text-align-right">
-            <%= offer.category.title %>
+            <%= offer.category.title if offer.category %>
         </div>
         <div class="row">
             <%= offer.description %>

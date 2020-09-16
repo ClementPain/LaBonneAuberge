@@ -11,6 +11,7 @@ Event.destroy_all
 Message.destroy_all
 Villager.destroy_all
 User.destroy_all
+Category.destroy_all
 
 Faker::Config.locale = 'fr'
 
@@ -25,6 +26,7 @@ Faker::Config.locale = 'fr'
     )    
 end
 
+Category.create(title:"Associatif", display:true)
 
 User.create([
   {
