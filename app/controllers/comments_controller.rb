@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   before_action :find_event
+  before_action :find_comment, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_town_hall_or_user
-
+  before_action :authenticate_author, except: [:new, :create, :index, :show]
+  
   def index
     @comments = Comment.all
   end
@@ -27,9 +29,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
+    
+    if @comment.update(comment_params)
+      redirect_to event_path(@event), notice: "votre commentaire est bien modifié"
+  else
+      redirect_to edit_comment_path(@event), alert: "Veuillez renseigner toutes les informations"
+  end
   end
 
   def destroy
@@ -55,7 +64,7 @@ class CommentsController < ApplicationController
 
     def authenticate_author
       if user_signed_in?
-        redirect_to root_pah, alert "Vous n'avez pas accès à cette page" if current_user.villager != @comment.villager
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_user.villager!= @comment.villager
       end
     end
 end

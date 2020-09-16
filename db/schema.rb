@@ -57,11 +57,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_220247) do
     t.text "content"
     t.bigint "event_id"
     t.bigint "villager_id"
-    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["main_comment_id"], name: "index_comments_on_main_comment_id"
     t.index ["villager_id"], name: "index_comments_on_villager_id"
   end
 
