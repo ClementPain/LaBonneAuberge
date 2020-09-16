@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_09_15_072319) do
-
+ActiveRecord::Schema.define(version: 2020_09_15_220247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +57,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.text "content"
     t.bigint "event_id"
     t.bigint "villager_id"
-    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["main_comment_id"], name: "index_comments_on_main_comment_id"
     t.index ["villager_id"], name: "index_comments_on_villager_id"
   end
 
@@ -118,12 +114,11 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
+    t.string "type_of_offer"
     t.text "description"
-    t.bigint "category_id"
     t.bigint "village_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
   end
 
@@ -178,9 +173,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.string "first_name"
     t.string "last_name"
     t.text "description"
-    t.date "date_of_birth"
+    t.datetime "date_of_birth"
     t.bigint "village_id"
-    t.string "address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -201,10 +195,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
-
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "villagers"
   add_foreign_key "validation_town_halls", "villagers"
   add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "villagers"
+  add_foreign_key "villagers", "villages"
 end
