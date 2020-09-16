@@ -6,13 +6,13 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
 
   # Lien avec la table villager (page profil)
-  has_one :villager
+  has_one :villager, dependent: :destroy
   has_one :village, through: :villager
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
   
          
   def welcome_send
