@@ -2,16 +2,18 @@
 <div class="container-fluid mt-5 emp-profile">
     <div class="row">
         <div class="col-md-4">
+
+            <!-- Village image -->
             <div class="profile-img">
                 <% if @village.village_avatar.attached? %>
                     <%= image_tag(@village.village_avatar, size: "400x300")%>
-               
                 <% else %>
                     <p>=== Il n'y a pas encore d'avatar lié à ce village ===</p>
                 <% end %>
-                
             </div>
         </div>
+
+        <!-- Nom onglets -->
         <div class="col-md-7">
             <div class="profile-head">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -19,21 +21,24 @@
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Informations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="today-tab" data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="false">Evènements du jour</a>
+                        <a class="nav-link" id="today-tab" data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="false">Evènements</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="coming-tab" data-toggle="tab" href="#coming" role="tab" aria-controls="coming" aria-selected="false">Evènements à venir</a>
+                        <a class="nav-link" id="coming-tab" data-toggle="tab" href="#coming" role="tab" aria-controls="coming" aria-selected="false">Offres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="passed-tab" data-toggle="tab" href="#passed" role="tab" aria-controls="passed" aria-selected="false">Evènements passés</a>
+                        <a class="nav-link" id="passed-tab" data-toggle="tab" href="#passed" role="tab" aria-controls="passed" aria-selected="false">Forums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false">Offres</a>
+                        <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false">Validations</a>
                     </li>
                 </ul>
             </div>
+
             <div class="tab-content profile-tab" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                    <!-- Onglet Informations -->
                     <div class="test" style="margin-top: 4%; margin-left: 2%"> 
                             <div class="row">
                                <h5 class="card-title"><%= @village.name %></h5>
@@ -64,64 +69,104 @@
                                 </div>
                             </div>
 
-
-                            <div class="row">
-                                <div class="col-md-3">
-                                <%= button_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>
-                                </div>                                    
-                                <div class="col-md-7">
-                                    <%= link_to "modifier les informations", edit_village_path(id:@village.id), class:"btn btn-success" %>     
+                            <div class="row">                                    
+                                <div class="col-md-7 mt-5">
+                                    <%= link_to "Modifier les informations", edit_village_path(id:@village.id), class:"btn btn-success" %>     
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
+
+                    <!-- Onglet Evenement -->
                     <div class="tab-pane fade" id="today" role="tabpanel" aria-labelledby="today-tab">
+
+                        <!-- Evenement du jour -->
                         <div class="row" style="margin-top: 4%; margin-left: 1%">
                             <div class="col-md-2">
                                 <label>Aujourd'hui</label>
                             </div>
                             <div class="col-md-7">
                                 <% @events_today.each do |e| %>
-                                <%= render 'shared/list_events', event: e %>
+                                    <%= render 'shared/list_events', event: e %>
                                 <% end %>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="coming" role="tabpanel" aria-labelledby="coming-tab">
+                        
+                        <!-- Evenements à venir -->
                         <div class="row" style="margin-top: 4%; margin-left: 1%">
                             <div class="col-md-2">
                                 <label>A venir</label>
                             </div>
                             <div class="col-md-7">
                                 <% @events_to_come.each do |e| %>
-                                <%= render 'shared/list_events', event: e %>
+                                    <%= render 'shared/list_events', event: e %>
                                 <% end %>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="passed" role="tabpanel" aria-labelledby="passed-tab">
+
+                        <!-- Evenements passés -->
                         <div class="row" style="margin-top: 4%; margin-left: 1%">
                             <div class="col-md-2">
                                 <label>Passés</label>
                             </div>
                             <div class="col-md-7">
                                 <% @events_passed.each do |e| %>
-                                <%= render 'shared/list_events', event: e %>
+                                    <%= render 'shared/list_events', event: e %>
                                 <% end %>
                             </div>
                         </div>
+
+                        <div class="row">                                    
+                            <div class="col-md-7 mt-5">
+                                <%= button_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>     
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+
+                    <!-- Projets -->
+                    <div class="tab-pane fade" id="coming" role="tabpanel" aria-labelledby="coming-tab">
                         <div class="row" style="margin-top: 4%; margin-left: 1%">
                             <div class="col-md-2">
-                                <label>Offres</label>
+                                <label>Projets</label>
                             </div>
                             <div class="col-md-7">
                                 
                             </div>
                         </div>
                     </div>
+
+                    <!-- Forums -->
+                    <div class="tab-pane fade" id="passed" role="tabpanel" aria-labelledby="passed-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>Liste des forums disponibles</label>
+                                <div class="row">
+                                    <%= button_to "Créer un nouveau forum", new_village_forum_path(@village), class:"btn btn-success", :method => :get %>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <% @forums.each do |f| %>
+                                    <%= render 'shared/list_forum', forum: f %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Validations -->
+                    <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                        <div class="row" style="margin-top: 4%; margin-left: 1%">
+                            <div class="col-md-2">
+                                <label>Validations</label>
+                            </div>
+                            <div class="col-md-10">
+                                <% @validations.each do |v| %>
+                                    <%= render 'shared/list_validation', validation: v %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>        
 </div>

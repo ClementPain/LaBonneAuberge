@@ -1,7 +1,7 @@
 <!-- Main jumbotron -->
 <div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
   <div class="container">
-    <h1 class="display-3">Place du village</h1>
+    <h1 class="display-3">Place du village - <%= @village.name %></h1>
     <p>Discuter</p>
     <% if town_hall_signed_in? %>
       <p><%= button_to "Créer un nouveau forum", new_village_forum_path, class:"btn btn-success", :method => :get %></p>

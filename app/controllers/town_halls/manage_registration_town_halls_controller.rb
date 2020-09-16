@@ -11,7 +11,7 @@ class ManageRegistrationTownHallsController < ApplicationController
         redirect_to new_manage_registration_town_hall_path, alert: "Cette ville a déjà un compte mairie"
       end
     else
-      redirect_to new_manage_registration_town_hall_path, alert: "Le zip code renseigné n'existe pas"
+      redirect_to new_manage_registration_town_hall_path, alert: "Le code postal renseigné n'existe pas"
     end
   end
 end

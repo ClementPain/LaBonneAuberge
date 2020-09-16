@@ -21,8 +21,10 @@
 
                             <!-- Description -->
                             <h4 class="white-text my-4">Donnez vie à nos villages</h4>
-                            <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
 
+                            <% if !user_signed_in? && !town_hall_signed_in? %>
+                                <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
+                            <% end %>
                         </div>
 
                     </div>
