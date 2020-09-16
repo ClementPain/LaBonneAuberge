@@ -31,7 +31,7 @@ class VillagersController < ApplicationController
     end
 
     def authenticate_villager
-        if @villager.id != params[:villager_id].to_i
+        if @villager.id != current_user.villager.to_i
             redirect_to root_path, alert: "Vous ne pouvez pas accéder à cette page"
         end
     end
