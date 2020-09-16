@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :attendances, only: [:new, :create, :destroy]
+    resources :attendances, only: [:new, :show, :create, :destroy]
     resources :comments
     #permet de créer les routes permettant d'attacher les photos
   end
