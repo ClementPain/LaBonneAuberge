@@ -1,5 +1,5 @@
 class VillagersController < ApplicationController
-before_action :find_villager, only: [:edit, :update, :destroy, :show]
+    before_action :find_villager, only: [:edit, :update, :destroy, :show]
 
     def show
 
