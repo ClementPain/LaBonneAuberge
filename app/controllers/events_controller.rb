@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-    before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
-    load_and_authorize_resource
+    before_action :authenticate_town_hall!, except: [:index, :show]
 
     before_action :find_event, only: [:edit, :update, :destroy, :show]
 
