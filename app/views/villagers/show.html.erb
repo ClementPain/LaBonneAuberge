@@ -78,7 +78,7 @@
                                                 <label>Date de naissance</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><%= @villager.date_of_birth.strftime ('%D') %></p>
+                                                <p><%= @villager.date_of_birth.strftime('%D') if @villager.date_of_birth %></p>
                                             </div>
                                         </div>
                                         <div class="row">
