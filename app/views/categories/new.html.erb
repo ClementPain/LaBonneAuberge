@@ -1,2 +1,35 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<!-- Message d'erreur en cas de problème-->
+<% if @category.errors.any? %>
+    <div class="alert alert-danger">
+        <p>Nous n'avons pas réussi à créer la category pour la (ou les) raison(s) suivante(s) :</p>
+        <ul>
+            <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+  
+<!-- Formulaire création évènement -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">  
+            <br><br><br>
+            
+            <%= form_for @category do |f| %>
+                <h1>Création d'une catégorie</h1>
+                
+                <div class="form-group">
+                    <%= f.label :title, 'Renseigne un titre : ' %>
+                    <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control" %>
+                </div>
+
+                <div class="actions mt-5">
+                    <%= f.submit "Créer une catégorie", class: "btn btn-lg btn-success btn-block" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
