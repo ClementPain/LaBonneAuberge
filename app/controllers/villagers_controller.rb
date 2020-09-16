@@ -1,5 +1,8 @@
 class VillagersController < ApplicationController
+    before_action :authenticate_user!, only: [:edit, :update]
+
     before_action :find_villager, only: [:edit, :update, :destroy, :show]
+    before_action :authenticate_villager, only: [:edit, :update]
 
     def show
 
@@ -25,6 +28,12 @@ class VillagersController < ApplicationController
 
     def find_villager
         @villager = Villager.find(params[:id])
+    end
+
+    def authenticate_villager
+        if @villager.id != params[:villager_id].to_i
+            redirect_to root_path, alert: "Vous ne pouvez pas accéder à cette page"
+        end
     end
 end
 

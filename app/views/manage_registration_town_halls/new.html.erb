@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
             <%= form_with url: manage_registration_town_halls_path, method: :post, local:true do |f| %>
-                Renseignez un code postal :
+                Renseignez un code communal / code Insee :
                 <%= f.text_field :zipcode %>
 
                 <%= f.submit :Validez, class:"btn btn-success" %>
