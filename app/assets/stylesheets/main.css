@@ -94,3 +94,7 @@ hr {
 ul.no {
   list-style-type: none;
 }
+
+.list-group-1{
+  width: 40%;
+}
