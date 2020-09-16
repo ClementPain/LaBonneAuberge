@@ -42,7 +42,7 @@
                                 <label>Catégorie</label>
                             </div>
                             <div class="col-md-7">
-                                <p> <%= @offer.category.title %> </p>
+                                <p> <%= @offer.category.title if @offer.category %> </p>
                             </div>
                         </div>
 

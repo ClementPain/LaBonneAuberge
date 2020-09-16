@@ -2,38 +2,31 @@
 <div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
   <div class="container">
     <h1 class="display-3">Participer à un projet</h1>
-    <p></p>
     <% if town_hall_signed_in? %>
       <p><%= button_to "Poster une offre", new_offer_path, class:"btn btn-success", :method => :get %></p>
     <% end %>
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class ="row">
-    <div class="col-sm-3">
-      <%= render 'shared/sidebar_offers' %>
-
-
-
-
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-left scrolling-navbar">
-      <!-- Navbar left -->
-
-      </nav>
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <!-- Sidebar -->
+    <div class="col-sm-3 h-100 p-4" style="background-color:#111B1C">
+      <%= render 'sidebar_offers' %>
     </div>
 
-    <% if @offers.present? %>
-      <div class="col-sm-9 menu-offers">
+    
+    <div class="col menu-offers px-5">
+      <% if @offers.present? %>
         <!-- Card -->
         <% @offers.each_with_index do |offer, i| %>
-            <%= render 'shared/card_offer', offer: offer %> 
+            <%= render 'card_offer', offer: offer %> 
         <% end %>
         <!-- Card end -->
-      </div>
-    <% else %>
-      <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
-    <% end %>
+      <% else %>
+        <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
+      <% end %>
+    </div>
   </div>
 </div>
 

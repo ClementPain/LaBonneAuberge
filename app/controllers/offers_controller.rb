@@ -2,11 +2,14 @@ class OffersController < ApplicationController
     before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
     
     before_action :find_offer, only: [:edit, :update, :destroy, :show]
+    before_action :find_cat, only: [:new, :edit]
     before_action :find_author_town_hall, only: [:edit, :update, :destroy]
 
 
     def index
         @offers = Offer.all
+        @categories = Category.select { |cat| cat.display === true }.map { |cat| cat.title }
+
         if params[:search]
             @offers = Offer.search(params[:search]).order("created_at DESC")
         else
@@ -39,7 +42,7 @@ class OffersController < ApplicationController
     end
 
     def update
-        if @offer.update(offer_params)
+        if @offer.update(offer_params) && @offer.update(category:Category.find(cat_params[:category]))
             redirect_to offer_path(@offer), notice: "Les informations de #{@offer.title} ont bien été mises à jour"
         else
             redirect_to edit_offer_path(@offer), alert: "Certaines informations renseignées ne sont pas correctes"
@@ -53,7 +56,7 @@ class OffersController < ApplicationController
 
     def search
         query = params[:search]
-        results = Offer.where('title LIKE ?', "%#{query}%")
+        results = Offer.where('title LIKE ?', "%#{query}%").or(Offer.where('description LIKE ?', "%#{query}%"))
         if params[:filter] == 'Filtre'
             @products = results
         else
@@ -76,7 +79,11 @@ class OffersController < ApplicationController
         @offer = Offer.find(params[:id])
     end
 
+    def find_cat
+        @categories = Category.select { |cat| cat.display === true }.map { |cat| [cat.title, cat.id] }
+    end
+
     def find_author_town_hall
-        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_town_hall.village != @offer.village
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if Village.find_by(email:current_town_hall.email) != @offer.village
     end
 end
