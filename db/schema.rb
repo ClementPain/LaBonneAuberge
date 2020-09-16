@@ -205,4 +205,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "validation_town_halls", "villagers"
   add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "villagers"
 end
