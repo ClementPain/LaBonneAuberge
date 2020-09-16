@@ -9,13 +9,13 @@ class EventsController < ApplicationController
   
     def show
         authorize! :read, Event
-        @event = Event.find(params[:id])
-     @comments = []
-     Comment.all.each do |comment|
-       if @event.id == comment.event_id
-        @comments << comment
-       end
-     end
+        @comments = []
+
+        Comment.all.each do |comment|
+            if @event.id == comment.event_id
+            @comments << comment
+        end
+    end
        
     end
     
