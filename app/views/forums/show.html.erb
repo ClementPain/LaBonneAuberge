@@ -27,9 +27,9 @@
                 <% if @posts.nil? %>
                     <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
                 <% else %>
-                        <div class="col">
+                    <div class="col">
                         <% @posts.each do |p| %>
-                            <%= render 'post_forum', post: p %>
+                            <%= render 'shared/post_villager', post: p %>
                         <% end %>
                     </div>
                 <% end %>

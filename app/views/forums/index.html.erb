@@ -28,7 +28,7 @@
                     <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
                 <% else %>
                     <% @posts.each do |p| %>
-                        <%= render 'post_forum', post: p %>
+                        <%= render 'shared/post_villager', post: p %>
                     <% end %>
                 <% end %>
             </div>
