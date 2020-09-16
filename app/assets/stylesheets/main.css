@@ -90,3 +90,7 @@ hr {
 
   margin-top: 10rem !important;
 }
+
+ul.no {
+  list-style-type: none;
+}

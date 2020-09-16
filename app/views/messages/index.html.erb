@@ -1,0 +1,33 @@
+<h2 class="ca" style="margin-top: 4%; margin-left: 2%"><b>DISCUSSION PRIVEE</b></h2>
+
+<div class="conto" style="margin-top: 3%; margin-left: 2%">
+<h5 class="ca" style="margin-bottom: 2%"><b>CONVERSATION</b></h5>
+  <div class="row">
+    <div class="card col-9">
+      <div class="card-body">
+        <ul class="no">
+            <% @messages.each do |message| %>
+                <% if message.body %>
+                <li>
+                    <h6 class="styl" style ="text-transform: uppercase"><b><i><%= message.villager.first_name %> : </b></i></h6>
+                    <p><%= message.body %></p>
+                </li>
+                <% end %>
+            <% end %>
+            </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h5 class="ca" style="margin-top: 2%; margin-left: 2%"><b>MESSAGE</b></h5>
+<div class="card-body col-9">
+    <%= form_for [@conversation, @message] do |f| %>
+        <div class="field">
+            <%= f.text_area :body,  :size => "60%x5%", placeholder: "Ton message" %>
+        </div>
+            <%= f.submit "Envoyer" %>
+    <% end %>
+</div>
+
+

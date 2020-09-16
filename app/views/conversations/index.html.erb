@@ -1,0 +1,22 @@
+<div class="mess" style="margin-top: 4%; margin-left: 2%">
+    <h1>Ta messagerie privée</h1>
+    <ul>
+    <% @conversations.each do |conversation| %>
+        <li>
+        <%= link_to conversation.recipient(current_user).first_name, conversation_messages_path(conversation) %> <%= link_to conversation.recipient(current_user).last_name, conversation_messages_path(conversation) %>
+        <% if !conversation.unread_message_count(current_user).zero? %>
+            (<%= conversation.unread_message_count(current_user) %>)
+        <% end %>
+        </li>
+    <% end %>
+    </ul>
+</div>
+
+<div class="mess" style="margin-top: 4%; margin-left: 2%">
+    <h2>Les villageois</h2>
+    <ul>
+    <% @users.each do |villager| %>
+        <li><%= link_to villager.first_name, conversations_path(sender_id: current_user.id, receiver_id: villager.id), method: :post %> <%= link_to villager.last_name, conversations_path(sender_id: current_user.id, receiver_id: villager.id), method: :post %></li>
+    <% end %>
+    </ul>
+</div>

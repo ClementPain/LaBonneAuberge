@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  conversation: one
+  villager: one
+  read: false
+
+two:
+  body: MyText
+  conversation: two
+  villager: two
+  read: false

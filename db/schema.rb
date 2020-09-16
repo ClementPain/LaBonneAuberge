@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_072319) do
+ActiveRecord::Schema.define(version: 2020_09_15_220247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,10 +57,19 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.text "content"
     t.bigint "event_id"
     t.bigint "villager_id"
+    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["main_comment_id"], name: "index_comments_on_main_comment_id"
     t.index ["villager_id"], name: "index_comments_on_villager_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -92,6 +101,17 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["village_id"], name: "index_forums_on_village_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "villager_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["villager_id"], name: "index_messages_on_villager_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -167,6 +187,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "villagers"
   add_foreign_key "villagers", "users"
   add_foreign_key "villagers", "villages"
 end

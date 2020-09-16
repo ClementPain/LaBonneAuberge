@@ -26,3 +26,35 @@ end
 Category.create(title:"Associatif", display:true)
 Category.create(title:"Reprise de commerce", display:true)
 Category.create(title:"Immobilier", display:true)
+
+User.create([
+  {
+    email: "mike.hayden@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "jules@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "jason@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "ed@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "will@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "toni@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  },{
+    email: "chetan@ga.co",
+    password: "password",
+    password_confirmation: "password",
+  }
+])
