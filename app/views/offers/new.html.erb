@@ -34,7 +34,7 @@
 
           <div class="form-group">
             <%= f.label :category, 'Indique une categorie : ' %>
-            <%= f.select :category, Category.all.map { |cat| [cat.title, cat.id] }, prompt: "Catégories", autofocus: true, autocomplete: "type d'offre", class: "form-control" %>
+            <%= f.select :category, @categories, autofocus: true, autocomplete: "type d'offre", class: "form-control" %>
           </div>
 
           <div class="form-group">

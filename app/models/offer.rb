@@ -7,7 +7,6 @@ class Offer < ApplicationRecord
 	validates :description, presence: true, length: { in: 10..1000, message: "Un description fait entre 10 et 1000 caractères" }
 
     def self.search(search)
-        where("title ILIKE ?", "%#{search}%")
-        where("description ILIKE ?", "%#{search}%")
+        self.where("title ILIKE ?", "%#{search}%").or(self.where("description ILIKE ?", "%#{search}%"))
     end
 end
