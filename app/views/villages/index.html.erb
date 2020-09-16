@@ -1,12 +1,23 @@
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-4-sm mt-5">
-            <%= button_to "mettre à jour l'annuaire des mairies", villages_path, method: :post, class:"btn btn-primary"%>
+    <div class="row justify-content-center m-5">
+        <%= button_to "mettre à jour l'annuaire des mairies", villages_path, method: :post, class:"btn btn-primary"%>
 
-            <% if @town_hall_names %>
-                <% @town_hall_names.each do |town| %>
-                    <%= town %>
-                <% end %>
+        <% if @town_hall_names %>
+            <% @town_hall_names.each do |town| %>
+                <%= town %>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="row justify-content-start">
+        <div class="col-sm-4 pl-5">
+            <div class="row mb-5">
+                <h4 class="mr-5">Catégories projets</h4>
+                <%= button_to "créer une catégorie", new_category_path, method: :get, class:"btn btn-primary"%>
+            </div>         
+
+            <% @categories.each do |c| %>
+                <%= render 'cat_list', category: c %>
             <% end %>
         </div>
     </div>
