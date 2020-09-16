@@ -7,34 +7,45 @@
                     <% if @villager.villager_picture.attached? %>
                         <%= image_tag(@villager.villager_picture, size: "200x200")%>
                     <% end %>          
-                 </div>           
-                    </div>
-                    <div class="col-md-7">
-                        <div class="profile-head">
-                                    <h5>
-                                        <%= @villager.first_name %>
-                                    </h5>
-                                    <h5>
-                                        <%= @villager.last_name%>
-                                    </h5>
-                                   
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profil-tab" data-toggle="tab" href="#profil" role="tab" aria-controls="profil" aria-selected="false">Description</a>
-                                </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="message" aria-selected="false">Message</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                     <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
-                    </div>
+                </div>           
+            </div>
+            <div class="col-md-7">
+                <div class="profile-head">
+                    <h5>
+                        <%= @villager.first_name %>
+                    </h5>
+                    <h5>
+                        <%= @villager.last_name%>
+                    </h5>
+                            
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profil-tab" data-toggle="tab" href="#profil" role="tab" aria-controls="profil" aria-selected="false">Description</a>
+                        </li>
+                            <li class="nav-item">
+                            <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="message" aria-selected="false">Message</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+            <div class="col-md-2">
+                <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile mt-3">
+                    <p>AUBERGES ET GITES VISITES</p>
+                    <a href="">Website Link</a><br/>
+                    <a href="">Website Link</a><br/>
+                    <a href="">Website Link</a><br/>
+                    <p class="mt-3">MESSAGERIE</p>
+                    <a href="">Accéder à ma messagerie</a><br/>
+                </div>
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="profile mt-3">
@@ -49,14 +60,14 @@
                     <div class="col-md-7">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Prénom</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%= @villager.first_name %></p>
-                                            </div>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Prénom</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%= @villager.first_name %></p>
+                                    </div>
+                                  </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Nom:</label>
@@ -139,3 +150,4 @@
             </form>           
         </div>
     </div>
+</div>

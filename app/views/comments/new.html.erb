@@ -1,24 +1,22 @@
 <div class="container">
-    <div class="container-fluid mt-5">
-        <div class="row">
-      <div class="col-md-6 offset-md-3">  
+    <div class="row">
+          <div class="col-md-6 offset-md-3">  
+              <br><br><br>
 
-                <h1>Créez un commentaire pour cet évenement: </h1>
-                <p>Remplissez le formulaire</p>
-                <br/>
+               <%= form_for @comment, url: event_comments_path(@event) do |f| %>
+                   <h1>Créez un commentaire pour cet évenement : </h1>
+                   <p>remplissez le formulaire</p>
 
-                <%= form_for @comment, url: new_event_comment_path(@event) do |f| %>
-                
-                <div class="form-group">
-                    <%= f.label 'Renseignez votre commentaire : ' %>
-                    <%= f.text_area :content %>
-                </div>
-                
-                
-                <%= f.submit("Publier le commentaire", :class =>"btn btn-success") %>
 
-                <% end %>
-            </div>
-        </div>
+                  <div class="form-group">
+                      <%= f.label 'Renseignez votre commentaire :'%>
+                      <%= f.text_area :content, autofocus: true, autocomplete: "title", class: "form-control"%>
+                  </div>
+
+                  <div class="actions mt-5">       
+                  <%= f.submit("Publier le commentaire", class: "btn btn-lg btn-success btn-block") %>
+                  </div> 
+                  <% end %>
+          </div>
     </div>
 </div>

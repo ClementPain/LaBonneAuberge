@@ -1,11 +1,11 @@
 <div class="container-fluid mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
-            <%= form_with url: manage_registration_town_halls_path  do |f| %>
-            Renseignez un Zip Code :
-            <%= f.text_field :zipcode %>
+            <%= form_with url: manage_registration_town_halls_path, method: :post, local:true do |f| %>
+                Renseignez un code postal :
+                <%= f.text_field :zipcode %>
 
-            <%= f.submit :Validez %>
+                <%= f.submit :Validez, class:"btn btn-success" %>
             <% end %>
         </div>
     </div>

@@ -1,6 +1,7 @@
 class Forum < ApplicationRecord
   belongs_to :village
-
+  has_many :forum_posts
+  
   validates :title, presence: true, length: { in: 2..40 }
 
   def self.initialization(village)

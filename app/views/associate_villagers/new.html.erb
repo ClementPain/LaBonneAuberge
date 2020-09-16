@@ -1,0 +1,21 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <%= form_with url: villager_associate_villagers_path(@villager), local: true  do |f| %>
+                <div class="form-group">
+                    <%= f.label "Renseignez un code postal :" %>
+                    <%= f.text_field :zipcode %>
+                </div>
+                
+                <div class="form-group">
+                    <%= f.label "Envoyer un message à la mairie :" %>
+                    <%= f.text_area :message %>
+                </div>
+
+                <div class="actions mt-5">
+                    <%= f.submit :Validez, class:"btn btn-success" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

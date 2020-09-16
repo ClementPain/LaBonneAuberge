@@ -1,6 +1,7 @@
 class ForumsPostsController < ApplicationController
     before_action :find_village_and_forum
-    
+    before_action :find_post, only: [:edit, :update, :destroy]
+
     def new
         @post = ForumPost.new
     end
@@ -17,11 +18,32 @@ class ForumsPostsController < ApplicationController
         end
     end
 
+    def edit
+
+    end
+
+    def update
+        if @post.update(post_params)
+            redirect_to village_forum_path(@village, @forum), notice: "Votre post a bien été mises à jour"
+        else
+            redirect_to edit_village_forum_forums_post_path(@village, @forum, @post), alert: "Veuillez renseigner toutes les informations"
+        end
+    end
+
+    def destroy
+        @post.delete
+        redirect_to village_forum_path(@village, @forum), alert: "Le post a bien été supprimé"
+    end
+
     private
 
     def find_village_and_forum
         @village = Village.find(params[:village_id])
         @forum = Forum.find(params[:forum_id])
+    end
+
+    def find_post
+        @post = ForumPost.find(params[:id])
     end
 
     def post_params

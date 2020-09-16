@@ -1,0 +1,2 @@
+module AssociateVillagersHelper
+end

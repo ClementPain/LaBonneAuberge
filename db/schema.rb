@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_09_15_072319) do
 
   # These are extensions that must be enabled in order to support this database
@@ -57,11 +58,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.text "content"
     t.bigint "event_id"
     t.bigint "villager_id"
-    t.bigint "main_comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["main_comment_id"], name: "index_comments_on_main_comment_id"
     t.index ["villager_id"], name: "index_comments_on_villager_id"
   end
 
@@ -144,12 +143,23 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "validation_town_halls", force: :cascade do |t|
+    t.bigint "villager_id"
+    t.bigint "village_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_validation_town_halls_on_village_id"
+    t.index ["villager_id"], name: "index_validation_town_halls_on_villager_id"
+  end
+
   create_table "villagers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.text "description"
     t.date "date_of_birth"
     t.bigint "village_id"
+    t.string "address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -170,5 +180,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_072319) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
+  add_foreign_key "validation_town_halls", "villagers"
+  add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"
 end

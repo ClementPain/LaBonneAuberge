@@ -1,0 +1,17 @@
+<div class="row m-2 border-bottom" style="height:100px">
+
+    <div class="col-sm-4 justify-content-center">
+        <p><%= forum.title %></p>
+    </div>
+
+    <div class="col-sm-2 justify-content-center">
+        <p>Nombre de post : <%= forum.forum_posts.count %></p>
+    </div>
+
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-2 justify-content-center">
+        <%= button_to "Modifier", edit_village_forum_path(@village, forum), method: :get, class:"btn btn-success" %>
+    </div>
+</div>
