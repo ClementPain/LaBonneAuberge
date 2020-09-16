@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   resources :offers
   get 'offers/search', to: 'offers#search'
 
+  resources :categories, except: [:index, :show]
+
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
