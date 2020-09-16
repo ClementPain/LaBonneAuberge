@@ -41,7 +41,7 @@ class VillagesController < ApplicationController
             town_zipcode = get_townhall_zipcode(town).text.chars.last(5).join
             
             if this_village = Village.find_by(name: town_name)
-                this_village.update(email: town_mail)
+                this_village.update(email: town_mail, zipcode: town_zipcode)
                 
                 if !Forum.find_by(title: "Forum principal", village: this_village)
                     Forum.initialization(this_village)
@@ -67,7 +67,7 @@ class VillagesController < ApplicationController
     def get_townhall_zipcode(name)
         townhall_name = name['href'].delete_prefix '.'
         page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com#{townhall_name}"))
-        page.xpath('//div[@class="col-md-12 col-lg-10 col-lg-offset-1"]/h1')
+        page.xpath('/html/body/div/main/section[3]/div/table/tbody/tr[1]/td[2]')
     end
     # fin méthode scrapping
 

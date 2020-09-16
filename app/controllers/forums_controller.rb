@@ -1,7 +1,9 @@
 class ForumsController < ApplicationController
+    before_action :authenticate_town_hall!, except: [:index, :show]
+    
     before_action :find_village
     before_action :find_forum, only: [:edit, :update, :destroy, :show]
-
+    before_action :authenticate_village
     
     def index
         @forum = Forum.find_by(village:@village, title:"Forum principal")
@@ -39,5 +41,17 @@ class ForumsController < ApplicationController
 
     def forum_params
         params.require(:forum).permit(:title)
+    end
+
+    def authenticate_village
+        if user_signed_in?
+            redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_user.village != @village
+
+        elsif town_hall_signed_in?
+            redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if Village.find_by(email:current_town_hall.email) != @village
+        
+        else
+            redirect_to new_user_session_path, alert: "Veuillez vous connecter"
+        end
     end
 end

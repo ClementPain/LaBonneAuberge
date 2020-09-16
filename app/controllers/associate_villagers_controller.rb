@@ -1,8 +1,12 @@
 class AssociateVillagersController < ApplicationController
+    before_action :authenticate_user!
+
     before_action :find_villager
+    before_action :authenticate_villager
+
 
     def new
-
+        
     end
 
     def create
@@ -19,6 +23,12 @@ class AssociateVillagersController < ApplicationController
     end
 
     private
+
+    def authenticate_villager
+        if @villager.id != params[:villager_id].to_i
+            redirect_to root_path, alert: "Vous ne pouvez pas accéder à cette page"
+        end
+    end
     
     def find_villager
         @villager = current_user.villager

@@ -1,5 +1,8 @@
 class ValidationTownHallsController < ApplicationController
+    before_action :authenticate_town_hall!
+
     before_action :find_village_and_villager
+    before_action :auth_town_hall
 
     def create
         @villager.update(village:@village)
@@ -17,5 +20,9 @@ class ValidationTownHallsController < ApplicationController
     def find_village_and_villager
         @village = Village.find_by(email:current_town_hall.email)
         @villager = Villager.find(params[:villager_id])
+    end
+
+    def auth_town_hall
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if Village.find_by(email:current_town_hall.email) != @village
     end
 end

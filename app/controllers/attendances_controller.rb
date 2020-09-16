@@ -1,6 +1,7 @@
 class AttendancesController < ApplicationController
-    before_action :find_event
     before_action :authenticate_user!
+
+    before_action :find_event
 
     def new
         if already_attendant?

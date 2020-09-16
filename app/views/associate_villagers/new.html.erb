@@ -3,7 +3,7 @@
         <div class="col-md-6 mt-5">
             <%= form_with url: villager_associate_villagers_path(@villager), local: true  do |f| %>
                 <div class="form-group">
-                    <%= f.label "Renseignez un code postal :" %>
+                    <%= f.label "Renseignez un code communal / code Insee :" %>
                     <%= f.text_field :zipcode %>
                 </div>
                 
