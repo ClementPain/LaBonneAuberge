@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :find_event
   before_action :authenticate_town_hall_or_user
+  before_action :authenticate_author, except: [:index, :show]
 
   def index
     @comments = Comment.all

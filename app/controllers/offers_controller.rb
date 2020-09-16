@@ -2,6 +2,7 @@ class OffersController < ApplicationController
     before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
     
     before_action :find_offer, only: [:edit, :update, :destroy, :show]
+    before_action :find_author_town_hall, only: [:edit, :update, :destroy]
 
 
     def index
@@ -73,5 +74,9 @@ class OffersController < ApplicationController
 
     def find_offer
         @offer = Offer.find(params[:id])
+    end
+
+    def find_author_town_hall
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_town_hall.village != @offer.village
     end
 end
