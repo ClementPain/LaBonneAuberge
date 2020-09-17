@@ -40,20 +40,20 @@
 
     </header>
           
-     <!--Main layout-->
-        <main class="mt-5">
+        <!--Main layout-->
+    <main class="mt-5">
             <div class="container">
 
-            <!--Section: Best Features-->
+                <!--Section: Best Features-->
                 <section id="best-features" class="text-center">
 
                 <!-- Heading -->
                 <h2 class="mb-5 font-weight-bold">La bonne auberge est une plateforme dynamique, pour les habitants et les nouveaux arrivants des villages du département du Cantal : apportons du dynamisme à la région !</h2>
 
                  <hr class="my-5">
-            <!--Section: Last events-->
+                <!--Section: Last events-->
 
-            <section id="events" class="text-center">
+                <section id="events" class="text-center">
 
                 <!-- Heading -->
                 <div class="container">
@@ -168,7 +168,30 @@
                         <%= link_to "Rejoignez un projet !", new_user_registration_path, class: "btn btn-success"%>
                     </div>         
                 </div>
-		    </div>
+            </div>
+            <hr class="my-5">
+            <!--Grid column-->
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
 
+                    <div class="view overlay z-depth-1-half">
+                        
+                        <i class="fas fa-users" style="color:white; font-size: 15em;"></i>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
+                    <h4 class="my-4 font-weight-bold">Forums</h4>
+                    <p class="grey-text">La bonne auberge un réseau qui relie aussi les villageois et les mairies</p>
+                    <p class="grey-text">Organisons la vie au village, grâce aux forums de nos mairies</p>
+                    <%= link_to "Rejoignez votre voisinage", new_user_registration_path, class: "btn btn-success"%>
+                </div>  
+            </div>     
+
+    </main>
+    
     
              
