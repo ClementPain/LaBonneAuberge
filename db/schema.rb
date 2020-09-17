@@ -114,8 +114,12 @@ ActiveRecord::Schema.define(version: 2020_09_17_102322) do
 
   create_table "offer_comments", force: :cascade do |t|
     t.text "content"
+    t.bigint "offer_id"
+    t.bigint "villager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_offer_comments_on_offer_id"
+    t.index ["villager_id"], name: "index_offer_comments_on_villager_id"
   end
 
   create_table "offers", force: :cascade do |t|
