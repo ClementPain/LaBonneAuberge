@@ -148,7 +148,7 @@
                         <h4 class="my-4 font-weight-bold">Messagerie</h4>
                         <p class="grey-text">Une fois inscrit vous aurez accès à notre messagerie qui permet de garder contact avec les villageois rencontrés !</p>
                         <p class="grey-text"> Ou faire de nouvelles rencontres </p>
-                        <%= link_to "Accéder à ma messagerie", offers_path(params[:id]), class: "btn btn-success"%>
+                        <%= link_to "Accéder à ma messagerie", new_user_registration_path, class: "btn btn-success"%>
                     </div>
             <!--Grid column-->
 
@@ -163,7 +163,7 @@
                         <h4 class="my-4 font-weight-bold">Projets</h4>
                         <p class="grey-text">Vous avez comme projet d’ouvrir un commerce ? </p>
                         <p class="grey-text"> C’est ici que ça se passe.</p>
-                        <%= link_to "Rejoignez un projet !", offers_path(params[:id]), class: "btn btn-success"%>
+                        <%= link_to "Rejoignez un projet !", new_user_registration_path, class: "btn btn-success"%>
                     </div>         
                 </div>
 		    </div>
