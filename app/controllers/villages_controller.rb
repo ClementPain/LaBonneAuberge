@@ -59,6 +59,12 @@ class VillagesController < ApplicationController
     private
     
     # scrapping
+
+    def get_department_code(num)
+        page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/"))
+        page.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[1]/td[1]/a').text[0,2]
+    end
+
     def get_townhall_email(name)
         townhall_name = name['href'].delete_prefix '.'
         page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com#{townhall_name}"))

@@ -26,7 +26,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-3">
-                                <label>DATE</label>
+                                <label>Date</label>
                             </div>
                             <div class="col-md-7">
                                 <p><time datetime=<%= @event.start_date %>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <label>VILLAGE</label>
+                                <label>Village</label>
                             </div>
                             <div class="col-md-7">
                                 <p> <%= @event.village.name %> - <%= @event.village.zipcode %> </p>
@@ -48,7 +48,7 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <label>ADRESSE</label>
+                                <label>Adresse</label>
                             </div>
                             <div class="col-md-7">
                                 <p> <%= @event.location %> </p>
@@ -57,7 +57,7 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <label>DUREE</label>
+                                <label>Durée</label>
                             </div>
                             <div class="col-md-7">
                                 <p> <%=@event.duration %> minutes </p>
@@ -66,7 +66,7 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <label>PRIX</label>
+                                <label>Prix</label>
                             </div>
                             <div class="col-md-7">
                                 <p> <%= @event.price %> €</p>
@@ -91,17 +91,20 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mt-4">
                             <div class="col-md-3">
                             </div>                                    
                             <div class="col-md-7">
                                 <% if user_signed_in? %>
                                     <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id === current_user.id} %>
-                                        <% if pre_attendance %>
-                                            <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
-                                        <% else %>
-                                            <%= button_to 'Participez !', event_attendances_path(params[:id]), method: :post, class:"btn btn-success" %>
-                                        <% end %>                
+                                    <% if pre_attendance %>
+                                        <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
+                                    <% else %>
+                                        <%= button_to 'Participez !', event_attendances_path(params[:id]), method: :post, class:"btn btn-success" %>
+                                    <% end %>                
+                                <% elsif town_hall_signed_in? %>
+                                <% else %>
+                                    <%= link_to "Inscrivez-vous pour participer", new_user_registration_path, class: "btn btn-success"%>
                                 <% end %>
                         
                                 <% if current_town_hall && Village.find_by(email:current_town_hall.email) == @event.village %>
@@ -128,7 +131,9 @@
                         <% end %>
                     </div>
                     <div class="row mt-5">
-                        <%= link_to "Ajouter un commentaire", new_event_comment_path(params[:id]), class: "btn btn-success"%>
+                        <% if user_signed_in? %>
+                            <%= link_to "Ajouter un commentaire", new_event_comment_path(params[:id]), class: "btn btn-success"%>
+                        <% end %>
                     </div>
                 </div>
             </div>

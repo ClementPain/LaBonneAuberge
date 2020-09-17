@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row justify-content-center m-5">
-        <%= button_to "mettre à jour l'annuaire des mairies", villages_path, method: :post, class:"btn btn-primary"%>
+        <%= form_with url: villages_path, method: :post, local:true do |f| %>
+            Renseignez un numéro de département :
+            <%= f.text_field :num %>
 
-        <% if @town_hall_names %>
-            <% @town_hall_names.each do |town| %>
-                <%= town %>
-            <% end %>
+            <%= f.submit "mettre à jour l'annuaire des mairies", class:"btn btn-success" %>
         <% end %>
+
     </div>
 
     <div class="row justify-content-start">

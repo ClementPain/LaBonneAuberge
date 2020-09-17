@@ -89,7 +89,7 @@
                                 <% elsif @validation = ValidationTownHall.find_by(villager: @villager) %>
                                     <p>Validation en attente de <%= @validation.village.name %></p>
                                 <% elsif current_user === @villager.user %>
-                                    <%= button_to "Intégrer un village", new_villager_associate_villager_path(@villager), method: :get, class:"btn btn-success" %>
+                                    <%= button_to "Rejoignez votre village", new_villager_associate_villager_path(@villager), method: :get, class:"btn btn-success" %>
                                 <% end %>
                             </div>
                         </div>
@@ -154,7 +154,6 @@
                                     </div>
                                     <%= button_to "Supprimer le compte", user_registration_path, data: {confirm: "Voulez-vous supprimer le compte ?" }, method: :delete, class: "btn btn-lg btn-danger btn-block mt-3" %>
                                 </div>
-                                
                             </div>
                         </div>
                     <% end %>
