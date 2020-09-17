@@ -21,9 +21,11 @@ class OffersCommentsController < ApplicationController
     if @comment.save
       redirect_to offer_path(@offer), notice: "Le commentaire a bien été créé"
     else
-      new_offer_offers_comment_path, alert: "Certaines informations sont incorrectes"
+      redirect_to new_offer_offers_comment_path, alert: "Certaines informations sont incorrectes"
     end
+
   end
+
   def show
   end
 
@@ -33,9 +35,9 @@ class OffersCommentsController < ApplicationController
   def update
 
     if @comment.update(comment_params)
-        redirect_to offer_path(@event), notice: "votre commentaire est bien modifié"
+        redirect_to offer_path(@offer), notice: "votre commentaire est bien modifié"
     else
-        redirect_to edit_offer_offers_comment_path(@event), alert: "Veuillez renseigner toutes les informations"
+        redirect_to edit_offer_offers_comment_path(@offer), alert: "Veuillez renseigner toutes les informations"
     end
   end
 
@@ -49,8 +51,8 @@ class OffersCommentsController < ApplicationController
         @comment = Comment.find(params[:id])
     end
 
-    def find_event
-      @offer = Offer.find(params[:event_id])
+    def find_offer
+      @offer = Offer.find(params[:offer_id])
     end
 
     def authenticate_town_hall_or_user
@@ -62,4 +64,5 @@ class OffersCommentsController < ApplicationController
         redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_user.villager!= @comment.villager
       end
     end
+
 end
