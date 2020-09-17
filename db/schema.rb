@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_220247) do
     t.string "first_name"
     t.string "last_name"
     t.text "description"
-    t.date "date_of_birth"
+    t.datetime "date_of_birth"
     t.bigint "village_id"
     t.string "address"
     t.bigint "user_id"
