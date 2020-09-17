@@ -10,8 +10,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <footer class="blockquote-footer"> <%= comment.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+                    <p class="pt-3"><%= comment.likes.count %> <%= (comment.likes.count) <= 1 ? 'Like' : 'Likes'%></p>
                 </div>
-                <div class="col-sm-6 align-item-center">
+                <div class="col-sm-6 justify-content-center">
                     <% if user_signed_in? && comment.villager = current_user.villager %>
                         <div class="row justify-content-end p-é">
                             <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
