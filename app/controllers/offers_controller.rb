@@ -19,6 +19,15 @@ class OffersController < ApplicationController
 
     def show
         
+        @comments = []
+        
+        OfferComment.all.each do |comment|
+            if @offer.id == comment.offer_id
+                @comments << comment
+                puts "mon commentaire"
+            end
+        end
+        
     end
 
     def new 

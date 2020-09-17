@@ -6,18 +6,20 @@ class OffersCommentsController < ApplicationController
   
   
   def index
-    @comments = Comment.all
+   
   end
 
   def new
-    @comment = Comment.new
+    @comment = OfferComment.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    
+    @comment = OfferComment.new(comment_params)
     @comment.villager = current_user.villager
+    @comment.offer = @offer
     
-    
+
     if @comment.save
       redirect_to offer_path(@offer), notice: "Le commentaire a bien été créé"
     else
@@ -44,11 +46,11 @@ class OffersCommentsController < ApplicationController
   private
   
     def comment_params
-        params.require(:comment).permit(:content)
+        params.require(:offer_comment).permit(:content)
     end
 
     def find_comment
-        @comment = Comment.find(params[:id])
+        @comment = OfferComment.find(params[:id])
     end
 
     def find_offer
