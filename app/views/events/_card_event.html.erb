@@ -30,12 +30,11 @@
     <!-- Card content -->
     <div class="card-body">
         <div class="collapse-content">
-        <!-- Text -->
-        <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id), class:"link_to" } %>
-        <!-- Button -->
-        <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+            <!-- Text -->
+            <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id), class:"link_to" } %>
+            <!-- Button -->
+            <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+            <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
         </div>
     </div>
-    
 </div>

@@ -16,7 +16,7 @@ Category.destroy_all
 
 Faker::Config.locale = 'fr'
 
-8.times do
+10.times do
   Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:Faker::Movies::HarryPotter.quote, 

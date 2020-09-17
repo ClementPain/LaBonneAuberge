@@ -54,17 +54,6 @@ class OffersController < ApplicationController
         redirect_to town_hall_path(current_town_hall.id), alert: "Le projet a bien été supprimé"
     end
 
-    def search
-        query = params[:search]
-        results = Offer.where('title LIKE ?', "%#{query}%").or(Offer.where('description LIKE ?', "%#{query}%"))
-        if params[:filter] == 'Filtre'
-            @products = results
-        else
-            symbol = params[:filter.gsub(//, '_').downcase!.to_sym]
-            @products = results.where(symbol => true)
-        end
-    end
-
     private
 
     def offer_params

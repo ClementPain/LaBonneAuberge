@@ -36,10 +36,10 @@
       <!-- Card -->
       <div class="col-sm-8">
         <div class="row justify-content-around">
-        <% @events.each_with_index do |event, i| %>
-          <%= render 'card_event', event: event %> 
-        <% end %>
-      </div>
+          <% @events.each_with_index do |event, i| %>
+            <%= render 'card_event', event: event %> 
+          <% end %>
+        </div>
       </div>
       <!-- Card -->
 
@@ -47,6 +47,8 @@
       </div>    
     </div>
   </div>
+</body>
+</html>
   
 
 
