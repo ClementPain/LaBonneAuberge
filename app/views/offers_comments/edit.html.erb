@@ -15,6 +15,9 @@
                   <%= f.submit("Valider les modifications", class: "btn btn-lg btn-success btn-block") %>
                   </div> 
                   <% end %>
+                  <div class="actions mt-2">       
+                    <%= button_to "Supprimer", offers_comments_path(params[:offer_id], params[:id]), data: {confirm: "Voulez-vous supprimer le commentaire ?" }, method: :delete, class:"btn btn-lg btn-danger btn-block" %>
+                  </div> 
           </div>
     </div>
 </div>
