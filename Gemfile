@@ -76,4 +76,4 @@ gem 'devise'
 gem 'dotenv'
 gem 'faker'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
-
+gem "aws-sdk-s3", require: false
