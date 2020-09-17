@@ -9,14 +9,15 @@
 </div>
 
 <div class="container-fluid h-100">
-  <div class="row h-100">
-    <!-- Sidebar -->
-    <div class="col-sm-3 h-100 p-4" style="background-color:#111B1C">
-      <%= render 'sidebar_offers' %>
+  <div class="row justify-content-center align-items-center mb-5" style="height:100px">
+    <%= render 'search_offers' %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1">
     </div>
 
-    
-    <div class="col menu-offers px-5">
+    <div class="col-sm-10 menu-offers px-5">
       <% if @offers.present? %>
         <!-- Card -->
         <% @offers.each_with_index do |offer, i| %>
@@ -26,6 +27,9 @@
       <% else %>
         <p>Aucun projet ne contient le terme <%= params[:search] %>.</p>
       <% end %>
+    </div>
+
+    <div class="col-sm-1">
     </div>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<%= form_tag(events_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Recherche...", class:"mr-3" %>
+    <%= text_field_tag :search_zipcode, params[:search], placeholder: "Chercher un code communal", class:"mr-3" %>
+    <%= submit_tag "Trouver un évènement", class:"btn btn-success" %> 
+<% end %>
