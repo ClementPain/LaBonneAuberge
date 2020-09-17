@@ -24,6 +24,12 @@
 
                             <% if !user_signed_in? && !town_hall_signed_in? %>
                                 <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
+                            <% elsif user_signed_in? && !current_user.villager.village %>
+                                <%= link_to "Rejoignez votre village", new_villager_associate_villager_path(current_user.villager), method: :get, class:"btn btn-success" %>
+                            <% elsif town_hall_signed_in? %>
+                                <%= link_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>
+                            <% else %>
+                                <%= link_to "Participer à un évènement de votre région", events_path, class:"btn btn-success", :method => :get %>
                             <% end %>
                         </div>
 
