@@ -17,18 +17,20 @@
             </div>
             <div class="col-md-6">
                 <div class="profile-head" style="height:60px">
+                    <h5><%= @villager.first_name %></h5>
+                    <h5><%= @villager.last_name%></h5> 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Evenements</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Coup de coeur</a>
                         </li>
                     </ul>
                 </div>
-            
+
                 <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="height:450px">
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Prénom</label>
@@ -95,55 +97,62 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Onglet Evenement -->
-                <div class="tab-pane fade" id="today" role="tabpanel" aria-labelledby="today-tab">
-                    <div class="row overflow-auto ml-2" style="height:500px">
-                        <div class="col-sm-12 border">
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-sm-12 overflow-auto ml-2" style="height:500px">
 
-                            <!-- Evenement du jour -->
-                            <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                <div class="col-md-2">
-                                    <label>Aujourd'hui</label>
+                                <!-- Evenement du jour -->
+                                <div class="row" style="margin-top: 4%; margin-left: 1%">
+                                    <div class="col-md-2">
+                                        <label>Aujourd'hui</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <% @events_today.each do |e| %>
+                                            <%= render 'shared/list_events', event: e %>
+                                        <% end %>
+                                    </div>
                                 </div>
-                                <div class="col-md-7">
-                                    <% @events_today.each do |e| %>
-                                        <%= render 'shared/list_events', event: e %>
-                                    <% end %>
+                            
+                                <!-- Evenements à venir -->
+                                <div class="row" style="margin-top: 4%; margin-left: 1%">
+                                    <div class="col-md-2">
+                                        <label>A venir</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <% @events_to_come.each do |e| %>
+                                            <%= render 'shared/list_events', event: e %>
+                                        <% end %>
+                                    </div>
+                                </div>
+
+                                <!-- Evenements passés -->
+                                <div class="row" style="margin-top: 4%; margin-left: 1%">
+                                    <div class="col-md-2">
+                                        <label>Passés</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <% @events_passed.each do |e| %>
+                                            <%= render 'shared/list_events', event: e %>
+                                        <% end %>
+                                    </div>
                                 </div>
                             </div>
-                        
-                            <!-- Evenements à venir -->
-                            <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                <div class="col-md-2">
-                                    <label>A venir</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <% @events_to_come.each do |e| %>
-                                        <%= render 'shared/list_events', event: e %>
-                                    <% end %>
-                                </div>
-                            </div>
-
-                            <!-- Evenements passés -->
-                            <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                <div class="col-md-2">
-                                    <label>Passés</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <% @events_passed.each do |e| %>
-                                        <%= render 'shared/list_events', event: e %>
-                                    <% end %>
-                                </div>
-                            </div>
+                            <%= button_to "Trouver un évènement", events_path, class:"btn btn-sm btn-success" %>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-2">
-                <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
+                <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2"%>
             </div>
         </div>
     </div>
 </div>
+
+
+
+                        
+                    
+                        
+            
