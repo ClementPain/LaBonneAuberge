@@ -11,14 +11,23 @@ class OffersController < ApplicationController
         @categories = Category.select { |cat| cat.display === true }.map { |cat| cat.title }
 
         if params[:search] || params[:search_zipcode]
-            @offers = Offer.search(params[:search], params[:search_zipcode]).sort_by { |x, y| x.created_at < y.created_at }
+            @offers = Offer.order('created_at DESC').search(params[:search], params[:search_zipcode])
         else
             @offers = Offer.all.order('created_at DESC')
         end
     end
 
     def show
-
+        
+        @comments = []
+        
+        OfferComment.all.each do |comment|
+            if @offer.id == comment.offer_id
+                @comments << comment
+                puts "mon commentaire"
+            end
+        end
+        
     end
 
     def new 

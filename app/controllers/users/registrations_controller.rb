@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'open-uri'
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
@@ -12,7 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    Villager.create(user:current_user)
+    @villager = Villager.create(user:current_user)
+    
   end
 
   # GET /resource/edit

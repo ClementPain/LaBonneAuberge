@@ -1,0 +1,24 @@
+<div class="row w-100 m-2 border">
+    <div class="card w-100">
+        <div class="card-header" style="height:100px">
+            <%= image_tag(comment.villager.villager_picture, size: "60x60") %>
+            <span class="ml-3"><%= comment.villager.first_name %> <%= comment.villager.last_name %></span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><%= comment.content %></h5>
+            <div class="row">
+                <div class="col-sm-6">
+                    <footer class="blockquote-footer"> <%= comment.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+                </div>
+                <div class="col-sm-6 align-item-center">
+
+                    <% if user_signed_in? && comment.villager === current_user.villager %>
+                        <div class="row justify-content-end">
+                            <%= button_to "Modifier", edit_offer_offers_comment_path(@offer, comment), method: :get, class:"btn btn-success mr-4" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

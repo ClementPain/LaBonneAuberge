@@ -1,3 +1,4 @@
+
 <div class="row mb-3">
     <div class="col-md-4">
         <div class="view overlay">
@@ -17,7 +18,7 @@
             <%= offer.category.title if offer.category %>
         </div>
         <div class="row">
-            <%= offer.description %>
+            <%= h truncate(offer.description, :length => 1200) { link_to 'Voir plus', offer_path(offer.id), class:"link_to" } %>
         </div>
     </div>
-</div>
+</div> 

@@ -3,7 +3,6 @@
         <div class="card-header" style="height:100px">
             <%= image_tag(comment.villager.villager_picture, size: "60x60", class:"rounded") %>
             <%= comment.villager.first_name %> <%= comment.villager.last_name %>
-            
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= comment.content %></h5>
@@ -12,9 +11,10 @@
                     <footer class="blockquote-footer"> <%= comment.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
                     <p class="pt-3"><%= comment.likes.count %> <%= (comment.likes.count) <= 1 ? 'Like' : 'Likes'%></p>
                 </div>
+
                 <div class="col-sm-6 justify-content-center">
-                    <% if user_signed_in? && comment.villager = current_user.villager %>
-                        <div class="row justify-content-end p-é">
+                    <% if user_signed_in? && comment.villager  === current_user.villager %>
+                        <div class="row justify-content-end">
                             <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
                            
                             <% pre_like = comment.likes.find { |like| like.villager_id == current_user.villager.id} %>
@@ -23,7 +23,6 @@
                             <% else %>
                                 <%= button_to 'Like', event_comment_likes_path(@event, comment), method: :post, class:"btn btn-success mr-4" %>
                             <% end %>
-
                         </div>
                     <% end %>
                 </div>
