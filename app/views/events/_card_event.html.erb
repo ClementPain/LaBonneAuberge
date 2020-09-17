@@ -10,7 +10,7 @@
         <% end %>
         <!-- Subtitle -->
         <p class="card-text"><i class="far fa-money-bill-alt pr-2"></i> <%= event.price %> €</p>
-        <p class="card-text"><i class="fas fa-map-marker-alt pr-2"></i> <%= event.location %></p>
+        <p class="card-text"><i class="fas fa-map-marker-alt pr-2"></i> <%= event.village.name %> - <%= event.location %></p>
         <p class="card-text"><i class="far fa-clock pr-2"></i>
             <time datetime=<%= event.start_date %>
             <span class="day"> <%= event.start_date.day %> </span>

@@ -20,9 +20,9 @@
 <div class="list-group-1" style="margin-top: 4%; margin-left: 2%">
     <h2>Les villageois</h2>
     
-    <% @users.each do |villager| %>
+    <% @villagers.each do |villager| %>
      <div class="list-group-item list-group-item-action">
-        <%= link_to "#{villager.last_name} #{villager.first_name}", conversations_path(sender_id: current_user.id, receiver_id: villager.id), method: :post%>
+        <%= link_to "#{villager.last_name} #{villager.first_name}", conversations_path(sender_id: current_user.villager.id, receiver_id: villager.id), method: :post%>
     </div>
     <% end %>
 </div>
