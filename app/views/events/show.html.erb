@@ -111,24 +111,25 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="row overflow-auto ml-2" style="height:500px">
-                       
-                            <% if @comments.nil? %>
-                                <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
-                            <% else %>
-                                <div class="col-sm-12">
-                                    <% @comments.each do |c| %>
-                                        <%= render 'post_event', comment: c %>
-                                    <% end %>
-                                </div>
-                            <% end %>
+                        <% if @comments.nil? %>
+                            <p class="text-center">Il n'y a aucun message sur ce forum pour l'instant </p>
+                        <% else %>
+                            <div class="col-md-1">
+                            </div>
 
-                            
-                        
+                            <div class="col-sm-11">
+                                <% @comments.each do |c| %>
+                                    <%= render 'post_event', comment: c %>
+                                <% end %>
+                            </div>
+                        <% end %>
                     </div>
-                    <%= link_to "Ajouter un commentaire", new_event_comment_path(params[:id]), class: "btn btn-success"%>
-
+                    <div class="row mt-5">
+                        <%= link_to "Ajouter un commentaire", new_event_comment_path(params[:id]), class: "btn btn-success"%>
+                    </div>
                 </div>
             </div>
         </div>

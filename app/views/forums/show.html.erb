@@ -29,7 +29,7 @@
                 <% else %>
                     <div class="col">
                         <% @posts.each do |p| %>
-                            <%= render 'shared/post_villager', post: p %>
+                            <%= render 'post_forum', post: p %>
                         <% end %>
                     </div>
                 <% end %>
