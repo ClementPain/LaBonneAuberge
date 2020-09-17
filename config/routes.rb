@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-   
-  
-  get 'messages/index'
-  get 'conversations/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :town_halls, controllers: { sessions: 'town_halls/sessions', passwords: 'town_halls/passwords', registrations: 'town_halls/registrations', confirmations: 'town_halls/confirmations' }
   resources :manage_registration_town_halls, only: [:new, :create]
@@ -16,6 +12,10 @@ Rails.application.routes.draw do
   
   resources :villagers, only: [:show, :edit, :update] do
     resources :associate_villagers, only: [:new, :create]
+
+    resources :conversations, only: [:index, :create] do
+      resources :messages, only: [:index, :create]
+    end
   end
 
   resources :villages do
@@ -36,10 +36,5 @@ Rails.application.routes.draw do
     resources :offers_comments
   end
 
-  resources :categories, except: [:index, :show]
-
-  resources :conversations, only: [:index, :create] do
-    resources :messages, only: [:index, :create]
-  end
-  
+  resources :categories, except: [:index, :show]  
 end

@@ -8,29 +8,34 @@
                     <% end %> 
                 </div>
                 <div class="row">
-                    <div class="profile-messagerie">
-                        <p class="mt-3">MESSAGERIE</p>
+                    <% if current_user === @villager.user %>
+                        <div class="profile-messagerie">
+                            <p class="mt-3">MESSAGERIE</p>
 
-                        <%= link_to "Accéder à ma messagerie", conversations_path %>
-                    </div>
+                            <%= link_to "Accéder à ma messagerie", villager_conversations_path(@villager) %>
+                        </div>
+                    <% end %>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="profile-head" style="height:60px">
-                    <h5><%= @villager.first_name %></h5>
-                    <h5><%= @villager.last_name%></h5> 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="home" aria-selected="true">Profil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Coup de coeur</a>
-                        </li>
+                        <% if current_user === @villager.user %>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#events" role="tab" aria-controls="profile" aria-selected="false">Evènements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#params" role="tab" aria-controls="profile" aria-selected="false">Paramètres</a>
+                            </li>
+                        <% end %>
                     </ul>
                 </div>
 
                 <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="height:450px">
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="height:450px">
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Prénom</label>
@@ -45,14 +50,6 @@
                             </div>
                             <div class="col-md-6">
                                 <p><%= @villager.last_name %></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p><%= @villager.user.email %></p>
                             </div>
                         </div>
                         <div class="row">
@@ -74,7 +71,7 @@
 
                         <div class="row">                                    
                             <div class="col-md-6">
-                                <label>Evenements auquels j'ai participé</label>
+                                <label>Nombre d'évènment participés</label>
                             </div>
                             <div class="col-md-6">
                                 <p><%= @villager.user.events.count %></p>
@@ -91,68 +88,81 @@
                                     <p><%= Village.find(@villager.village_id).name %></p>
                                 <% elsif @validation = ValidationTownHall.find_by(villager: @villager) %>
                                     <p>Validation en attente de <%= @validation.village.name %></p>
-                                <% else %>
+                                <% elsif current_user === @villager.user %>
                                     <%= button_to "Intégrer un village", new_villager_associate_villager_path(@villager), method: :get, class:"btn btn-success" %>
                                 <% end %>
                             </div>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-sm-12 overflow-auto ml-2" style="height:500px">
+                    <% if current_user === @villager.user %>
+                        <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                            <div class="row">
+                                <div class="col-sm-12 overflow-auto ml-2" style="height:500px">
 
-                                <!-- Evenement du jour -->
-                                <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                    <div class="col-md-2">
-                                        <label>Aujourd'hui</label>
+                                    <!-- Evenement du jour -->
+                                    <div class="row w-100" style="margin-top: 4%; margin-left: 1%">
+                                        <div class="col-md-2">
+                                            <label>Aujourd'hui</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <% @events_today.each do |e| %>
+                                                <%= render 'list_events_villager', event: e %>
+                                            <% end %>
+                                        </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <% @events_today.each do |e| %>
-                                            <%= render 'shared/list_events', event: e %>
-                                        <% end %>
+                                
+                                    <!-- Evenements à venir -->
+                                    <div class="row" style="margin-top: 4%; margin-left: 1%">
+                                        <div class="col-md-2">
+                                            <label>A venir</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <% @events_to_come.each do |e| %>
+                                                <%= render 'list_events_villager', event: e %>
+                                            <% end %>
+                                        </div>
                                     </div>
-                                </div>
-                            
-                                <!-- Evenements à venir -->
-                                <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                    <div class="col-md-2">
-                                        <label>A venir</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <% @events_to_come.each do |e| %>
-                                            <%= render 'shared/list_events', event: e %>
-                                        <% end %>
-                                    </div>
-                                </div>
 
-                                <!-- Evenements passés -->
-                                <div class="row" style="margin-top: 4%; margin-left: 1%">
-                                    <div class="col-md-2">
-                                        <label>Passés</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <% @events_passed.each do |e| %>
-                                            <%= render 'shared/list_events', event: e %>
-                                        <% end %>
+                                    <!-- Evenements passés -->
+                                    <div class="row" style="margin-top: 4%; margin-left: 1%">
+                                        <div class="col-md-2">
+                                            <label>Passés</label>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <% @events_passed.each do |e| %>
+                                                <%= render 'list_events_villager', event: e %>
+                                            <% end %>
+                                        </div>
                                     </div>
                                 </div>
+                                <%= button_to "Trouver un évènement", events_path, class:"btn btn-sm btn-success" %>
                             </div>
-                            <%= button_to "Trouver un évènement", events_path, class:"btn btn-sm btn-success" %>
                         </div>
-                    </div>
+
+                        <div class="tab-pane fade" id="params" role="tabpanel" aria-labelledby="params-tab">
+                            <div class="row">
+                                <div class="col-sm-12 overflow-auto ml-2" style="height:500px">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= @villager.user.email %></p>
+                                        </div>
+                                    </div>
+                                    <%= button_to "Supprimer le compte", user_registration_path, data: {confirm: "Voulez-vous supprimer le compte ?" }, method: :delete, class: "btn btn-lg btn-danger btn-block mt-3" %>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
             <div class="col-md-2">
-                <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2"%>
+                <%= link_to "Editer ton profil", edit_villager_path(id:params[:id]), class: "btn btn-sm btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" if current_user === @villager.user %>
             </div>
         </div>
     </div>
-</div>
-
-
-
-                        
-                    
-                        
-            
+</div>                      
