@@ -13,15 +13,17 @@ class MessagesController < ApplicationController
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
-    @message.villager = current_user.villager
+    @message.villager_id = current_user.villager.id
 
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      redirect_to villager_conversation_messages_path(current_user.villager, @conversation)
+    else
+      redirect_to villager_conversation_messages_path(current_user.villager, @conversation), alert: "Le message n'a pas été envoyé"
     end
   end
 
   private
     def message_params
-      params.require(:message).permit(:body, :villager_id)
+      params.require(:message).permit(:body)
     end
 end

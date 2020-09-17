@@ -1,0 +1,15 @@
+<div class="row m-2 border-bottom">
+    <div class="col-sm-7">
+        <p><%= event.title %></p>
+    </div>
+
+    <div class="col-sm-4">
+        <p><%= event.start_date.strftime("%d %b %y") %></p>
+    </div>
+
+    <div class="col-sm-1">
+        <%= link_to event_path(event) do %>
+            <i class="far fa-eye link_to"></i>
+        <% end %>
+    </div>
+</div>
