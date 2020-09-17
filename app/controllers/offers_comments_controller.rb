@@ -16,7 +16,7 @@ class OffersCommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.villager = current_user.villager
-    @comment.offer = @offer
+    
     
     if @comment.save
       redirect_to offer_path(@offer), notice: "Le commentaire a bien été créé"
