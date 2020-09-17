@@ -40,6 +40,11 @@ Event.find(i+8).event_picture.attach(io: open('https://i.ytimg.com/vi/8zKbHBYaVn
 Event.find(i+9).event_picture.attach(io: open('https://www.francethisway.com/images/places/domfront.jpg'), filename:'#{i}_image.jpg')
 
 Category.create(title:"Associatif", display:true)
+Category.create(title:"Immobilier", display:true)
+Category.create(title:"Reprise d'un commerce", display:true)
+Category.create(title:"Emploi", display:true)
+
+
 
 User.create([
   {
