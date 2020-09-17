@@ -130,7 +130,9 @@
                                 <label>Projets</label>
                             </div>
                             <div class="col-md-7">
-                                
+                                <% @offers.each do |f| %>
+                                    <%= render 'shared/list_offers', offer: o %>
+                                <% end %>
                             </div>
                         </div>
                     </div>
@@ -146,7 +148,7 @@
                             </div>
                             <div class="col-md-10">
                                 <% @forums.each do |f| %>
-                                    <%= render 'shared/list_forum', forum: f %>
+                                    <%= render 'shared/list_forums', forum: f %>
                                 <% end %>
                             </div>
                         </div>

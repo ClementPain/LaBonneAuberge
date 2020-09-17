@@ -11,7 +11,7 @@ class Event < ApplicationRecord
     validates :duration, presence: true, :numericality => { greater_than: 0 }
     validate :duration_minutes 
 	validates :title, presence: true, length: { in: 5..140, message: "Un titre fait entre 5 et 140 caractères" }
-	validates :description, presence: true, length: { in: 10..1000, message: "Un description fait entre 10 et 1000 caractères" }
+	validates :description, presence: true, length: { in: 5..1000, message: "Un description fait entre 10 et 1000 caractères" }
 	validates :price, presence: true 
 	validates :location, presence: true 
 
