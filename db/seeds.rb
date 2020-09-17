@@ -31,7 +31,7 @@ Faker::Config.locale = 'fr'
 end
 
 i = Event.first.id
-Event.find(i+0).event_picture.attach(io: open('https://i.ytimg.com/vi/KAQo84A7Hkc/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+0).event_picture.attach(io: open('https://l.facebook.com/l.php?u=http%3A%2F%2Ft3.gstatic.com%2Fimages%3Fq%3Dtbn%253AANd9GcTf5gvafDdRIS2UQ1mJOHggHPPrfiGcAGKRpIoRPeAvwOw1dQdWRCNhPBYuMwnbnvl_U2jdjpz2ylZxSa8Zzx8%26fbclid%3DIwAR3M9K52xHhs46Br37lGGqg7Sg__WoN41wxzRCShQhaq_QxiXVQjQjrQFjk&h=AT3w09mxlJo_SMqbo4wJyWe7Uhk9tdaWUDLzMndohb6a_9zMKaSFoDw401MEtpkYzQiCgmQ2qjyIl8yIqPM_DJC40rqY5pq6o0B9NJonmowSghmQCUeTGp8iDBSF3Q'), filename:'#{i}_event_image.jpg')
 Event.find(i+1).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
 Event.find(i+2).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
 Event.find(i+3).event_picture.attach(io: open('http://i.ytimg.com/vi/nULRHc8fqgU/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
