@@ -26,7 +26,6 @@
   <div class="container">
     <div class="row">
       <!-- Card -->
-      <p><%= @event.likes.count %> <%= (@event.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <% @events.each_with_index do |event, i| %>
         <%= render 'shared/card_event', event: event %> 
       <% end %>
