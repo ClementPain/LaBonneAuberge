@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+          <div class="col-md-6 offset-md-3">  
+              <br><br><br>
+
+               <%= form_for @comment, url: offer_offers_comments_path(@offer) do |f| %>
+                   <h1>Créez un commentaire pour cet évenement : </h1>
+                   <p>remplissez le formulaire</p>
+
+
+                  <div class="form-group">
+                      <%= f.label 'Renseignez votre commentaire :'%>
+                      <%= f.text_area :content, autofocus: true, autocomplete: "title", class: "form-control"%>
+                  </div>
+
+                  <div class="actions mt-5">       
+                  <%= f.submit("Publier le commentaire", class: "btn btn-lg btn-success btn-block") %>
+                  </div> 
+                  <% end %>
+          </div>
+    </div>
+</div>
