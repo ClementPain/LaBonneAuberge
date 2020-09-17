@@ -12,14 +12,16 @@
                             <%= f.text_area :content, autofocus: true, autocomplete: "contenu", class: "form-control" %>
                         </div>
 
-                        <div class="actions mt-5">
+                        <div class="actions m-5">
                             <%= f.submit "Modifier le post", class: "btn btn-lg btn-success btn-block" %>
                         </div>
                     <% end %>
                 </fieldset>
             </form>
-
-            <%= button_to "Supprimer", village_forum_forums_post_path(@village, @forum, @post), data: {confirm: "Voulez-vous supprimer l'évènement ?" }, method: :delete, class:"btn btn-danger mr-4" %>
+            
+            <div class="row justify-content-center">
+                <%= button_to "Supprimer le post", village_forum_forums_post_path(@village, @forum, @post), data: {confirm: "Voulez-vous supprimer l'évènement ?" }, method: :delete, class:"btn btn-danger mr-4" %>
+            </div>
         </div>
     </div>
 </div>

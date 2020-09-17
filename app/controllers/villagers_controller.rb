@@ -5,7 +5,11 @@ class VillagersController < ApplicationController
     before_action :authenticate_villager, only: [:edit, :update]
 
     def show
+        @events = Event.select { |e| Attendance.find_by(event:e, user: current_user) }
 
+        @events_today = @events.select { |e| start_date === Date.today }
+        @events_to_come = @events.select { |e| e.start_date > Date.today }
+        @events_passed = @events.select { |e| e.start_date < Date.today }
     end
 
     def edit
