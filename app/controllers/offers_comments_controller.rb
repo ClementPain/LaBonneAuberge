@@ -43,6 +43,11 @@ class OffersCommentsController < ApplicationController
     end
   end
 
+  def
+        @comment = OfferComment.find(params[:id])     
+        @comment.destroy     
+        redirect_to offer_path(@comment.offer_id), alert: "Le commentaire a bien été supprimé"
+  end
   private
   
     def comment_params

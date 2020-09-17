@@ -35,13 +35,17 @@ class CommentsController < ApplicationController
   def update
     
     if @comment.update(comment_params)
-      redirect_to event_path(@event), notice: "votre commentaire est bien modifié"
-  else
-      redirect_to edit_comment_path(@event), alert: "Veuillez renseigner toutes les informations"
-  end
+        redirect_to event_path(@event), notice: "votre commentaire est bien modifié"
+    else
+        redirect_to edit_comment_path(@event), alert: "Veuillez renseigner toutes les informations"
+    end
   end
 
   def destroy
+        
+        @comment = Comment.find(params[:id])     
+        @comment.destroy     
+        redirect_to event_path(@comment.event_id), alert: "Le commentaire a bien été supprimé"
   end
 
   private
