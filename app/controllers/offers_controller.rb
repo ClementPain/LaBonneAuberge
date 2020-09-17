@@ -10,8 +10,8 @@ class OffersController < ApplicationController
         @offers = Offer.all
         @categories = Category.select { |cat| cat.display === true }.map { |cat| cat.title }
 
-        if params[:search]
-            @offers = Offer.search(params[:search]).order("created_at DESC")
+        if params[:search] || params[:search_zipcode]
+            @offers = Offer.search(params[:search], params[:search_zipcode]).sort_by { |x, y| x.created_at < y.created_at }
         else
             @offers = Offer.all.order('created_at DESC')
         end
