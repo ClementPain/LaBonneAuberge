@@ -28,16 +28,16 @@ Faker::Config.locale = 'fr'
 end
 
 i = Event.first.id
-Event.find(i+0).event_picture.attach(io: open('https://i.ytimg.com/vi/KAQo84A7Hkc/maxresdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+1).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+2).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+3).event_picture.attach(io: open('http://i.ytimg.com/vi/nULRHc8fqgU/maxresdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+4).event_picture.attach(io: open('https://i.ytimg.com/vi/c-pm5ID3QtA/hqdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+5).event_picture.attach(io: open('http://i.ytimg.com/vi/9FBj0lIxd7o/hqdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+6).event_picture.attach(io: open('https://www.francethisway.com/images/places/gorbio.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+7).event_picture.attach(io: open('https://img.ev.mu/images/zooms/1143/440x290/5.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+8).event_picture.attach(io: open('https://i.ytimg.com/vi/8zKbHBYaVnQ/hqdefault.jpg'), filename:'#{i}_image.jpg')
-Event.find(i+9).event_picture.attach(io: open('https://www.francethisway.com/images/places/domfront.jpg'), filename:'#{i}_image.jpg')
+Event.find(i+0).event_picture.attach(io: open('https://i.ytimg.com/vi/KAQo84A7Hkc/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+1).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+2).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+3).event_picture.attach(io: open('http://i.ytimg.com/vi/nULRHc8fqgU/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+4).event_picture.attach(io: open('https://i.ytimg.com/vi/c-pm5ID3QtA/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+5).event_picture.attach(io: open('http://i.ytimg.com/vi/9FBj0lIxd7o/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+6).event_picture.attach(io: open('https://www.francethisway.com/images/places/gorbio.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+7).event_picture.attach(io: open('https://img.ev.mu/images/zooms/1143/440x290/5.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+8).event_picture.attach(io: open('https://i.ytimg.com/vi/8zKbHBYaVnQ/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+9).event_picture.attach(io: open('https://www.francethisway.com/images/places/domfront.jpg'), filename:'#{i}_event_image.jpg')
 
 Category.create(title:"Associatif", display:true)
 Category.create(title:"Immobilier", display:true)
@@ -45,6 +45,22 @@ Category.create(title:"Reprise d'un commerce", display:true)
 Category.create(title:"Emploi", display:true)
 
 
+Offer.create(title:"Un dispositif participatif pour comprendre la vacance commerciale et initier des actions de redynamisation du centre-ville",
+  description:"Sous-préfecture du département du Vaucluse (région Provence-Alpes-Côte d'Azur) située à 55 km d'Aix-en-Provence, Apt compte environ 12 000 habitants, au sein d’une intercommunalité de 30 000 habitants. Cité romaine installée au bord du Calavon, elle est connue pour ses fabriques de fruits confits, sa faïencerie, et son cadre naturel exceptionnel au cœur du Parc Naturel Régional du Luberon.  
+
+ 
+  Les raisons de l'intervention de Villages Vivants
+  
+  Sollicité par la communauté de communes du Pays d’Apt Luberon suite à sa prise de compétence “Commerces” et un programme FISAC*, Villages Vivants a proposé une étude de diagnostic de la vacance commerciale ainsi qu’une démarche participative, permettant de partager un état des lieux du centre-ville d’Apt et surtout d’impulser une dynamique collective !
+  
+  Face au départ de commerces en périphéries, aux vitrines vides (40 commerces vacants recensés dans le centre), à un sentiment général de déqualification, le diagnostic a aussi permis de souligner les atouts du cœur d’Apt et de proposer des actions pour les valoriser. Riche de patrimoine et d’histoire, mais aussi d’entrepreneurs et d’un tissu associatif mobilisés pour porter des idées nouvelles, ce centre-ville a déjà amorcé sa transformation !
+  
+  *Fonds d'intervention pour la sauvegarde de l'artisanat et du commerce",
+  village:Village.all.sample,
+  category:Category.all.sample
+)
+
+Offer.last.offer_picture.attach(io: open('https://i.ytimg.com/vi/KAQo84A7Hkc/maxresdefault.jpg'), filename:'#{Offer.last.id}_offer_image.jpg')
 
 User.create([
   {
