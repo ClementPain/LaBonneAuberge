@@ -111,6 +111,15 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
     t.index ["village_id"], name: "index_forums_on_village_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "villager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["villager_id"], name: "index_likes_on_villager_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "conversation_id"
@@ -217,6 +226,8 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "villagers"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "villagers"
   add_foreign_key "validation_town_halls", "villagers"

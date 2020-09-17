@@ -3,7 +3,7 @@
           <div class="col-md-6 offset-md-3">  
               <br><br><br>
 
-               <%= form_for @comment, url: offer_offers_comment_path(@event), method: :patch do |f| %>
+               <%= form_for @comment, url: offer_offers_comment_path(@offer), method: :patch do |f| %>
                    <h1>Modifiez votre commentaire : </h1>
                    
                   <div class="form-group">
@@ -12,9 +12,13 @@
                   </div>
 
                   <div class="actions mt-5">       
-                  <%= f.submit("Valider les modifications", class: "btn btn-lg btn-success btn-block") %>
+                    <%= f.submit("Valider les modifications", class: "btn btn-lg btn-success btn-block") %>
                   </div> 
-                  <% end %>
+
+              <% end %>
+              <div class="actions mt-2">       
+                <%= button_to "Supprimer", offers_comments_path(params[:offer_id], params[:id]), data: {confirm: "Voulez-vous supprimer le commentaire ?" }, method: :delete, class:"btn btn-lg btn-danger btn-block" %>
+              </div> 
           </div>
     </div>
 </div>

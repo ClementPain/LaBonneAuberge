@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'open-uri'
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
     @villager = Villager.create(user:current_user)
-    @villager.villager_picture.attach(io: open('http://blogdailyherald.com/wp-content/uploads/2014/10/wallpaper-for-facebook-profile-photo.jpg'), filename:'#{@villager.id}_villager_image.jpg')
+    
   end
 
   # GET /resource/edit

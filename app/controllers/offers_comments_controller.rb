@@ -25,7 +25,6 @@ class OffersCommentsController < ApplicationController
     else
       redirect_to new_offer_offers_comment_path, alert: "Certaines informations sont incorrectes"
     end
-
   end
 
   def show
@@ -35,7 +34,6 @@ class OffersCommentsController < ApplicationController
   end
 
   def update
-
     if @comment.update(comment_params)
         redirect_to offer_path(@offer), notice: "votre commentaire est bien modifié"
     else
@@ -43,6 +41,12 @@ class OffersCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = OfferComment.find(params[:id])     
+    @comment.destroy     
+    redirect_to offer_path(@comment.offer_id), alert: "Le commentaire a bien été supprimé"
+  end
+  
   private
   
     def comment_params
