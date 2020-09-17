@@ -27,8 +27,11 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :attendances, only: [:new, :show, :create, :destroy]
-    resources :comments
-    
+
+    resources :comments do
+      resources :likes
+    end
+
   end
 
   resources :offers do
@@ -41,5 +44,6 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
+
   
 end
