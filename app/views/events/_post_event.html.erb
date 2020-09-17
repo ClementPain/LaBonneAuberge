@@ -9,11 +9,20 @@
             <div class="row">
                 <div class="col-sm-6">
                     <footer class="blockquote-footer"> <%= comment.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+                    <p class="pt-3"><%= comment.likes.count %> <%= (comment.likes.count) <= 1 ? 'Like' : 'Likes'%></p>
                 </div>
-                <div class="col-sm-6 align-item-center">
-                    <% if user_signed_in? && comment.villager === current_user.villager %>
+
+                <div class="col-sm-6 justify-content-center">
+                    <% if user_signed_in? && comment.villager  === current_user.villager %>
                         <div class="row justify-content-end">
-                            <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-success mr-4" %>
+                            <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
+                           
+                            <% pre_like = comment.likes.find { |like| like.villager_id == current_user.villager.id} %>
+                            <% if pre_like %>
+                                 <%= button_to 'Unlike', event_comment_likes_path(@event, comment), method: :delete, class:"btn btn-danger mr-4" %>
+                            <% else %>
+                                <%= button_to 'Like', event_comment_likes_path(@event, comment), method: :post, class:"btn btn-success mr-4" %>
+                            <% end %>
                         </div>
                     <% end %>
                 </div>
