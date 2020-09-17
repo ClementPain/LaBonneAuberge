@@ -28,11 +28,13 @@ Rails.application.routes.draw do
   resources :events do
     resources :attendances, only: [:new, :show, :create, :destroy]
     resources :comments
-    #permet de créer les routes permettant d'attacher les photos
+    
   end
 
-  resources :offers
-  get 'offers/search', to: 'offers#search'
+  resources :offers do
+    get 'offers/search', to: 'offers#search'
+    resources :offers_comments
+  end
 
   resources :categories, except: [:index, :show]
 

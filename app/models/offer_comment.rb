@@ -1,0 +1,2 @@
+class OfferComment < ApplicationRecord
+end

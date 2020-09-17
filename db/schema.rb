@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_220247) do
+ActiveRecord::Schema.define(version: 2020_09_17_102322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 2020_09_15_220247) do
     t.index ["villager_id"], name: "index_messages_on_villager_id"
   end
 
+  create_table "offer_comments", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -121,6 +127,15 @@ ActiveRecord::Schema.define(version: 2020_09_15_220247) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
+  end
+
+  create_table "offers_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "offer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_offers_categories_on_category_id"
+    t.index ["offer_id"], name: "index_offers_categories_on_offer_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -199,6 +214,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_220247) do
   add_foreign_key "forums", "villages"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "villagers"
+  add_foreign_key "offers_categories", "categories"
+  add_foreign_key "offers_categories", "offers"
   add_foreign_key "validation_town_halls", "villagers"
   add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"
