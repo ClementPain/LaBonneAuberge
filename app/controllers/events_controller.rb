@@ -6,6 +6,12 @@ class EventsController < ApplicationController
 
     def index
         @events = Event.all
+
+        if params[:search] || params[:search_zipcode]
+            @events = Event.search(params[:search], params[:search_zipcode]).sort_by { |x, y| x.created_at < y.created_at }
+        else
+            @events = Event.all.order('created_at DESC')
+        end
     end
   
     def show

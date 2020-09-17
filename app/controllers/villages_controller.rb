@@ -27,6 +27,7 @@ class VillagesController < ApplicationController
 
     def index
         @town_hall_name = []
+        @categories = Category.all
     end
 
 

@@ -1,14 +1,10 @@
 <div class="row m-2 border-bottom" style="height:100px">
-
-    <div class="col-sm-4 justify-content-center">
-        <p><%= forum.title %></p>
+    <div class="col-sm-3 justify-content-center">
+        <p><%= offer.title %></p>
     </div>
 
-    <div class="col-sm-2 justify-content-center">
-        <p>Nombre de post : <%= forum.forum_posts.count %></p>
-    </div>
-
-    <div class="col-sm-4">
+    <div class="col-sm-7 justify-content-center">
+        <%= h truncate(offer.description, :length => 150) { link_to 'Voir plus', offer_path(offer.id), class:"link_to" } %>
     </div>
 
     <div class="col-sm-2 justify-content-center">

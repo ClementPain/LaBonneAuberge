@@ -1,0 +1,13 @@
+<div class="row mt-3 border-bottom">
+    <div class="col-sm-8">
+        <h5><%= category.title %></h5>
+    </div>
+
+    <div class="col-sm-2 p-2">
+        <%= category.display === true ? "Ouverte" : "Fermée" %>
+    </div>
+
+    <div class="col-sm-2 p-2">
+        <%= button_to "Modifier", edit_category_path(id: category.id), method: :get, class:"btn btn-success" %>
+    </div>
+</div>

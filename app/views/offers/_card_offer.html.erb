@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mb-3">
     <div class="col-md-4">
         <div class="view overlay">
             <% if offer.offer_picture.attached? %>
@@ -14,7 +14,7 @@
             <% end %>
         </div>
         <div class="row text-align-right">
-            <%= offer.category.title %>
+            <%= offer.category.title if offer.category %>
         </div>
         <div class="row">
             <%= offer.description %>

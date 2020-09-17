@@ -1,0 +1,33 @@
+<div class="row mb-5">
+    <%= form_tag(offers_path, :method => "get", id: "search-form") do %>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-6">
+            <%= text_field_tag :search, params[:search], placeholder: "Recherche..." %>
+        </div>
+        <div class="col-sm-2 border">
+            <%= submit_tag "Rechercher" %>
+        </div>
+    <% end %>
+</div>
+
+<div class="row">
+    <div class="col-sm-10">
+        <%= form_tag(offers_search_path, method: :get, remote: true) do %>
+            <div class="row mb-5">
+                <%= text_field_tag :search, '', placeholder: "Recherche..", onkeydown: 'clickSubmit();' %>
+            </div>
+            <div class="row mb-5">
+                <%= select_tag "Filtre", options_for_select(@categories), class:"custom-select" %>
+                <%= submit_tag "OK", class: "btn btn-dark", id: "search-submit" %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+<script>
+    function clickSubmit() {
+        $("#search_submit").trigger("click");
+    }
+</script>

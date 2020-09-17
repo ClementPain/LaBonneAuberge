@@ -2,13 +2,16 @@ class OffersController < ApplicationController
     before_action :authenticate_town_hall!, only: [:new, :create, :destroy]
     
     before_action :find_offer, only: [:edit, :update, :destroy, :show]
+    before_action :find_cat, only: [:new, :edit]
     before_action :find_author_town_hall, only: [:edit, :update, :destroy]
 
 
     def index
         @offers = Offer.all
-        if params[:search]
-            @offers = Offer.search(params[:search]).order("created_at DESC")
+        @categories = Category.select { |cat| cat.display === true }.map { |cat| cat.title }
+
+        if params[:search] || params[:search_zipcode]
+            @offers = Offer.search(params[:search], params[:search_zipcode]).sort_by { |x, y| x.created_at < y.created_at }
         else
             @offers = Offer.all.order('created_at DESC')
         end
@@ -39,7 +42,7 @@ class OffersController < ApplicationController
     end
 
     def update
-        if @offer.update(offer_params)
+        if @offer.update(offer_params) && @offer.update(category:Category.find(cat_params[:category]))
             redirect_to offer_path(@offer), notice: "Les informations de #{@offer.title} ont bien été mises à jour"
         else
             redirect_to edit_offer_path(@offer), alert: "Certaines informations renseignées ne sont pas correctes"
@@ -49,17 +52,6 @@ class OffersController < ApplicationController
     def destroy
         @offer.delete
         redirect_to town_hall_path(current_town_hall.id), alert: "Le projet a bien été supprimé"
-    end
-
-    def search
-        query = params[:search]
-        results = Offer.where('title LIKE ?', "%#{query}%")
-        if params[:filter] == 'Filtre'
-            @products = results
-        else
-            symbol = params[:filter.gsub(//, '_').downcase!.to_sym]
-            @products = results.where(symbol => true)
-        end
     end
 
     private
@@ -76,7 +68,11 @@ class OffersController < ApplicationController
         @offer = Offer.find(params[:id])
     end
 
+    def find_cat
+        @categories = Category.select { |cat| cat.display === true }.map { |cat| [cat.title, cat.id] }
+    end
+
     def find_author_town_hall
-        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if current_town_hall.village != @offer.village
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page" if Village.find_by(email:current_town_hall.email) != @offer.village
     end
 end

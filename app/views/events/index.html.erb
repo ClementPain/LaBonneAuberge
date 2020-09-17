@@ -23,15 +23,32 @@
     <p class="lead">Choisi ton évènement</p>
   </div>
 
-  <div class="container">
+  <div class="container-fluid h-100">
+  <div class="row justify-content-center align-items-center mb-5" style="height:100px">
+    <%= render 'search_events' %>
+  </div>
+
+  <div class="container-fluid">
     <div class="row">
+      <div class="col-sm-2">
+      </div>
+
       <!-- Card -->
-      <% @events.each_with_index do |event, i| %>
-        <%= render 'shared/card_event', event: event %> 
-      <% end %>
+      <div class="col-sm-8">
+        <div class="row justify-content-around">
+          <% @events.each_with_index do |event, i| %>
+            <%= render 'card_event', event: event %> 
+          <% end %>
+        </div>
+      </div>
       <!-- Card -->
+
+      <div class="col-sm-2">
+      </div>    
     </div>
   </div>
+</body>
+</html>
   
 
 

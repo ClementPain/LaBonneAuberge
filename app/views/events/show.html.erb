@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-md-4">
             <div class="profile-img">
-                <%= button_to 'Like', event_likes_path(@event), method: :post %>
                 <% if @event.event_picture.attached? %>
                     <%= image_tag(@event.event_picture, size: "400x300")%>
                 <% end %>
@@ -25,24 +24,31 @@
                         <div class="row">
                             <h2 class="upper" style="text-transform: uppercase"><%=@event.title%></h2>
                         </div>
-                        <div class="row">
-                            <div class="row mt-3">
-                                <div class="col-md-3">
-                                    <label>DATE</label>
-                                </div>
-                                <div class="col-md-7">
-                                    <p><time datetime=<%= @event.start_date %>
-                                    <span class="day"> <%= @event.start_date.day %> </span>
-                                    <span class="month"> <%= @event.start_date.strftime('%b') %> </span>
-                                    <span class="year"> <%= @event.start_date.year %> </span>
-                                    <span class="time"> </span>
-                                    </time></p>
-                                </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <label>DATE</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p><time datetime=<%= @event.start_date %>
+                                <span class="day"> <%= @event.start_date.day %> </span>
+                                <span class="month"> <%= @event.start_date.strftime('%b') %> </span>
+                                <span class="year"> <%= @event.start_date.year %> </span>
+                                <span class="time"> </span>
+                                </time></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <label>LIEU</label>
+                                <label>VILLAGE</label>
+                            </div>
+                            <div class="col-md-7">
+                                <p> <%= @event.village.name %> - <%= @event.village.zipcode %> </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>ADRESSE</label>
                             </div>
                             <div class="col-md-7">
                                 <p> <%= @event.location %> </p>

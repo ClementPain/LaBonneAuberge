@@ -9,6 +9,7 @@ class TownHallsController < ApplicationController
     @events_to_come = Event.select { |e| e.village === @village && e.start_date > Date.today }
     @events_passed = Event.select { |e| e.village === @village && e.start_date < Date.today }
 
+    @offers = Offer.select { |o| o.village === @village }
     @forums = Forum.select { |f| f.village === @village }
     @validations = ValidationTownHall.select { |v| v.village === @village }
   end

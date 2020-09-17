@@ -10,7 +10,7 @@
         <% end %>
         <!-- Subtitle -->
         <p class="card-text"><i class="far fa-money-bill-alt pr-2"></i> <%= event.price %> €</p>
-        <p class="card-text"><i class="fas fa-map-marker-alt pr-2"></i> <%= event.location %></p>
+        <p class="card-text"><i class="fas fa-map-marker-alt pr-2"></i> <%= event.village.name %> - <%= event.location %></p>
         <p class="card-text"><i class="far fa-clock pr-2"></i>
             <time datetime=<%= event.start_date %>
             <span class="day"> <%= event.start_date.day %> </span>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <!-- Card image -->
-    <div class="view overlay">
+    <div class="view overlay row justify-content-center">
         <% if event.event_picture.attached? %>
             <%= image_tag event.event_picture, size: "350x350", alt: "Card image cap" %>
         <% end %>
@@ -30,12 +30,11 @@
     <!-- Card content -->
     <div class="card-body">
         <div class="collapse-content">
-        <!-- Text -->
-        <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id), class:"link_to" } %>
-        <!-- Button -->
-        <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
-        <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
+            <!-- Text -->
+            <%= h truncate(event.description, :length => 150) { link_to 'Voir plus', event_path(event.id), class:"link_to" } %>
+            <!-- Button -->
+            <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip" data-placement="top" title="Share this post"></i>
+            <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip" data-placement="top" title="I like it"></i>
         </div>
     </div>
-    
 </div>
