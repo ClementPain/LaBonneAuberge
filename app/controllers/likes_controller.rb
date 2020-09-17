@@ -7,20 +7,10 @@ before_action :find_like, only: [:destroy]
       if already_liked?
         flash[:notice] = "Tu ne peux pas liker plus d'une fois"
       else
-        @comment.likes.create(villager_id: current_user.villager.id)
+        Like.create(villager_id: current_user.villager.id, comment:@comment)
       end
         redirect_to event_path(find_event)
     end
-
-    def like_count
-      @gossip_searched = Gossip.find(params[:id])
-      @comments_linked = []
-      Comment.all.each do |comment|
-        if @gossip_searched.id == comment.gossip_id
-         @comments_linked << comment
-        end
-      end
-   end
 
     def destroy
       if !(already_liked?)
