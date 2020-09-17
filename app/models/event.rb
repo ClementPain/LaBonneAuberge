@@ -16,6 +16,13 @@ class Event < ApplicationRecord
 	validates :location, presence: true 
 
 
+    def self.search(search, search_zipcode)
+        @results = []
+        @search = self.where("title ILIKE ?", "%#{search}%").or(self.where("description ILIKE ?", "%#{search}%"))
+        @search.each { |s| @results << s if s.village.zipcode.include? search_zipcode }
+        results = @results
+    end
+
 	def start_date_not_before_time_now #Méthode pour ne pas entrer une date antérieur à la date de debut 
 	    if self.start_date < Date.today
             errors.add(:start_date, "la date ne doit pas etre dans le passé")
