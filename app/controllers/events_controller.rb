@@ -8,7 +8,7 @@ class EventsController < ApplicationController
         @events = Event.all
 
         if params[:search] || params[:search_zipcode]
-            @events = Event.search(params[:search]).order("created_at DESC")
+            @events = Event.search(params[:search], params[:search_zipcode])
         else
             @events = Event.all.order('created_at DESC')
         end
