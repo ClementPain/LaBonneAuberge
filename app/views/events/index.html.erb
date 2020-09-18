@@ -1,9 +1,6 @@
 <div class="view" style="background-image: url('https://i.imgur.com/2oh9oXp.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="container text-center" style="height:200px">
-      <% if town_hall_signed_in? %>
-        <%= button_to "Créer un évènement", new_event_path, class:"btn btn-success m-2", :method => :get %>
-      <% end %>
-      
+            
     </div>
   </div>
 
@@ -11,6 +8,12 @@
     <h1 class="display-4">La fête au village - Les évènements de votre région</h1>
     <p class="lead">Trouvez ici tous les évènements proposés par les communes autour de vous. Profitez-en : ils sont ouverts à tous !</p>
     
+  </div>
+
+  <div class="row justify-content-center">
+    <% if town_hall_signed_in? %>
+      <%= button_to "Créer un évènement", new_event_path, class:"btn btn-success m-2", :method => :get %>
+    <% end %>
   </div>
 
   <div class="row justify-content-center mt-5">
