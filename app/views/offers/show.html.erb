@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <% if user_sign_in? %>
+                        <% if user_signed_in? %>
                             <%= link_to "Ajouter un commentaire", new_offer_offers_comment_path(params[:id]), class: "btn btn-success mt-5"%>
                         <% end %>
                     </div>
