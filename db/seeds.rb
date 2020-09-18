@@ -24,7 +24,6 @@ Faker::Config.locale = 'fr'
     duration:rand(5..100)*5,
     title:"Foire à l'emploi", 
     description:"
-
     La situation actuelle rendant les rencontres en face à face difficiles, nous avons transformé notre salon physique afin de vous offrir une alternative pour faire avancer votre carrière en toute sécurité.
     
     Profitez des deux jours de clavardage pour discuter en direct avec les exposants, par écrit ou vidéo. Durant 1 semaine, vous pourrez continuer à consulter les stands virtuels afin de récolter le maximum d’informations sur les entreprises et postuler aux offres qui vous intéressent.
@@ -91,8 +90,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Découverte des metiers du numérique", 
-    description:"Les activités proposées :a.Séquences d’observations avec participation: i.Recherche &Technologie(R&T) :1.soudure et test de fibre optique 2.programmation Robot Elegoo3.Communications multimédiaii.Métiers du Multimédia et de l’Internet (MMI):1.Atelier Web TV 2.Atelier interface application mobile3.Atelier 3Db.Visites des participants aux sélections régionales de la 46ecompétition Worldskillsi.Administrateur de réseaux d’entreprise (R&T)ii.Web Design (MMI)c.Démonstration de matérieli.En R&T:1.Infrastructures de Réseaux multimédia Fibre2.Internet des objets (Raspberry Pi)ii.En MMI :1.Camera 360 (Loremmi)
-    2d.Témoignage de professionnels et présentation des activités des métiersi.En R&T :1.M. Pattarozzi -Administrateur Réseaux, 2.M. Charton -Administrateur systèmes et Réseaux 3.M. Sanchez -Consultant cyber sécurité4.M. Vanetti -Expert en Sécurité informatiqueii.En MMI1.Manon HORLACHER -webdesign2.Quentin GIANELLA -vidéoiii.Découverte des voies de formation qui préparent aux métiers présentés1.Présentation des DUT R&T / Info  par des étudiants des formations : kakemono / Vidéod’anciens étudiants2.En MMI : Présentationdu DUT MMI", 
+    description:"Les activités proposées : Séquences d’observations avec participation, Infrastructures de Réseaux multimédia Fibre, Internet des objets (Raspberry Pi), Témoignage de professionnels et présentation des activités des métiers, Découverte des voies de formation qui préparent aux métiers présentés, Info  par des étudiants des formations : kakemono / Vidéod’anciens étudiants",
     price:10,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
