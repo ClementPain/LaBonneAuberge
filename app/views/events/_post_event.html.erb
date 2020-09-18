@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="col-sm-6 justify-content-center">
-                    <% if user_signed_in? && comment.villager  === current_user.villager %>
+                    <% if user_signed_in? %>
                         <div class="row justify-content-end">
                             <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
                            
