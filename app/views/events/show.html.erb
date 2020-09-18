@@ -1,9 +1,9 @@
 <div class="container-fluid mt-5 emp-profile">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-flex md-4 ml-5">
             <div class="profile-img">
                 <% if @event.event_picture.attached? %>
-                    <%= image_tag(@event.event_picture, size: "400x300")%>
+                    <%= image_tag(@event.event_picture, size: "400x400")%>
                 <% end %>
             </div>
         </div>
@@ -136,7 +136,10 @@
                         <% end %>
                     </div>
                 </div>
-            </div>
+                <div class="text-center mt-5">
+                    <h5><%= link_to "retourner aux évènements", events_path %></h5> 
+                </div>
+            </div>        
         </div>
     </div>        
 </div>
