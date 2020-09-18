@@ -11,8 +11,8 @@
                     <% if current_user === @villager.user %>
                         <div class="profile-messagerie">
                             <p class="mt-3">MESSAGERIE</p>
-                            <i class="fas fa-envelope ">
-                             <%= link_to "Accéder à ma messagerie", villager_conversations_path(@villager) %></i>
+                            <i class="fas fa-envelope "></i>
+                             <%= link_to "Accéder à ma messagerie", villager_conversations_path(@villager), class:"link_to"%>
                         </div>
                     <% end %>
                 </div>

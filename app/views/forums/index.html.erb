@@ -1,12 +1,14 @@
-<!-- Main jumbotron -->
-<div class="jumbotron" style="background-image: url(<%= 'https://i.pinimg.com/originals/32/8a/bb/328abb69ab5b18eadab2d2184a6329fe.png' %>)">
-  <div class="container">
-    <h1 class="display-3">Place du village</h1>
-    <p>Discuter avec les autres personnes de votre village et organiser la vie au sein de votre commune</p>
+<div class="view" style="background-image: url('https://i.imgur.com/mbzxQPe.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="container text-center" style="height:200px">
+    
     <% if town_hall_signed_in? %>
       <p><%= button_to "Créer un nouveau forum", new_village_forum_path, class:"btn btn-success", :method => :get %></p>
     <% end %>
   </div>
+</div>
+<div class="pricing-header px-3 py-3 pb-md-4 mx-auto text-center mt-2 mb-2">
+    <h1 class="display-4">La place du village</h1>
+    <p class="lead">Discuter avec les autres personnes de votre village et organiser la vie au sein de votre commune !</p>
 </div>
 
 <div class="container-fluid">

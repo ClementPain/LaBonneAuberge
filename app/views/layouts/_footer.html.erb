@@ -23,15 +23,15 @@
                             <div class="col-md-6 col-lg-7" style="margin-left: 23%">
                                 <!--Facebook-->
                                 <a class="fb-ic">
-                                 <i class="fab fa-facebook white-text mr-4"> </i>
+                                 <i class="fab fa-facebook white-text mr-4 link_to"> </i>
                                 </a>
                                 <!--Twitter-->
                                 <a class="tw-ic">
-                                <i class="fab fa-twitter white-text mr-4"> </i>
+                                <i class="fab fa-twitter white-text mr-4 link_to"> </i>
                                 </a>
                                 <!--Instagram-->
                                 <a class="ins-ic">
-                                    <i class="fab fa-instagram white-text mr-lg-4"> </i>
+                                    <i class="fab fa-instagram white-text mr-lg-4 link_to"> </i>
                                 </a>
                             </div>
                             <!--Grid column-->
@@ -52,13 +52,13 @@
                     </h6>
                     <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                         <p>
-                        <%= link_to "Evènements", events_path %>
+                        <%= link_to "Evènements", events_path, class:"nav-link link_to" %>
                         </p>
                         <p>
-                        <%= link_to "Espace mairie", new_town_hall_session_path %>
+                        <%= link_to "Espace mairie", new_town_hall_session_path, class:"nav-link link_to"%>
                         </p>
                         <p>
-                        <%= link_to "Mon profil", new_user_session_path, class:"nav-link" %>
+                        <%= link_to "Mon profil", new_user_session_path, class:"nav-link link_to" %>
                         </p>
                 </div>
             <!--/.Second column-->
@@ -68,13 +68,16 @@
                     <h6 class="text-uppercase font-weight-bold">
                         <strong>Contact</strong>
                         </h6>
+                        
                         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        
                         <p>
-                        <i class="fas fa-home"></i></i> Champs-sur-Tarentaine-Marchal</p>
+                        <i class="fas fa-home link_to"></i></i> Champs-sur-Tarentaine-Marchal</p>
                         <p>
-                        <i class="fa fa-envelope mr-3"></i> labonneauberge@gmail.com</p>
+                        <i class="fa fa-envelope mr-3 link_to"></i> labonneauberge@gmail.com</p>
                         <p>
-                        <i class="fa fa-phone mr-3"></i> 07 07 07 07 07</p>
+                        <i class="fa fa-phone mr-3 link_to"></i> 03 23 45 67 89</p>
+                        <%= link_to "Contact", static_pages_contact_path, class:"link_to" %>
                 </div>
                 <!--/.Third column-->
 
@@ -83,7 +86,7 @@
 
         <!-- Copyright -->
             <div class="footer-copyright text-center py-3">© 2020
-                <a href="https://www.thehackingproject.org//"> Pour The Hacking Project</a>
+                <%= link_to "Pour The Hacking Project", "https://www.thehackingproject.org//", class:"nav-link link_to" %>
             </div>
         <!-- Copyright -->
 </footer>

@@ -1,52 +1,52 @@
-
 <%= form_for(resource, as: resource_name, url: town_hall_registration_path, html: { class: "form-signin mt-3" }) do |f| %>
+<%= devise_error_messages! %>
 
-    <%= devise_error_messages! %>
-<div class=center-form>
-    <div class="container-fluid">
-    <div class="row no-gutter">
-        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-signup-townhall"></div>
-        <div class="col-md-8 col-lg-6">
-        <div class="login d-flex align-items-center py-5">
-            <div class="container">
-            Nous mettons en lumière les initiatives à impact positif des collectivités publiques
-            <div class="row">
-                <div class="col-md-9 col-lg-8 mx-auto">
-                <h3 class="login-heading mb-4">Vous êtes une mairie ? Inscrivez-vous</h3>
-                <form>
+    <div class=center-form>
 
-                    
-                    <div class="form-label-group row">
-                    <h5 class="mb-3">Email : </h5>
-                    <p> <%= @email %> </p>
-                    <%= f.hidden_field :email, value: @email %>
+        <h2 class="mb-5 font-weight-bold text-center">
+            Vous êtes une mairie ? Nous mettons en lumière les initiatives à impact positif des collectivités publiques.</h2>
+        
+        <div class="container-fluid mt-2 ml-2">
+            <div class="row no-gutter">
+                <div class="d-none d-md-flex col-md-4 col-lg-6 bg-signup-townhall"></div>
+                     <div class="col-md-8 col-lg-6">
+                        <div class="login d-flex align-items-center py-5">
+                             <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9 col-lg-8 mx-auto">
+                                        <h3 class="login-heading mb-4">Inscrivez-vous</h3>
+                                            <form>
+                                                <div class="form-label-group row">
+                                                    <h5 class="mb-3">Email : </h5>
+                                                    <p> <%= @email %> </p>
+                                                    <%= f.hidden_field :email, value: @email %>
+                                                </div>
+
+                                                <div class="form-label-group">
+                                                    <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder:"Mot de passe", class:"form-control"  %>
+                                                    <%= f.label "Mot de passe" %>
+                                                </div>
+
+                                                <div class="form-label-group">
+                                                     <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "email", placeholder:"Mot de passe", class:"form-control form__input"  %>
+                                                    <%= f.label "Confirmer mot de passe" %>
+                                                </div>
+
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1">Se rappeler de moi</label>
+                                                </div>
+                                                    <%= f.submit "S'inscrire", class: "btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
+                                                    <%= link_to "Déja inscrit ? Se connecter", new_town_hall_session_path, class:"d-block text-center mt-2 small link_to" %>
+                                                 <hr class="my-4">
+                            
+                                            </form>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-label-group">
-                    <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder:"Mot de passe", class:"form-control"  %>
-                    <%= f.label "Mot de passe" %>
-                    </div>
-
-                    <div class="form-label-group">
-                   <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "email", placeholder:"Mot de passe", class:"form-control form__input"  %>
-                    <%= f.label "Confirmer mot de passe" %>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-3">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Se rappeler de moi</label>
-                    </div>
-                    <%= f.submit "S'inscrire", class: "btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
-                    <%= link_to "Déja inscrit ? Se connecter", new_town_hall_session_path, class:"d-block text-center mt-2 small link_to" %>
-                <hr class="my-4">
-                
-                </form>
                 </div>
-            </div>
-            </div>
         </div>
-        </div>
-    </div>
-    </div>
-</div>
 <% end %>

@@ -21,11 +21,7 @@
             <li class="nav-item">
                 <%= link_to "Projets", offers_path, class:"nav-link" %>
             </li>
-            
-            <li class="nav-item">
-                <%= link_to "Contact", static_pages_contact_path, class:"nav-link" %>
-            </li>
-            
+             
             <!-- Affichage onglet village -->
             <% if ( user_signed_in? && @village = Village.find_by(id:current_user.villager.village_id) ) || ( town_hall_signed_in? && @village = Village.find_by(email:current_town_hall.email)) %>
 
