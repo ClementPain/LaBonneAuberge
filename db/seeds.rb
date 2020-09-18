@@ -19,28 +19,89 @@ Offer.destroy_all
 
 Faker::Config.locale = 'fr'
 
-10.times do
   Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
-    title:Faker::GreekPhilosophers.quote, 
+    title:"Foire à l'emploi", 
     description:Faker::Movies::HarryPotter.quote, 
-    price:rand(1..50),
+    price:1,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
     )    
-end
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Exposition de peinture", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:10,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Concert plein air", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:30,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Soirée VIP champêtre ", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:150,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Repas entre voisins", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:1,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Fête foraine", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:25,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"La patate des forains", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:5,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
+    Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
+    duration:rand(5..100)*5,
+    title:"Découverte des metiers du numérique", 
+    description:Faker::Movies::HarryPotter.quote, 
+    price:10,
+    location:Faker::Address.street_address,
+    village_id: Village.all.sample.id
+    )    
+
 
 i = Event.first.id
-Event.find(i+0).event_picture.attach(io: open('https://l.facebook.com/l.php?u=http%3A%2F%2Ft3.gstatic.com%2Fimages%3Fq%3Dtbn%253AANd9GcTf5gvafDdRIS2UQ1mJOHggHPPrfiGcAGKRpIoRPeAvwOw1dQdWRCNhPBYuMwnbnvl_U2jdjpz2ylZxSa8Zzx8%26fbclid%3DIwAR3M9K52xHhs46Br37lGGqg7Sg__WoN41wxzRCShQhaq_QxiXVQjQjrQFjk&h=AT3w09mxlJo_SMqbo4wJyWe7Uhk9tdaWUDLzMndohb6a_9zMKaSFoDw401MEtpkYzQiCgmQ2qjyIl8yIqPM_DJC40rqY5pq6o0B9NJonmowSghmQCUeTGp8iDBSF3Q'), filename:'#{i}_event_image.jpg')
-Event.find(i+1).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+2).event_picture.attach(io: open('https://i.ytimg.com/vi/8FNpAjB9oP0/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+3).event_picture.attach(io: open('http://i.ytimg.com/vi/nULRHc8fqgU/maxresdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+4).event_picture.attach(io: open('https://i.ytimg.com/vi/c-pm5ID3QtA/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+5).event_picture.attach(io: open('http://i.ytimg.com/vi/9FBj0lIxd7o/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+6).event_picture.attach(io: open('https://www.francethisway.com/images/places/gorbio.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+7).event_picture.attach(io: open('https://img.ev.mu/images/zooms/1143/440x290/5.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+8).event_picture.attach(io: open('https://i.ytimg.com/vi/8zKbHBYaVnQ/hqdefault.jpg'), filename:'#{i}_event_image.jpg')
-Event.find(i+9).event_picture.attach(io: open('https://www.francethisway.com/images/places/domfront.jpg'), filename:'#{i}_event_image.jpg')
+Event.find(i+0).event_picture.attach(io: open('https://i.imgur.com/P59eljx.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+1).event_picture.attach(io: open('https://i.imgur.com/usychEN.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+2).event_picture.attach(io: open('https://i.imgur.com/qSjdDYZ.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+3).event_picture.attach(io: open('https://i.imgur.com/XkPPzym.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+4).event_picture.attach(io: open('https://i.imgur.com/1iSOIqJ.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+5).event_picture.attach(io: open('https://i.imgur.com/bU1n2k3.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+6).event_picture.attach(io: open('https://i.imgur.com/XHb6DlL.png'), filename:'#{i}_event_image.jpg')
+Event.find(i+7).event_picture.attach(io: open('https://i.imgur.com/xtwBOMl.png'), filename:'#{i}_event_image.jpg')
+
 
 Category.create(title:"Associatif", display:true)
 Category.create(title:"Immobilier", display:true)
@@ -63,7 +124,7 @@ Offer.create(title:"Un dispositif participatif pour comprendre la vacance commer
   category:Category.all.sample
 )
 
-Offer.last.offer_picture.attach(io: open('https://i.ytimg.com/vi/KAQo84A7Hkc/maxresdefault.jpg'), filename:'#{Offer.last.id}_offer_image.jpg')
+Offer.last.offer_picture.attach(io: open('https://i.imgur.com/m8BWEJq.png'), filename:'#{Offer.last.id}_offer_image.jpg')
 
 Offer.create(title:"Une auberge coopérative pluri-activités",
   description:"Boffres, village d'Ardèche
@@ -83,7 +144,7 @@ Offer.create(title:"Une auberge coopérative pluri-activités",
   category:Category.all.sample
 )
 
-Offer.last.offer_picture.attach(io: open('https://villagesvivants.com/assets/Uploads/_resampled/ResizedImageWzYwMCwzMDBd/2-images-auberge2.jpg'), filename:'#{Offer.last.id}_offer_image.jpg')
+Offer.last.offer_picture.attach(io: open('https://i.imgur.com/aLtEWFo.png'), filename:'#{Offer.last.id}_offer_image.jpg')
 
 Offer.create(title:"Amorcer une action citoyenne pour sensibiliser les habitants et usagers au pouvoir d'agir et à la coopération",
   description:"Crest, au centre de la vallée de la Drôme
@@ -120,7 +181,7 @@ Offer.create(title:"Construire une vision d’avenir pour le centre-ville de Joy
   category:Category.all.sample
 )
 
-Offer.last.offer_picture.attach(io: open('https://villagesvivants.com/assets/Uploads/_resampled/ResizedImageWzUwMCwzNzVd/20190206-201248.jpg'), filename:'#{Offer.last.id}_offer_image.jpg')
+Offer.last.offer_picture.attach(io: open('https://i.imgur.com/Y4sXG5a.png'), filename:'#{Offer.last.id}_offer_image.jpg')
 
 Offer.create(title:"Démarche participative pour ouvrir des commerces et services de proximité.",
   description:"Loriol-sur-Drôme
@@ -145,7 +206,7 @@ Offer.create(title:"Démarche participative pour ouvrir des commerces et service
   category:Category.all.sample
 )
 
-Offer.last.offer_picture.attach(io: open('https://villagesvivants.com/assets/Uploads/_resampled/ResizedImageWzUwMCwzNzVd/Loriol-Local-N66.JPG'), filename:'#{Offer.last.id}_offer_image.jpg')
+Offer.last.offer_picture.attach(io: open('https://i.imgur.com/jDJE7nq.png'), filename:'#{Offer.last.id}_offer_image.jpg')
 
 # User/Villager
 
