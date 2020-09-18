@@ -10,6 +10,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <footer class="blockquote-footer"> <%= post.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
+                    <p class="pt-3"><%= post.post_forums_comments.count %> Commentaires   </p>
+                    <%= link_to "Commenter", village_forum_forums_post_path(post.village, post.forum, post), method: :get, class="link_to" %>
                 </div>
                 <div class="col-sm-6 align-item-center">
                     <% if user_signed_in? && post.villager = current_user.villager %>
