@@ -256,8 +256,8 @@ i = User.first.id
     description:Faker::GreekPhilosophers.quote,
     date_of_birth:Faker::Date.between(from: '1950-09-23', to: '2014-09-25'),
     user_id:i,
-    village_id:Village.all.sample.id
-    
+    village_id:Village.all.sample.id,
+    is_admin?:false
   )
   Villager.last.villager_picture.attach(io: open('http://blogdailyherald.com/wp-content/uploads/2014/10/wallpaper-for-facebook-profile-photo.jpg'), filename:'#{Villager.last.id}_villager_image.jpg')
 end
