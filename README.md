@@ -1,24 +1,22 @@
-# README
+![alt text](https://www.thehackingproject.org/packs/packs/static_pages/assets/images/navbar_logo_purple-1716fe510ac40a15c0e8cd79408de383.png "Logo The Hacking Project")
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# La Bonne Auberge
 
-Things you may want to cover:
+Ce projet a été réalisé en PeerProgramming dans le cadre des projets finaux de la session été 2020 de la formation Fullstack Web The Hacking Project.
 
-* Ruby version
+---
 
-* System dependencies
+Notre équipe est composé de:
 
-* Configuration
+- [Caroline KINOUANI](https://github.com/oumasma)
+- [Fatouma KARAMOKO](https://github.com/FatoumaKara)
+- [Camillia MEDDAHI](https://github.com/Camillia-MEDDAHI)
+- [Clément PAIN](https://github.com/ClementPain)
 
-* Database creation
+---
 
-* Database initialization
+Le lien [Heroku](https://labonneauberge.herokuapp.com/) de notre projet final.
 
-* How to run the test suite
+Le lien [Trello](https://trello.com/b/IhG23Mib/projet-final-la-belle-auberge) de notre projet final.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+---
