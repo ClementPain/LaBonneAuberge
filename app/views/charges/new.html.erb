@@ -1,0 +1,18 @@
+<%= form_tag event_charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Le Total de votre commande s'élève à <%= @event_price %> €</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Votre paticipation"
+          data-amount="@price_stripe*100"
+          data-locale="fr"></script>
+<% end %>
