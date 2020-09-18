@@ -15,7 +15,7 @@
             <% end %>
         </div>
         <div class="row text-align-right">
-            <%= offer.category.title if offer.category %>
+            <p style="text-decoration: underline;" class="mb-2"><%= offer.category.title if offer.category %></p>
         </div>
         <div class="row">
             <%= h truncate(offer.description, :length => 1200) { link_to 'Voir plus', offer_path(offer.id), class:"link_to" } %>

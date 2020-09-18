@@ -24,7 +24,7 @@ Faker::Config.locale = 'fr'
     duration:rand(5..100)*5,
     title:Faker::GreekPhilosophers.quote, 
     description:Faker::Movies::HarryPotter.quote, 
-    price:rand(1..1000),
+    price:rand(1..50),
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
     )    

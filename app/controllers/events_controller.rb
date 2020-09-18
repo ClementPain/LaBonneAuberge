@@ -5,12 +5,19 @@ class EventsController < ApplicationController
     before_action :find_author_town_hall, only: [:edit, :update, :destroy]
 
     def index
-        @events = Event.all
+
+        if user_signed_in? && current_user.village
+            @events = Event.select { |e| e.start_date >= Date.today && current_user.village.zipcode[0,2] === e.village.zipcode[0,2] }
+        elsif town_hall_signed_in?
+            @events = Event.select { |e| e.start_date >= Date.today && Village.find_by(email:current_town_hall.email).zipcode[0,2] === e.village.zipcode[0,2] }
+        else
+            @events = Event.select { |e| e.start_date >= Date.today }
+        end
 
         if params[:search] || params[:search_zipcode]
-            @events = Event.order('created_at DESC').search(params[:search], params[:search_zipcode])
+            @events = Event.order('start_date DESC').search(params[:search], params[:search_zipcode])
         else
-            @events = Event.all.order('created_at DESC')
+            @events = Event.all.order('start_date DESC')
         end
     end
   
