@@ -1,197 +1,213 @@
 
- <!--Main Navigation-->
-    <header>              
+<!--Main Navigation-->
+<header>              
 
-        <!--Mask-->
-        <div id="intro" class="view">
+    <!--Mask-->
+    <div id="intro" class="view">
 
-            <div class="mask rgba-black-strong">
+        <div class="mask rgba-black-strong">
 
-                <div class="container-fluid h-100">
+            <div class="container-fluid h-100">
 
-                    <div class="row justify-content">
+                <div class="row justify-content">
 
-                        <div class="col-md-5">
+                    <div class="col-md-5">
 
-                            <!-- Heading -->
-                            <h2 class="display-4 font-weight-bold white-text">Donnons vie à nos villages</h2>
+                        <!-- Heading -->
+                        <h2 class="display-4 font-weight-bold white-text">Donnez vie à vos villages</h2>
 
-                            <!-- Divider -->
-                            <hr class="hr-light">
+                        <!-- Divider -->
+                        <hr class="hr-light">
 
-                            <!-- Description -->
-                            <h5 class="white-text my-3">Et si on changeait ? Si, demain, on quittait la métropole pour habiter dans un village, un bourg, une petite ville ? Et si, on faisait revivre nos villages ?</h5>
+                        <!-- Description -->
+                        <h5 class="white-text my-3">Quand les villageois reprennent les rênes...</h5>
 
-                            <% if !user_signed_in? && !town_hall_signed_in? %>
-                                <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
-                            <% elsif user_signed_in? && !current_user.villager.village %>
-                                <%= link_to "Rejoignez votre village", new_villager_associate_villager_path(current_user.villager), method: :get, class:"btn btn-success" %>
-                            <% elsif town_hall_signed_in? %>
-                                <%= link_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>
-                            <% else %>
-                                <%= link_to "Participer à un évènement de votre région", events_path, class:"btn btn-success", :method => :get %>
-                            <% end %>
-                        </div>
+                        <% if !user_signed_in? && !town_hall_signed_in? %>
+                            <%= link_to "Inscrivez-vous", new_user_registration_path, class: "btn btn-success"%>
+                        <% elsif user_signed_in? && !current_user.villager.village %>
+                            <%= link_to "Rejoignez votre village", new_villager_associate_villager_path(current_user.villager), method: :get, class:"btn btn-success" %>
+                        <% elsif town_hall_signed_in? %>
+                            <%= link_to "Créer un évènement", new_event_path, class:"btn btn-success", :method => :get %>
+                        <% else %>
+                            <%= link_to "Participer à un évènement de votre région", events_path, class:"btn btn-success", :method => :get %>
+                        <% end %>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/.Mask-->
+    </div>
+    <!--/.Mask-->
 
-    </header>
-          
-        <!--Main layout-->
-    <main class="mt-5">
-            <div class="container">
-
-                <!--Section: Best Features-->
-                <section id="best-features" class="text-center">
-
-                <!-- Heading -->
-                <h2 class="mb-5 font-weight-bold">La bonne auberge est une plateforme dynamique, pour les habitants et les nouveaux arrivants des villages du département du Cantal : apportons du dynamisme à la région !</h2>
-
-                 <hr class="my-5">
-                <!--Section: Last events-->
-
-                <section id="events" class="text-center">
-
-                <!-- Heading -->
-                <div class="container">
-                <div class="row">
-                      <div class=" mt-4 mb-4 col">
-                      <h2 class="mb-5 font-weight-bold">Les derniers evenements</h2>
-                      <p> Venez découvrir les derniers évenements de votre région. L'occasion de faire de nouvelles rencontres et quitter son train-train quotidien. A plusieurs la fête est plus folle n'est-ce pas ?</p>
-                      <%= link_to "C'est par ici que ça se passe !", new_user_registration_path, class: "btn btn-success"%>
-                      </div>
+</header>
       
-                      <!--Grid row-->
-                  <div id="carouselExampleIndicators" class="carousel slide mb-4 col" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                      </ol>
-                      <div class="carousel-inner">
-                        
-                            <div class="carousel-item active">
-                              <img class="d-block w-100" src="https://www.francethisway.com/images/places/domfront.jpg" width="500" height="400" alt="First slide">
-                              <div class="carousel-caption d-none d-md-block"><h5>Rejoignez-nous</h5></div>
-                            </div>
-                            <div class="carousel-item">
-                              <img class="d-block w-100" src="https://i.ytimg.com/vi/8zKbHBYaVnQ/hqdefault.jpg" width="500" height="400" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                              <img class="d-block w-100" src="https://www.francethisway.com/images/places/gorbio.jpg" width="500" height="400" alt="Third slide">
-                            </div>
-                      </div>
-                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                  </div>
-              </div>
-          </div>                
+    <!--Main layout-->
+<main class="mt-5">
+        <div class="container">
 
-                
+            <!--Section: Best Features-->
+            <section id="best-features" class="text-center">
 
-                
-                <!--Grid row-->
-
-            </section>
-            <!--Section: last events-->
+            <!-- Heading -->
+            <h2 class="mb-5 font-weight-bold">La bonne auberge est une plateforme dynamique, pour les habitants et les nouveaux arrivants des villages du département du Cantal : apportons du dynamisme à la région !</h2>
 
              <hr class="my-5">
+            <!--Section: Last events-->
 
+            <section id="events" class="text-center">
+
+            <!-- Heading -->
             <div class="container">
-            <!--Grid row-->
-                <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-md-4 mb-5">
-                        <i class="fa fa-camera-retro fa-4x orange-text"></i>
-                        <h4 class="my-4 font-weight-bold">Expérience</h4>
-                        <p class="grey-text"> Proposez ou participez à des activités et des évènements dans votre région</p>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-4 mb-1">
-                        <i class="fa fa-heart fa-4x orange-text"></i>
-                        <h4 class="my-4 font-weight-bold">Opportunités</h4>
-                        <p class="grey-text">Echangez sur la vie au village et les opportunités à saisir : acquisition d'un logement, création ou reprise de commerce...</p>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-md-4 mb-1">
-                        <i class="fas fa-hands-helping fa-4x orange-text"></i>
-                        <h4 class="my-4 font-weight-bold">Entraide</h4>
-                        <p class="grey-text">Entre voisins ou villageois, partagez, discutez, proposez des services pour faire vivre la communauté. </p>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-            </div>
-
-            <hr class="my-5">
-                       
-            <div class="block-don"> 
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 mb-4">
-
-                        <div class="view overlay z-depth-1-half">
-                            <img src="https://www.webgazelle.net/scripts/files/587d4fdcb21c05.87877786/picto-messagerie-interne-2-1.png" class="img-fluid" alt="", size: "400x300">
-                        </div>
-
-                        <h4 class="my-4 font-weight-bold">Messagerie</h4>
-                        <p class="grey-text">Une fois inscrit vous aurez accès à notre messagerie qui permet de garder contact avec les villageois rencontrés !</p>
-                        <p class="grey-text"> Ou faire de nouvelles rencontres </p>
-                        <%= link_to "Accéder à ma messagerie", new_user_registration_path, class: "btn btn-success"%>
-                    </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-4 mt-2">
-
-                        <div class="view overlay z-depth-1-half">
-                            <img src="https://images.unsplash.com/photo-1584109035548-ae9606fa5322?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="img-fluid" width="330" height="230" alt="">
-                            
-                        </div>
-
-                        <h4 class="my-4 font-weight-bold">Projets</h4>
-                        <p class="grey-text">Vous avez comme projet d’ouvrir un commerce ? </p>
-                        <p class="grey-text"> C’est ici que ça se passe.</p>
-                        <%= link_to "Rejoignez un projet !", new_user_registration_path, class: "btn btn-success"%>
-                    </div>         
-                </div>
-            </div>
-            <hr class="my-5">
-            <!--Grid column-->
             <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
+                  <div class=" mt-4 mb-4 col">
+                  <h2 class="mb-5 font-weight-bold">Les derniers évènements</h2>
+                  <p> Venez découvrir les derniers évènements de votre région. L'occasion de faire de nouvelles rencontres et quitter son train-train quotidien. A plusieurs la fête est plus folle n'est-ce pas ?</p>
+                    <% if !user_signed_in? && !town_hall_signed_in? %>
+                    <%= link_to "C'est par ici que ça se passe !", new_user_registration_path, class: "btn btn-success"%>
+                    <% else %>
+                    <%= link_to "C'est par ici que ça se passe !", events_path, class: "btn btn-success"%>
+                    <% end %>
+                  </div>
+  
+                  <!--Grid row-->
+              <div id="carouselExampleIndicators" class="carousel slide mb-4 col" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" src="https://i.imgur.com/XkPPzym.png" width="500" height="400" alt="First slide">
+                          <div class="carousel-caption d-none d-md-block"><h5>Rejoignez-nous</h5></div>
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" src="https://i.imgur.com/1iSOIqJ.png" width="500" height="400" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                          <img class="d-block w-100" src="https://i.imgur.com/XHb6DlL.png" width="500" height="400" alt="Third slide">
+                        </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+              </div>
+          </div>
+      </div>                
+
+            
+
+            
+            <!--Grid row-->
+
+        </section>
+        <!--Section: last events-->
+
+         <hr class="my-5">
+
+        <div class="container">
+        <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-5">
+                    <i class="fa fa-camera-retro fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Expérience</h4>
+                    <p class="grey-text"> Proposez ou participez à des activités et des évènements dans votre région</p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-1">
+                    <i class="fa fa-heart fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Opportunités</h4>
+                    <p class="grey-text">Echangez sur la vie au village et les opportunités à saisir : acquisition d'un logement, création ou reprise de commerce...</p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-4 mb-1">
+                    <i class="fas fa-hands-helping fa-4x orange-text"></i>
+                    <h4 class="my-4 font-weight-bold">Entraide</h4>
+                    <p class="grey-text">Entre voisins ou villageois, partagez, discutez, proposez des services pour faire vivre la communauté. </p>
+                </div>
+                <!--Grid column-->
+
+            </div>
+        </div>
+
+        <hr class="my-5">
+                   
+        <div class="block-don"> 
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
 
                     <div class="view overlay z-depth-1-half">
-                        
-                        <i class="fas fa-users" style="color:white; font-size: 15em;"></i>
+                        <img src="https://www.webgazelle.net/scripts/files/587d4fdcb21c05.87877786/picto-messagerie-interne-2-1.png" class="img-fluid" alt="", size: "400x300">
                     </div>
 
+                    <h4 class="my-4 font-weight-bold">Messagerie</h4>
+                    <p class="grey-text">Une fois inscrit vous aurez accès à notre messagerie qui permet de garder contact avec les villageois rencontrés !</p>
+                    <p class="grey-text"> Ou faire de nouvelles rencontres </p>
+                    <% if !user_signed_in?%>
+                        <%= link_to "Accéder à ma messagerie", new_user_registration_path, class: "btn btn-success"%>
+                    <% else %>
+                        <%= link_to "Accéder à ma messagerie", villager_conversations_path(:villager_id), class: "btn btn-success"%>
+                    <% end %>
                 </div>
-                <!--Grid column-->
+        <!--Grid column-->
 
-                <!--Grid column-->
-                <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
-                    <h4 class="my-4 font-weight-bold">Forums</h4>
-                    <p class="grey-text">La bonne auberge est un réseau qui relie les villageois et les mairies</p>
-                    <p class="grey-text">Organisez la vie au village, grâce aux forums de vos mairies</p>
+        <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mt-2">
+
+                    <div class="view overlay z-depth-1-half">
+                        <img src="https://images.unsplash.com/photo-1584109035548-ae9606fa5322?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="img-fluid" width="330" height="230" alt="">
+                        
+                    </div>
+
+                    <h4 class="my-4 font-weight-bold">Projets</h4>
+                    <p class="grey-text">Vous avez comme projet d’ouvrir un commerce ? </p>
+                    <p class="grey-text"> C’est ici que ça se passe.</p>
+                    <% if !user_signed_in? && !town_hall_signed_in? %>
+                        <%= link_to "Rejoignez un projet !", new_user_registration_path, class: "btn btn-success"%>
+                    <% else %>
+                        <%= link_to "Rejoignez un projet !", offers_path, class: "btn btn-success"%>
+                    <% end %>
+                </div>         
+            </div>
+        </div>
+        <hr class="my-5">
+        <!--Grid column-->
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
+
+                <div class="view overlay z-depth-1-half">
+                    
+                    <i class="fas fa-users" style="color:white; font-size: 15em;"></i>
+                </div>
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-sm-6 col-md-6 col-lg-6 mt-3">
+                <h4 class="my-4 font-weight-bold">Forums</h4>
+                <p class="grey-text">La bonne auberge est un réseau qui relie les villageois et les mairies</p>
+                <p class="grey-text">Organisez la vie au village, grâce aux forums de vos mairies</p>
+                <% if !user_signed_in?%>
                     <%= link_to "Rejoignez votre voisinage", new_user_registration_path, class: "btn btn-success"%>
-                </div>  
-            </div>     
+                <% else %>
+                    <%= link_to "Rejoignez votre voisinage", new_villager_associate_villager_path(:villager_id), class: "btn btn-success"%>
+                <% end %>
+            </div>  
+        </div>     
 
-    </main>
-    
-    
-             
+</main>
+
+
+         
