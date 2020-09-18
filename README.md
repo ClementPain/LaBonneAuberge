@@ -20,3 +20,18 @@ Le lien [Heroku](https://labonneauberge.herokuapp.com/) de notre projet final.
 Le lien [Trello](https://trello.com/b/IhG23Mib/projet-final-la-belle-auberge) de notre projet final.
 
 ---
+
+## Actuces pour tester le bon fonctionnement de l'application:
+
+Vous avez la possibilité de vous inscrire en tant que nouvel utilisateur ou utiliser ces comptes existants:
+
+```email: "mike.hayden@ga.co"```
+```password: "password"```
+
+```email: "jules@ga.co"```
+```password: "password"```
+
+Pour accéder au Dashboard Admin voici le [lien](https://labonneauberge.herokuapp.com/admin).
+
+---
+
