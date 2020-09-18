@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
         redirect_to events_path, alert: "Vous participez déjà à l'évènement"
       else
         @event.attendances.create(user_id: current_user.id)
-        redirect_to event_attendances_path(@event), notice:"Merci, le paiement de #{@event_price}€ a bien été pris en compte"
+        redirect_to event_path(@event), notice:"Merci, le paiement de #{@event_price}€ a bien été pris en compte"
       end
       
     rescue Stripe::CardError => e
