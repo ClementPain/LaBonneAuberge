@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :attendances, only: [:new, :show, :create, :destroy]
+    resources :charges, only: [:new, :create]
 
     resources :comments do
       resources :likes
@@ -41,7 +42,6 @@ Rails.application.routes.draw do
 
   resources :categories, except: [:index, :show]
 
-  resources :charges, only: [:new, :create]
 
-  
+
 end

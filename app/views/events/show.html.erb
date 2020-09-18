@@ -100,7 +100,7 @@
                                     <% if pre_attendance %>
                                         <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
                                     <% else %>
-                                        <%= button_to 'Participez !', new_charge_path(@event.price), method: :get, class:"btn btn-success" %>
+                                        <%= button_to 'Participez !', new_event_charge_path(@event), method: :get, class:"btn btn-success" %>
                                     <% end %>                
                                 <% elsif town_hall_signed_in? %>
                                 <% else %>
