@@ -1,10 +1,12 @@
 
 <div class="row mb-3">
     <div class="col-md-4">
-        <div class="view overlay">
-            <% if offer.offer_picture.attached? %>
-                <%= image_tag offer.offer_picture, size: "350x350", alt: "Card image cap" %>
-            <% end %>
+        <div class="view overlay row justify-content-center">
+            <div class="col-md-12 justify-content-center">
+                <% if offer.offer_picture.attached? %>
+                    <%= image_tag offer.offer_picture, size: "350x350", alt: "Card image cap", class:"img-fluid" %>
+                <% end %>
+            </div>
         </div>
     </div>
 
