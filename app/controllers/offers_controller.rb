@@ -21,7 +21,7 @@ class OffersController < ApplicationController
         
         @comments = []
         
-        OfferComment.all.each do |comment|
+        OfferComment.order('created_at DESC').all.each do |comment|
             if @offer.id == comment.offer_id
                 @comments << comment
                 puts "mon commentaire"

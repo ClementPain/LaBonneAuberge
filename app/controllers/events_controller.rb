@@ -7,11 +7,11 @@ class EventsController < ApplicationController
     def index
 
         if user_signed_in? && current_user.village
-            @events = Event.select { |e| e.start_date >= Date.today && current_user.village.zipcode[0,2] === e.village.zipcode[0,2] }
+            @events = Event.order('start_date DESC').select { |e| e.start_date >= Date.today && current_user.village.zipcode[0,2] === e.village.zipcode[0,2] }
         elsif town_hall_signed_in?
-            @events = Event.select { |e| e.start_date >= Date.today && Village.find_by(email:current_town_hall.email).zipcode[0,2] === e.village.zipcode[0,2] }
+            @events = Event.order('start_date DESC').select { |e| e.start_date >= Date.today && Village.find_by(email:current_town_hall.email).zipcode[0,2] === e.village.zipcode[0,2] }
         else
-            @events = Event.select { |e| e.start_date >= Date.today }
+            @events = Event.order('start_date DESC').select { |e| e.start_date >= Date.today }
         end
 
         if params[:search] || params[:search_zipcode]
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     def show
         @comments = []
         
-        Comment.all.each do |comment|
+        Comment.order('created_at DESC').each do |comment|
             if @event.id == comment.event_id
                 @comments << comment
             end
