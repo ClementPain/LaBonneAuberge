@@ -41,4 +41,7 @@ Rails.application.routes.draw do
 
   resources :categories, except: [:index, :show]
 
+  resources :charges, only: [:new, :create]
+
+  
 end
