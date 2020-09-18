@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    @villager = Villager.create(user:current_user)
+    @villager = Villager.create(user:current_user, is_admin?: false)
     @villager.villager_picture.attach(io: open('https://i.imgur.com/24Vr6KC.jpg'), filename:'#{@villager.id}_villager_image.jpg')
   end
 

@@ -1,5 +1,5 @@
 <div class="container-fluid mt-5">
-  <div class="row justify-content-center p-2 border">
+  <div class="row justify-content-center p-2">
     <div class="col-md-7"
       <form class="form-horizontal">
         <fieldset>
@@ -28,7 +28,7 @@
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <%= button_to "Annuler", town_hall_path(id: TownHall.find_by(email:@village.email).id), class:"btn btn-default", data: { turbolinks: false } %>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="Valider" class="btn btn-success">Submit</button>
               </div>
             </div>
           <% end %>

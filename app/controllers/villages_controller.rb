@@ -3,16 +3,13 @@ require 'open-uri'
 require 'nokogiri'
 
 class VillagesController < ApplicationController
-    before_action :authenticate_town_hall!, only: [:destroy]
-    skip_before_action :verify_authenticity_token, :only => :update
+    before_action :authenticate_town_hall!, only: [:edit, :update]
+    before_action :authenticate_this_town_hall, only: [:edit, :update]
 
+    before_action :is_admin?, only: [:index, :create]
 
     def edit
-        if current_town_hall.email === Village.find(params[:id]).email
-            @village = Village.find(params[:id])
-        else
-            redirect_to root_path, alert: "Vous n'avez pas accès à cette page"
-        end
+        @village = Village.find(params[:id])
     end
 
     def update
@@ -33,8 +30,7 @@ class VillagesController < ApplicationController
 
     def create #scrapping pour créer les mairies
         params[:num].length === 1 ? @num = "0" + params[:num] : @num = params[:num]
-        puts "====="
-        puts @num
+
         page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/#{get_department_code(@num)}.html"))
         tab = page.xpath('//td[@width="206"]//a[text()]')
         @town_hall_name = []      
@@ -84,5 +80,17 @@ class VillagesController < ApplicationController
 
     def village_params
         params.require(:village).permit(:email, :description, :village_avatar)
+    end
+
+    def is_admin?
+        if !user_signed_in? || ( user_signed_in? && current_user.villager.is_admin? === false)
+            redirect_to root_path, alert: "Vous n'avez pas accès à cette page"
+        end
+    end
+
+    def authenticate_this_town_hall
+        if current_town_hall.email != Village.find(params[:id]).email
+            redirect_to root_path, alert: "Vous n'avez pas accès à cette page"
+        end
     end
 end
