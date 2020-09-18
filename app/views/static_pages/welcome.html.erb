@@ -202,7 +202,7 @@
                 <% if !user_signed_in?%>
                     <%= link_to "Rejoignez votre voisinage", new_user_registration_path, class: "btn btn-success"%>
                 <% else %>
-                    <%= link_to "Rejoignez votre voisinage", new_villager_associate_villager_path(:villager_id), class: "btn btn-success"%>
+                    <%= link_to "Rejoignez votre voisinage", new_villager_associate_villager_path(current_user.villager), class: "btn btn-success"%>
                 <% end %>
             </div>  
         </div>     
