@@ -98,7 +98,7 @@
                                 <% if user_signed_in? %>
                                     <% pre_attendance = @event.attendances.find { |attendance| attendance.user_id === current_user.id} %>
                                     <% if pre_attendance %>
-                                        <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, class:"btn btn-danger" %>
+                                        <%= button_to 'Se désinscrire', event_attendance_path(@event, pre_attendance), method: :delete, data: {confirm: "Voulez-vous vous désinscrire ? Vous ne serez pas remboursé" }, class:"btn btn-danger" %>
                                     <% else %>
                                         <%= button_to 'Participez !', new_event_charge_path(@event), method: :get, class:"btn btn-success" %>
                                     <% end %>                
