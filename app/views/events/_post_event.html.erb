@@ -15,8 +15,10 @@
                 <div class="col-sm-6 justify-content-center">
                     <% if user_signed_in? %>
                         <div class="row justify-content-end">
-                            <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
-                           
+                            <% if comment.villager  === current_user.villager %>
+                                <%= button_to "Modifier", edit_event_comment_path(@event, comment), method: :get, class:"btn btn-dark mr-4" %>                           
+                            <% end %>
+                            
                             <% pre_like = comment.likes.find { |like| like.villager_id == current_user.villager.id} %>
                             <% if pre_like %>
                                  <%= button_to 'Unlike', event_comment_likes_path(@event, comment), method: :delete, class:"btn btn-danger mr-4" %>
