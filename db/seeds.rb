@@ -23,7 +23,12 @@ Faker::Config.locale = 'fr'
   Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Foire à l'emploi", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"
+
+    La situation actuelle rendant les rencontres en face à face difficiles, nous avons transformé notre salon physique afin de vous offrir une alternative pour faire avancer votre carrière en toute sécurité.
+    
+    Profitez des deux jours de clavardage pour discuter en direct avec les exposants, par écrit ou vidéo. Durant 1 semaine, vous pourrez continuer à consulter les stands virtuels afin de récolter le maximum d’informations sur les entreprises et postuler aux offres qui vous intéressent.
+    ", 
     price:1,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -32,7 +37,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Exposition de peinture", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Découvrez des peintres, sculpteurs et dessinateurs dont la recherche imaginative s’appuie sur un travail approfondi, sur la forme et sur la quête d’une authenticité artistique.", 
     price:10,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -41,7 +46,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Concert plein air", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Impactant pour toute une région, ces festivals sont attendus par un public friand de concerts mais aussi par d'autres qui profitent de ces rendez-vous pour faire le plein de musique live. ", 
     price:30,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -50,7 +55,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Soirée VIP champêtre ", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"C'est avec enthousiasme que nous vous inviton à la 6eme édition de la soirée champêtre, un évènement organisé par des entrepreneurs de la région destiné à amasser des fonds. Cette année, tous les profits seront remis à la fondation du Diapason", 
     price:150,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -59,7 +64,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Repas entre voisins", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Venez nombreux à ce banquet en l'honneur de notre région et de nos artisans", 
     price:1,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -68,7 +73,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Fête foraine", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Quand on parle de la fête des 400 Coups, attention à ne pas tout mélanger. C’est le message que veulent faire passer les forains qui ont pris acte la semaine dernière de l’annulation de la cavalcade et des animations de Montauban festivités (lire notre édition du 9 août 2020). 'Si la crise sanitaire ne s’aggrave pas d’ici là, la fête foraine aura bien lieu pour ce deuxième week-end de septembre. Nous avons la chance d’être sur la même longueur d’onde avec le maire Brigitte Barèges. Elle fait partie des rares élus qui ont le courage d’attendre au maximum avant de prendre une décision, estime Thomas Bruch trésorier de la Fédération des forains de France. Bien sûr, si la situation face au Covid-19 devait se dégrader en Tarn-et-Garonne ces prochaines semaines, nous comprendrions parfaitement que le maire et le préfet refusent que la fête ait lieu. Nous voulons travailler mais pas en prenant des risques inconsidérés.'", 
     price:25,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -77,7 +82,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"La patate des forains", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Pourrait venir de l'attraction foraine qui consiste à donner un coup de poing (familièrement une patate) le plus puissant possible pour gagner un lot.", 
     price:5,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -86,7 +91,8 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Découverte des metiers du numérique", 
-    description:Faker::Movies::HarryPotter.quote, 
+    description:"Les activités proposées :a.Séquences d’observations avec participation: i.Recherche &Technologie(R&T) :1.soudure et test de fibre optique 2.programmation Robot Elegoo3.Communications multimédiaii.Métiers du Multimédia et de l’Internet (MMI):1.Atelier Web TV 2.Atelier interface application mobile3.Atelier 3Db.Visites des participants aux sélections régionales de la 46ecompétition Worldskillsi.Administrateur de réseaux d’entreprise (R&T)ii.Web Design (MMI)c.Démonstration de matérieli.En R&T:1.Infrastructures de Réseaux multimédia Fibre2.Internet des objets (Raspberry Pi)ii.En MMI :1.Camera 360 (Loremmi)
+    2d.Témoignage de professionnels et présentation des activités des métiersi.En R&T :1.M. Pattarozzi -Administrateur Réseaux, 2.M. Charton -Administrateur systèmes et Réseaux 3.M. Sanchez -Consultant cyber sécurité4.M. Vanetti -Expert en Sécurité informatiqueii.En MMI1.Manon HORLACHER -webdesign2.Quentin GIANELLA -vidéoiii.Découverte des voies de formation qui préparent aux métiers présentés1.Présentation des DUT R&T / Info  par des étudiants des formations : kakemono / Vidéod’anciens étudiants2.En MMI : Présentationdu DUT MMI", 
     price:10,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
