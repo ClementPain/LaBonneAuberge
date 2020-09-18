@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   resources :villages do
     resources :validation_town_halls, only: [:create, :destroy]
     resources :forums do
-      resources :forums_posts
+      resources :forums_posts do
+        resources :forums_posts_comments, except: [:index, :show]
+      end
     end
   end
 

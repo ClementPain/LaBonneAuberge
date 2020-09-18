@@ -3,16 +3,15 @@
         <div class="card-header" style="height:100px">
             <%= image_tag(post.villager.villager_picture, size: "60x60", class:"rounded") %>
             <%= post.villager.first_name %> <%= post.villager.last_name %>
-            
         </div>
         <div class="card-body">
             <h5 class="card-title"><%= post.content %></h5>
             <div class="row">
                 <div class="col-sm-6">
                     <footer class="blockquote-footer"> <%= post.created_at.strftime("%m/%d/%Y à %H:%M") %> </footer>
-                    <%= link_to village_forum_forums_post_path(village_id: post.forum.village.id, forum_id: post.forum.id, id: post.id), method: :get do %>
-                         <p class="pt-3 link_to"><%= post.forum_post_comments.count %> <%= post.forum_post_comments.count <= 1 ? "commentaire" : "commentaires" %> </p>
-                    <% end %>
+                    
+                         <p class="pt-3"><%= post.forum_post_comments.count %> <%= post.forum_post_comments.count <= 1 ? "commentaire" : "commentaires" %> </p>
+
                 </div>
                 <div class="col-sm-6 align-item-center">
                     <% if user_signed_in? && post.villager = current_user.villager %>

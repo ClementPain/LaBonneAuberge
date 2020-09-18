@@ -1,0 +1,34 @@
+<!-- Message d'erreur en cas de problème-->
+<% if @post.errors.any? %>
+    <div class="alert alert-danger">
+        <p>Nous n'avons pas réussi à créer le message pour la (ou les) raison(s) suivante(s) :</p>
+        <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+
+<!-- Formulaire d'ajout d'un commentaire -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">  
+        <br><br><br>
+        
+        <%= form_for @comment, url: village_forum_forums_post_forums_posts_comments_path(@village, @forum, @post) do |f| %>
+            <h1>Ajout d'un message</h1>
+
+            <div class="form-group">
+            <%= f.label :content, 'Ton message : ' %>
+            <%= f.text_area :content, autofocus: true, autocomplete: "contenu", class: "form-control" %>
+            </div>
+
+            <div class="actions mt-5">
+            <%= f.submit "Ajouter", class: "btn btn-lg btn-success btn-block" %>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</div>

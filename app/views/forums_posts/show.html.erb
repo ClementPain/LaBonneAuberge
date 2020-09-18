@@ -1,0 +1,22 @@
+<div class= "container-fluid">
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-8">
+            <div class="row mb-4">
+                <%= render 'forum_post_show', post: @post %>
+            </div>
+            <div class="row mb-4">
+                <h5>Commentaires</h5>
+            </div>
+            <div class="row mb-4  overflow-auto" style="height:600px">
+                <div class="col-sm-12">
+                    <% @comments.each do |c| %>
+                        <%= render 'forum_post_comment', comment: c %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <%= button_to "Commenter", new_village_forum_forums_post_forums_posts_comment_path(@village, @forum, @post), method: :get, class:"btn btn-success" %>
+            </div>
+        </div>
+    </div>
+</div>
