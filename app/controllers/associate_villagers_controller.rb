@@ -18,7 +18,7 @@ class AssociateVillagersController < ApplicationController
               redirect_to villager_path(@villager), alert: "Vous êtes déjà intégré dans un village"
             end
         else
-            redirect_to new_villager_associate_villager_path(@villager), alert: "Le code postal renseigné n'existe pas"
+            redirect_to new_villager_associate_villager_path(@villager), alert: "Le code communal renseigné n'existe pas"
         end
     end
 

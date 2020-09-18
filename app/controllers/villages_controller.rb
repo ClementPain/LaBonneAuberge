@@ -32,7 +32,10 @@ class VillagesController < ApplicationController
 
 
     def create #scrapping pour créer les mairies
-        page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/cantal.html"))
+        params[:num].length === 1 ? @num = "0" + params[:num] : @num = params[:num]
+        puts "====="
+        puts @num
+        page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com/#{get_department_code(@num)}.html"))
         tab = page.xpath('//td[@width="206"]//a[text()]')
         @town_hall_name = []      
 
@@ -59,6 +62,13 @@ class VillagesController < ApplicationController
     private
     
     # scrapping
+
+    def get_department_code(num)
+        page = Nokogiri::HTML(open("https://www.annuaire-des-mairies.com"))
+        @path = "/html/body/div/main/section[2]/div/table/tbody//a[contains(text(), #{num})]"
+        page.xpath(@path).text.reverse.chop.chop.chop.chop.chop.reverse.downcase
+    end
+
     def get_townhall_email(name)
         townhall_name = name['href'].delete_prefix '.'
         page = Nokogiri::HTML(URI.open("http://annuaire-des-mairies.com#{townhall_name}"))

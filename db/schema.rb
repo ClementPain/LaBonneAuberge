@@ -111,6 +111,15 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
     t.index ["village_id"], name: "index_forums_on_village_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "villager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["villager_id"], name: "index_likes_on_villager_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "conversation_id"
@@ -141,15 +150,6 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_offers_on_category_id"
     t.index ["village_id"], name: "index_offers_on_village_id"
-  end
-
-  create_table "offers_categories", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "offer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_offers_categories_on_category_id"
-    t.index ["offer_id"], name: "index_offers_categories_on_offer_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
     t.string "first_name"
     t.string "last_name"
     t.text "description"
-    t.date "date_of_birth"
+    t.datetime "date_of_birth"
     t.bigint "village_id"
     t.string "address"
     t.bigint "user_id"
@@ -226,10 +226,10 @@ ActiveRecord::Schema.define(version: 2020_09_17_140558) do
   add_foreign_key "forum_posts", "forums"
   add_foreign_key "forum_posts", "villagers"
   add_foreign_key "forums", "villages"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "villagers"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "villagers"
-  add_foreign_key "offers_categories", "categories"
-  add_foreign_key "offers_categories", "offers"
   add_foreign_key "validation_town_halls", "villagers"
   add_foreign_key "validation_town_halls", "villages"
   add_foreign_key "villagers", "users"

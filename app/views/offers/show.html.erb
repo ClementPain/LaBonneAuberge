@@ -3,12 +3,17 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container-fluid mt-5 emp-profile">
-    <div class="row">
+    <div class="row ml-5">
         <div class="col-md-4">
-            <div class="profile-img">
-                <% if @offer.offer_picture.attached? %>
-                    <%= image_tag(@offer.offer_picture, size: "400x300")%>
-                <% end %>
+            <div class="row">
+                <div class="profile-img">
+                    <% if @offer.offer_picture.attached? %>
+                        <%= image_tag(@offer.offer_picture, size: "400x300")%>
+                    <% end %>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <p>Contactez la mairie pour prendre part au projet : <span style="font-weight:bold"><%= @offer.village.email %></span></p> 
             </div>
         </div>
         <div class="col-md-7">
@@ -26,39 +31,39 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="test" style="margin-top: 4%; margin-left: 2%"> 
                         <div class="row">
-                            <h2 class="upper" style="text-transform: uppercase"><%=@offer.title%></h2>
+                            <h2 class="upper mb-4" style="text-transform: uppercase"><%=@offer.title%></h2>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <label>Village</label>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <p> <%= @offer.village.zipcode %> - <%= @offer.village.name %> </p>
                             </div>
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <label>Catégorie</label>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <p> <%= @offer.category.title if @offer.category %> </p>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <label>Description</label>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <p> <%= @offer.description %> </p>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                             </div>                                    
-                            <div class="col-md-7">                        
+                            <div class="col-md-9">                        
                                 <% if current_town_hall && Village.find_by(email:current_town_hall.email) == @offer.village %>
                                     <%= button_to "Modifier l'évènement", edit_offer_path(@offer), method: :get, class:"btn btn-success" %>    
                                 <% end %>
@@ -84,7 +89,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <%= link_to "Ajouter un commentaire", new_offer_offers_comment_path(params[:id]), class: "btn btn-success mt-5"%>
+                        <% if user_sign_in? %>
+                            <%= link_to "Ajouter un commentaire", new_offer_offers_comment_path(params[:id]), class: "btn btn-success mt-5"%>
+                        <% end %>
                     </div>
                 </div>
             </div>
