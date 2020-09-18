@@ -11,6 +11,7 @@ require 'open-uri'
 Comment.destroy_all
 ForumPost.destroy_all
 Event.destroy_all
+ValidationTownHall.destroy_all
 Message.destroy_all
 Villager.destroy_all
 User.destroy_all
