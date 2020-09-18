@@ -4,6 +4,8 @@
     <%= devise_error_messages! %>
 
 <div class=center-form>
+<h2 class="mb-5 font-weight-bold text-center">Accédez à votre espace et échanger avec la communauté</h2>
+
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="d-none d-md-flex col-md-4 col-lg-6 bg-signin"></div>
@@ -29,7 +31,7 @@
                                             <%= f.label "Se rappeler de moi" %>
                                         </div>
                                         
-                                        <%= f.submit "Se connecter", class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"%>
+                                        <%= f.submit "Se connecter", class: "btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"%>
                                         <div class="text-center">
                                             <%= link_to "Mot de passe oublié", new_user_password_path %>
                                             <%= link_to "Pas encore inscrit ? Rejoignez-nous", new_user_registration_path, class:"d-block text-center mt-2 small"%>
