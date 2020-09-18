@@ -3,9 +3,9 @@
         <div class="col-md-7"
             <form class="form-horizontal">
                 <fieldset>
-                    <legend>Editer le post</legend>
+                    <legend>Modifier le commentaire</legend>
 
-                    <%= form_for @post, url: village_forum_forums_post_path(@village, @forum, @post), method: :patch do |f| %>
+                    <%= form_for @comment, url: village_forum_forums_post_forums_posts_comment_path(@village, @forum, @post, @comment), method: :patch do |f| %>
                         
                         <div class="form-group">
                             <%= f.label :content, 'Modifie ton message : ' %>
@@ -13,14 +13,14 @@
                         </div>
 
                         <div class="actions m-5">
-                            <%= f.submit "Modifier le post", class: "btn btn-lg btn-success btn-block" %>
+                            <%= f.submit "Modifier le comment", class: "btn btn-lg btn-success btn-block" %>
                         </div>
                     <% end %>
                 </fieldset>
             </form>
             
             <div class="row justify-content-center">
-                <%= button_to "Supprimer le post", village_forum_forums_post_path(@village, @forum, @post), data: {confirm: "Voulez-vous supprimer le post ?" }, method: :delete, class:"btn btn-danger mr-4" %>
+                <%= button_to "Supprimer le commentaire", village_forum_forums_post_forums_posts_comment_path(@village, @forum, @post, @comment), data: {confirm: "Voulez-vous supprimer le commentaire ?" }, method: :delete, class:"btn btn-danger mr-4" %>
             </div>
         </div>
     </div>

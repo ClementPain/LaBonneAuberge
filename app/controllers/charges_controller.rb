@@ -18,7 +18,8 @@ class ChargesController < ApplicationController
         description: 'Rails Stripe customer',
         currency: 'usd',
       })
-      redirect_to event_path(@event), notice:"Merci, le paiement de #{@event_price}€ a bien été pris en compte"
+      redirect_to event_attendances_path(@event), notice:"Merci, le paiement de #{@event_price}€ a bien été pris en compte"
+
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path

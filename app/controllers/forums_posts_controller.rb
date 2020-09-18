@@ -1,6 +1,6 @@
 class ForumsPostsController < ApplicationController
     before_action :find_village_and_forum
-    before_action :find_post, only: [:edit, :update, :destroy]
+    before_action :find_post, only: [:edit, :update, :destroy, :show]
     before_action :authenticate_village
 
     def new
@@ -13,10 +13,14 @@ class ForumsPostsController < ApplicationController
         @post.forum = @forum
 
         if @post.save
-            redirect_to village_forums_path(@village), notice: "Le message a bien été créé ! Bien joué petit génie !"
+            redirect_to village_forum_path(@village, @forum), notice: "Le message a bien été créé ! Bien joué petit génie !"
         else
             redirect_to new_village_forum_forums_path(@village, @forum), alert: "Veuillez renseigner toutes les informations"
         end
+    end
+
+    def show
+        @comments = ForumPostComment.order('created_at DESC').select { |c| c.forum_post === @post }
     end
 
     def edit
