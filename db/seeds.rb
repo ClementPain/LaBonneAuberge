@@ -54,7 +54,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"Soirée VIP champêtre ", 
-    description:"C'est avec enthousiasme que nous vous inviton à la 6eme édition de la soirée champêtre, un évènement organisé par des entrepreneurs de la région destiné à amasser des fonds. Cette année, tous les profits seront remis à la fondation du Diapason", 
+    description:"C'est avec enthousiasme que nous vous invitons à la 6eme édition de la soirée champêtre, un évènement organisé par des entrepreneurs de la région destiné à amasser des fonds. Cette année, tous les profits seront remis à la fondation du Diapason", 
     price:150,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
@@ -81,7 +81,7 @@ Faker::Config.locale = 'fr'
     Event.create(start_date:Faker::Date.between(from: '2021-01-01',to: '2021-12-31'), 
     duration:rand(5..100)*5,
     title:"La patate des forains", 
-    description:"Pourrait venir de l'attraction foraine qui consiste à donner un coup de poing (familièrement une patate) le plus puissant possible pour gagner un lot.", 
+    description:"Venez nombreux essayer l'attraction phare de notre fête foraine, la patate de forrain qui consiste à donner un coup de poing (familièrement une patate) le plus puissant possible afin de gagner un lot.", 
     price:5,
     location:Faker::Address.street_address,
     village_id: Village.all.sample.id
